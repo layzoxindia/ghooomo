@@ -145,3 +145,69 @@ textarea.field { padding: 14px 16px; min-height: 110px; resize: vertical; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- Opening screen ---------- */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(130% 95% at 50% 50%, #0F2B5B 0%, #0F2B5B 50%, #0A1F44 100%);
+  animation: splash-out 0.75s cubic-bezier(0.76, 0, 0.24, 1) 3s forwards;
+}
+.no-intro .splash,
+.intro-done .splash { display: none; }
+.intro-skip .splash { animation: splash-out-fast 0.45s cubic-bezier(0.76, 0, 0.24, 1) forwards; }
+@keyframes splash-out { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
+@keyframes splash-out-fast { to { opacity: 0; visibility: hidden; } }
+
+.splash-svg { width: min(86vw, 900px); height: auto; overflow: visible; }
+
+.sp-draw {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  animation: sp-draw 0.85s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+@keyframes sp-draw {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  8% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+.sp-fade { opacity: 0; animation: sp-fade 0.3s ease-out forwards; }
+@keyframes sp-fade { to { opacity: 1; } }
+.sp-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: sp-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes sp-pop { to { transform: scale(1); } }
+
+.sp-left { animation: sp-away-left 0.7s cubic-bezier(0.65, 0, 0.35, 1) 1.8s forwards; }
+.sp-right { animation: sp-away-right 0.7s cubic-bezier(0.65, 0, 0.35, 1) 1.8s forwards; }
+@keyframes sp-away-left { to { transform: translateX(-90px); opacity: 0; } }
+@keyframes sp-away-right { to { transform: translateX(90px); opacity: 0; } }
+
+.sp-rings {
+  transform-box: view-box;
+  transform-origin: 507px 140px;
+  animation: sp-forward 0.85s cubic-bezier(0.65, 0, 0.35, 1) 1.85s forwards;
+}
+@keyframes sp-forward { to { transform: translateX(9px) scale(1.6); } }
+
+.sp-labels text {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  fill: #E6ECF1;
+  text-anchor: middle;
+  opacity: 0;
+  animation: sp-fade 0.45s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash { display: none; }
+}
