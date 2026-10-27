@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import "./fonts.css";
 import "./globals.css";
 import { site } from "@/lib/site";
 
@@ -45,13 +46,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-IN">
       <head>
-        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
-        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
-        {/* Zodiak (display) + General Sans (body) by Indian Type Foundry, via Fontshare */}
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,800&f[]=general-sans@400,500,600,700&display=swap"
-        />
+        <link rel="preload" href="/fonts/zodiak-800.woff2" as="font" type="font/woff2" crossOrigin="" />
+        <link rel="preload" href="/fonts/general-sans-500.woff2" as="font" type="font/woff2" crossOrigin="" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </head>
       <body className="min-h-dvh bg-paper">{children}</body>

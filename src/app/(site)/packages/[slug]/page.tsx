@@ -9,7 +9,9 @@ import Reveal from "@/components/Reveal";
 import { CheckIcon, XIcon, ClockIcon, PinIcon, ChatIcon } from "@/components/Icons";
 import { packages } from "@/data/packages";
 import { getCatalog } from "@/lib/server/catalog";
-import { formatINR, pexels, segments, site, waLink } from "@/lib/site";
+import { formatINR, photoSrc, segments, site, waLink } from "@/lib/site";
+import { cancellationFor, priceOf, REFUND_DAYS } from "@/lib/pricing";
+import NoSurprises from "@/components/NoSurprises";
 
 export function generateStaticParams() {
   return packages.map((p) => ({ slug: p.slug }));
@@ -34,10 +36,10 @@ export async function generateMetadata({ params }: PageProps<"/packages/[slug]">
   const p = (await getCatalog()).find((x) => x.slug === slug);
   if (!p) return {};
   return {
-    title: `${p.title} · ${p.nights}N/${p.days}D from ${formatINR(p.price)}`,
+    title: `${p.title} · ${p.nights}N/${p.days}D from ${formatINR(priceOf(p).total)}`,
     description: p.summary,
     alternates: { canonical: `/packages/${p.slug}` },
-    openGraph: { images: [{ url: pexels(p.photos[0].id, 1200, 630), width: 1200, height: 630, alt: p.photos[0].alt }] },
+    openGraph: { images: [{ url: photoSrc(p.photos[0].id), width: 1800, height: 1200, alt: p.photos[0].alt }] },
   };
 }
 
@@ -49,6 +51,8 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
   const seg = segments[p.segment];
   const related = catalog.filter((x) => x.slug !== p.slug && x.segment === p.segment).slice(0, 3);
   const gallery = p.photos;
+  const price = priceOf(p);
+  const cancel = cancellationFor(price.total);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -57,7 +61,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
     description: p.summary,
     touristType: seg.label,
     itinerary: { "@type": "ItemList", itemListElement: p.itinerary.map((d, i) => ({ "@type": "ListItem", position: i + 1, name: d.title })) },
-    offers: { "@type": "Offer", price: p.price, priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site.url}/packages/${p.slug}` },
+    offers: { "@type": "Offer", price: priceOf(p).total, priceCurrency: "INR", availability: "https://schema.org/InStock", url: `${site.url}/packages/${p.slug}` },
     provider: { "@type": "TravelAgency", name: site.legalName, telephone: site.phoneE164 },
   };
 
@@ -85,7 +89,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         <div className={`grid h-[420px] gap-3 sm:h-[520px] ${gallery.length > 1 ? "md:grid-cols-4 md:grid-rows-2" : ""}`}>
           {gallery.slice(0, 5).map((ph, i) => (
             <div key={ph.id} className={`relative overflow-hidden rounded-[24px] bg-paper-2 ${tileClass(i, gallery.length)}`}>
-              <Image src={pexels(ph.id, i === 0 ? 1400 : 800, i === 0 ? 1000 : 600)} alt={ph.alt} fill priority={i === 0} sizes={i === 0 ? "(max-width: 768px) 100vw, 50vw" : "25vw"} quality={80} className="object-cover" />
+              <Image src={photoSrc(ph.id)} alt={ph.alt} fill priority={i === 0} sizes={i === 0 ? "(max-width: 768px) 100vw, 50vw" : "25vw"} quality={80} className="object-cover" />
             </div>
           ))}
         </div>
@@ -137,19 +141,59 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
               </ul>
             </div>
           </div>
-          <p className="text-[14px] text-subtle">
-            Prices are starting prices and depend on dates, hotel availability and group size. Your planner confirms the final price before you pay anything.
-            See our <Link href="/cancellation-policy" className="font-semibold text-ink underline underline-offset-2">cancellation & refund policy</Link>.
-          </p>
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-[clamp(28px,3vw,38px)] text-ink">If you need to cancel</h2>
+              <p className="text-[16px] text-muted">
+                Worked out on the starting price of {formatINR(price.total)} per person. Refunds reach your account within {REFUND_DAYS}.
+                {p.region === "International" ? " Flights and visas already issued are refunded only as the airline or embassy allows." : ""}
+              </p>
+            </div>
+            <div className="overflow-x-auto rounded-[22px] border border-line bg-white">
+              <table className="w-full min-w-[520px] text-left text-[16px]">
+                <caption className="sr-only">Cancellation charges per person for {p.title}</caption>
+                <thead className="bg-paper-2 text-[14px] text-ink">
+                  <tr><th scope="col" className="p-4 font-semibold">When you cancel</th><th scope="col" className="p-4 font-semibold">You pay</th><th scope="col" className="p-4 font-semibold">You get back</th></tr>
+                </thead>
+                <tbody>
+                  {cancel.map((c) => (
+                    <tr key={c.label} className="border-t border-line">
+                      <td className="p-4 text-muted">{c.label}</td>
+                      <td className="p-4 font-semibold text-text">{formatINR(c.charge)} <span className="font-medium text-subtle">({c.pct}%)</span></td>
+                      <td className="p-4 font-semibold text-wa">{formatINR(c.refund)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-[14px] text-subtle">
+              Your final price depends on dates, hotel availability and group size, and is confirmed in writing before you pay anything. Full terms in our{" "}
+              <Link href="/cancellation-policy" className="font-semibold text-ink underline underline-offset-2">cancellation and refund policy</Link>.
+            </p>
+          </div>
         </div>
 
         <aside id="enquire" className="w-full flex-[1_1_360px] scroll-mt-24 lg:sticky lg:top-24">
           <div className="mb-4 flex flex-col gap-1 rounded-[24px] bg-ink p-6 text-white">
-            <span className="text-[14px] font-medium text-[#C4D0E4]">Starting from</span>
-            <span className="text-[40px] font-bold leading-none">{formatINR(p.price)}</span>
+            <span className="text-[14px] font-medium text-[#C4D0E4]">Starting from, all taxes included</span>
+            <span className="text-[42px] font-bold leading-none">{formatINR(price.total)}</span>
             <span className="text-[14px] font-medium text-[#DCE4F2]">{p.priceBasis}</span>
+            <dl className="mt-4 flex flex-col gap-2 border-t border-white/20 pt-4 text-[15px]">
+              <div className="flex justify-between gap-4"><dt className="text-[#C4D0E4]">Package price</dt><dd className="font-semibold">{formatINR(price.base)}</dd></div>
+              <div className="flex justify-between gap-4"><dt className="text-[#C4D0E4]">GST (5%)</dt><dd className="font-semibold">{formatINR(price.gst)}</dd></div>
+              <div className="flex justify-between gap-4 border-t border-white/20 pt-2"><dt className="font-semibold">You pay</dt><dd className="font-bold">{formatINR(price.total)}</dd></div>
+            </dl>
+            <div className="mt-3 flex flex-col gap-2">
+              {price.tcs > 0 && (
+                <div className="flex flex-col gap-1 rounded-xl bg-white/8 p-3 text-[14px] text-[#DCE4F2]">
+                  <span className="flex justify-between gap-4"><span>TCS (2%) collected at payment</span><span className="font-semibold text-white">{formatINR(price.tcs)}</span></span>
+                  <span>Not a fee. It is income tax paid in advance and you claim it back when you file your ITR.</span>
+                </div>
+              )}
+              <p className="text-[13px] text-[#C4D0E4]">No booking fee, no convenience fee, nothing added at checkout.</p>
+            </div>
             <a
-              href={waLink(`Hi Ghooomo! I'm interested in ${p.title} (${p.nights}N/${p.days}D) from ${formatINR(p.price)}.`)}
+              href={waLink(`Hi Ghooomo! I'm interested in ${p.title} (${p.nights}N/${p.days}D) from ${formatINR(price.total)}.`)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn mt-4 bg-wa text-white hover:bg-wa-deep"
@@ -160,6 +204,8 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
           <EnquiryForm variant="package" segment={p.segment} packageSlug={p.slug} packageTitle={`${p.title} · ${p.nights}N/${p.days}D`} compact submitLabel="Check dates & price" />
         </aside>
       </section>
+
+      <div className="wrap pb-20"><NoSurprises compact /></div>
 
       {related.length > 0 && (
         <section className="wrap flex flex-col gap-6 pb-24">

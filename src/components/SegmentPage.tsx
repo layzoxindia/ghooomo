@@ -8,7 +8,7 @@ import { RingMark } from "./Logo";
 import { ChatIcon } from "./Icons";
 import { heroMedia } from "@/lib/media";
 import { getCatalog } from "@/lib/server/catalog";
-import { pexels, segments, waLink, type Segment } from "@/lib/site";
+import { photoSrc, segments, waLink, type Segment } from "@/lib/site";
 
 type Props = {
   segment: Segment;
@@ -90,7 +90,7 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
               </Reveal>
               {(mosaic ?? []).slice(0, 2).map((m, i) => (
                 <Reveal key={m.id} delay={0.14 + i * 0.06} className="relative overflow-hidden rounded-[28px] bg-[#0a524d]">
-                  <Image src={pexels(m.id, 700, 600)} alt={m.alt} fill sizes="(max-width: 768px) 50vw, 25vw" quality={70} className="object-cover" />
+                  <Image src={photoSrc(m.id)} alt={m.alt} fill sizes="(max-width: 768px) 50vw, 25vw" quality={70} className="object-cover" />
                 </Reveal>
               ))}
             </div>

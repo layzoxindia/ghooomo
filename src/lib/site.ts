@@ -37,6 +37,7 @@ export function formatINR(n: number) {
   return "₹" + n.toLocaleString("en-IN");
 }
 
-export function pexels(id: number, w = 1600, h = 1000) {
-  return `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}&h=${h}&fit=crop`;
+/** Locally hosted photo (originally from Pexels, free licence), served and resized by next/image. */
+export function photoSrc(id: number) {
+  return `/photos/${id}.jpg`;
 }

@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { enquirySchema } from "@/lib/validation";
 import { clientIp, hashIp, rateLimited, sameOrigin, verifyTurnstile } from "@/lib/server/security";
 import { db } from "@/lib/server/db";
-import { site, waLink, segments } from "@/lib/site";
+import { site, waLink, segments, formatINR } from "@/lib/site";
+import { priceOf } from "@/lib/pricing";
 import { getPackage } from "@/data/packages";
 
 export async function POST(req: Request) {
@@ -67,7 +68,7 @@ export async function POST(req: Request) {
 
   const lines = [
     `Hi Ghooomo! I'd like to plan a ${segments[e.segment].label.toLowerCase()} trip.`,
-    pkg ? `Package: ${pkg.title} (${pkg.nights}N/${pkg.days}D)` : e.destination ? `Destination: ${e.destination}` : "",
+    pkg ? `Package: ${pkg.title} (${pkg.nights}N/${pkg.days}D), from ${formatINR(priceOf(pkg).total)} per person` : e.destination ? `Destination: ${e.destination}` : "",
     e.travelMonth ? `When: ${e.travelMonth}` : "",
     e.travellers ? `Travellers: ${e.travellers}` : "",
     e.groupType ? `Group: ${e.groupType}` : "",

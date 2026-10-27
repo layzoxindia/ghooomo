@@ -4,7 +4,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import RingChooser from "@/components/RingChooser";
 import { ArrowIcon } from "@/components/Icons";
-import { pexels, site } from "@/lib/site";
+import { photoSrc, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Ghooomo",
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <Link href="/packages" className="btn self-start bg-ink text-white hover:bg-ink-deep">See all trips <ArrowIcon /></Link>
         </div>
         <Reveal className="relative h-[420px] overflow-hidden rounded-[32px] sm:h-[540px]">
-          <Image src={pexels(26870963, 1200, 1300)} alt="Pangong Tso lake in Ladakh" fill sizes="(max-width: 1024px) 100vw, 45vw" quality={80} className="object-cover" priority />
+          <Image src={photoSrc(26870963)} alt="Pangong Tso lake in Ladakh" fill sizes="(max-width: 1024px) 100vw, 45vw" quality={80} className="object-cover" priority />
         </Reveal>
       </section>
 

@@ -1,7 +1,9 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
-import HeroSearch from "@/components/HeroSearch";
+import TripFinder from "@/components/TripFinder";
+import NoSurprises from "@/components/NoSurprises";
 import RingChooser from "@/components/RingChooser";
 import PackageGrid from "@/components/PackageGrid";
 import EnquirySection from "@/components/EnquirySection";
@@ -11,7 +13,7 @@ import { RingMark } from "@/components/Logo";
 import { ArrowIcon } from "@/components/Icons";
 import { heroMedia } from "@/lib/media";
 import { getCatalog } from "@/lib/server/catalog";
-import { pexels, segments, site } from "@/lib/site";
+import { photoSrc, segments, site } from "@/lib/site";
 
 export const revalidate = 300;
 
@@ -49,26 +51,26 @@ export default async function Home() {
         <div className="absolute inset-0 bg-[#08151E]/45" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#08151E]/80 to-transparent" aria-hidden="true" />
         <div className="wrap relative z-10 mt-auto flex flex-col gap-8 pb-10 pt-32 sm:pb-14">
-          <Reveal>
+          <div className="hero-rise">
             <h1 className="max-w-[1050px] text-[clamp(50px,7.6vw,120px)] font-extrabold leading-[0.92] tracking-[-0.035em]">
-              Holidays planned around <span className="italic text-sun">who’s coming.</span>
+              Holidays planned around <span className="font-bold italic text-sun">who’s coming.</span>
             </h1>
-          </Reveal>
-          <Reveal delay={0.08}>
+          </div>
+          <div className="hero-rise" style={{ "--d": "0.08s" } as CSSProperties}>
             <p className="max-w-[580px] text-[clamp(18px,1.5vw,20px)] font-medium text-[#E6ECF1]">
               Travelling alone, as a couple or with a group? Pick one, and a planner from our Noida office puts the trip together for you.
             </p>
-          </Reveal>
-          <Reveal delay={0.14}>
-            <HeroSearch />
-          </Reveal>
-          <Reveal delay={0.2}>
+          </div>
+          <div className="hero-rise" style={{ "--d": "0.14s" } as CSSProperties}>
+            <TripFinder />
+          </div>
+          <div className="hero-rise" style={{ "--d": "0.2s" } as CSSProperties}>
             <ul className="flex flex-wrap gap-x-8 gap-y-2 border-t border-white/20 pt-5 text-[14px] font-medium text-[#D7E0E8]">
               <li>Replies on WhatsApp, {site.hours}</li>
-              <li>Prices shown upfront</li>
+              <li>Prices include taxes</li>
               <li>{site.legalName}, Noida</li>
             </ul>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -97,7 +99,7 @@ export default async function Home() {
                 className="group relative flex min-h-[460px] flex-col justify-end overflow-hidden rounded-[30px] p-7"
                 style={{ background: c.bg, color: c.ink }}
               >
-                <Image src={pexels(c.photo, 900, 1100)} alt={c.alt} fill sizes="(max-width: 768px) 100vw, 33vw" quality={70} className="object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
+                <Image src={photoSrc(c.photo)} alt={c.alt} fill sizes="(max-width: 768px) 100vw, 33vw" quality={70} className="object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
                 <span className="absolute inset-x-0 bottom-0 h-[52%]" style={{ background: c.bg }} aria-hidden="true" />
                 <span className="absolute inset-x-0 bottom-[52%] h-20" style={{ background: `linear-gradient(to top, ${c.bg}, transparent)` }} aria-hidden="true" />
                 <span className="relative flex flex-col gap-3">
@@ -118,11 +120,16 @@ export default async function Home() {
         <div className="flex flex-wrap items-end justify-between gap-5">
           <Reveal className="flex max-w-[620px] flex-col gap-4">
             <h2 className="text-[clamp(38px,4.6vw,64px)] leading-[0.98] text-ink">Trips for this season</h2>
-            <p className="text-[18px] text-muted">Starting prices per person. Open any trip for the full day-by-day plan.</p>
+            <p className="text-[18px] text-muted">Starting prices per person with taxes included. Open any trip for the day-by-day plan and cancellation amounts.</p>
           </Reveal>
           <Link href="/packages" className="btn border-2 border-ink text-ink hover:bg-ink hover:text-white">All {packages.length} trips <ArrowIcon /></Link>
         </div>
         <PackageGrid items={packages.slice(0, 6)} />
+      </section>
+
+      {/* PROMISE */}
+      <section className="wrap pt-24 sm:pt-32">
+        <NoSurprises />
       </section>
 
       {/* STAYS */}

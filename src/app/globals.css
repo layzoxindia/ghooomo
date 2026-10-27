@@ -126,6 +126,13 @@ textarea.field { padding: 14px 16px; min-height: 110px; resize: vertical; }
 .prose-legal li { margin-bottom: 0.4rem; }
 .prose-legal a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 3px; }
 
+/* scroll reveal (see Reveal + RevealObserver) */
+.reveal { transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); transition-delay: var(--reveal-delay, 0s); }
+.reveal.is-pending { opacity: 0; transform: translateY(28px); }
+
+@keyframes rise { from { transform: translateY(26px); } to { transform: none; } }
+.hero-rise { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: var(--d, 0s); }
+
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }

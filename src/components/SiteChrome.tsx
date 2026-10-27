@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppFab from "./WhatsAppFab";
 import SmoothScroll from "./SmoothScroll";
+import RevealObserver from "./RevealObserver";
 
 export default function SiteChrome({ children }: { children: ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
         Skip to content
       </a>
       <SmoothScroll />
+      <RevealObserver />
       <Header />
       <main id="main">{children}</main>
       <Footer />

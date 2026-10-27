@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 import { site } from "@/lib/site";
+import { cancellationTiers } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Cancellation & Refund Policy",
@@ -8,12 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cancellation-policy" },
 };
 
-const rows = [
-  { when: "30 days or more before departure", charge: "10% of the total package cost" },
-  { when: "15 to 29 days before departure", charge: "25% of the total package cost" },
-  { when: "7 to 14 days before departure", charge: "50% of the total package cost" },
-  { when: "Less than 7 days, or no-show", charge: "100% of the total package cost" },
-];
+const rows = cancellationTiers.map((t) => ({ when: t.label, charge: t.pct === 100 ? "100% of the total package cost" : `${t.pct}% of the total package cost` }));
 
 export default function CancellationPage() {
   return (
@@ -22,6 +18,7 @@ export default function CancellationPage() {
       <p>Send a cancellation request in writing to {site.email} or on WhatsApp to {site.phoneDisplay}. The date we receive it is the cancellation date.</p>
 
       <h2>Cancellation charges</h2>
+      <p>Each package page shows these charges worked out in rupees for that trip, so you know the exact amount before you pay.</p>
       <div className="not-prose mb-6 overflow-x-auto rounded-2xl border border-line bg-white">
         <table className="w-full min-w-[480px] text-left text-[16px]">
           <thead className="bg-paper-2 text-ink">

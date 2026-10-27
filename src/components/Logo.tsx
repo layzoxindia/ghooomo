@@ -65,9 +65,9 @@ export function Logo({ ringLinks = true, ...props }: Props) {
       </Link>
       {ringLinks && (
         <>
-          <Link href="/solo" aria-label="Solo trips" title="Solo trips" className="absolute rounded-full" style={ringBox(403)} />
-          <Link href="/couple" aria-label="Couple trips" title="Couple trips" className="absolute rounded-full" style={ringBox(507)} />
-          <Link href="/group" aria-label="Group trips" title="Group trips" className="absolute rounded-full" style={ringBox(611)} />
+          <Link href="/solo" aria-label="Solo trips" title="Solo trips" className="absolute hidden rounded-full md:block" style={ringBox(403)} />
+          <Link href="/couple" aria-label="Couple trips" title="Couple trips" className="absolute hidden rounded-full md:block" style={ringBox(507)} />
+          <Link href="/group" aria-label="Group trips" title="Group trips" className="absolute hidden rounded-full md:block" style={ringBox(611)} />
         </>
       )}
     </div>

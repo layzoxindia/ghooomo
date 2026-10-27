@@ -1,13 +1,14 @@
-"use client";
+import type { CSSProperties, ReactNode } from "react";
 
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
-
+/**
+ * Fade-and-rise on scroll without shipping an animation library.
+ * The element renders visible on the server; RevealObserver (client) hides
+ * not-yet-seen ones only after JavaScript runs, so content never depends on JS.
+ */
 export default function Reveal({
   children,
   delay = 0,
-  y = 28,
-  className,
+  className = "",
   as = "div",
 }: {
   children: ReactNode;
@@ -16,17 +17,11 @@ export default function Reveal({
   className?: string;
   as?: "div" | "section" | "li" | "article";
 }) {
-  const reduce = useReducedMotion();
-  const M = motion[as];
+  const Tag = as;
+  const style = delay ? ({ "--reveal-delay": `${delay}s` } as CSSProperties) : undefined;
   return (
-    <M
-      className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <Tag className={`reveal ${className}`} style={style}>
       {children}
-    </M>
+    </Tag>
   );
 }

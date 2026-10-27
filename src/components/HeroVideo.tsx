@@ -17,9 +17,24 @@ export default function HeroVideo({ media, className = "", priority = true }: { 
     const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
     if (conn?.saveData) return;
     const mobile = window.matchMedia("(max-width: 767px)").matches;
-    // Start the video after first paint so the poster image stays the fast LCP element.
-    const t = window.setTimeout(() => setSrc(mobile && v.mobileSrc ? v.mobileSrc : v.src), 300);
-    return () => window.clearTimeout(t);
+    // Start the video only after the page has loaded and the browser is idle,
+    // so the poster image stays the fast first paint and the main thread stays free.
+    let idle = 0;
+    let timer = 0;
+    const start = () => {
+      const ric = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
+      const run = () => setSrc(mobile && v.mobileSrc ? v.mobileSrc : v.src);
+      if (ric) idle = ric(run, { timeout: 2500 });
+      else timer = window.setTimeout(run, 1200);
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => {
+      window.removeEventListener("load", start);
+      window.clearTimeout(timer);
+      const cic = (window as Window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+      if (idle && cic) cic(idle);
+    };
   }, [media.video]);
 
   return (

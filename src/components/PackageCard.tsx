@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { TravelPackage } from "@/data/packages";
-import { formatINR, pexels, segments, waLink } from "@/lib/site";
+import { formatINR, photoSrc, segments, waLink } from "@/lib/site";
 import { ArrowIcon, ChatIcon } from "./Icons";
+import { priceOf } from "@/lib/pricing";
 
 export default function PackageCard({ p, showTag = true }: { p: TravelPackage; showTag?: boolean }) {
   const seg = segments[p.segment];
   const photo = p.photos[0];
+  const price = priceOf(p);
   return (
     <article className="group relative flex flex-col gap-5">
       <div className="relative aspect-[5/4] overflow-hidden rounded-[22px] bg-paper-2">
         <Image
-          src={pexels(photo.id, 900, 720)}
+          src={photoSrc(photo.id)}
           alt={photo.alt}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
@@ -41,9 +43,9 @@ export default function PackageCard({ p, showTag = true }: { p: TravelPackage; s
         <p className="line-clamp-2 text-[15px] text-muted">{p.highlights.join(" · ")}</p>
         <div className="mt-3 flex items-end justify-between gap-3 border-t border-line pt-4">
           <p className="flex flex-col">
-            <span className="text-[13px] font-medium text-subtle">From</span>
-            <span className="text-[24px] font-bold leading-tight text-ink">{formatINR(p.price)}</span>
-            <span className="text-[12px] font-medium text-subtle">{p.priceBasis.split(" · ")[0]}</span>
+            <span className="text-[13px] font-medium text-subtle">From, all taxes included</span>
+            <span className="text-[24px] font-bold leading-tight text-ink">{formatINR(price.total)}</span>
+            <span className="text-[12px] font-medium text-subtle">{p.priceBasis.split(" · ")[0]}{price.tcs ? " · plus 2% TCS" : ""}</span>
           </p>
           <div className="relative z-10 flex items-center gap-2">
             <a
