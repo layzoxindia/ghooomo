@@ -20,9 +20,8 @@ export default function ContactPage() {
   return (
     <section className="wrap grid gap-10 pb-24 pt-28 sm:pt-32 lg:grid-cols-[0.85fr_1.15fr]">
       <div className="flex flex-col gap-6">
-        <p className="eyebrow text-solo-text">Contact</p>
-        <h1 className="text-[clamp(42px,5.4vw,76px)] font-extrabold leading-[0.96] text-ink">Talk to a real planner.</h1>
-        <p className="text-[18px] text-muted">WhatsApp is the fastest way to reach us. Prefer to talk? Call, or drop by the office.</p>
+        <h1 className="text-[clamp(42px,5.4vw,76px)] font-extrabold leading-[0.96] text-ink">Contact us</h1>
+        <p className="text-[18px] text-muted">WhatsApp is the quickest way to reach a planner. You can also call, email or visit the office in Noida.</p>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
           {cards.map(({ I, k, v, href, ext }) => (
             <li key={k}>

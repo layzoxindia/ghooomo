@@ -38,7 +38,7 @@ export default async function AdminRequests() {
         <div>
           <h1 className="text-[34px] text-ink">Data requests (DPDP)</h1>
           <p className="max-w-[760px] text-[15px] text-subtle">
-            First confirm the person by WhatsApp or call to the number given (mark “verified”). For deletion or withdrawal, use “Erase all enquiries” — it removes every enquiry with that number. Reply to the person once done.
+            First confirm the person by WhatsApp or call to the number given (mark “verified”). For deletion or withdrawal, use “Erase all enquiries”. It removes every enquiry with that number. Reply to the person once done.
           </p>
         </div>
         {rows.length === 0 && <p className="rounded-2xl border border-line bg-white p-8 text-muted">No requests.</p>}

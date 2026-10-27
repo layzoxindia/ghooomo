@@ -14,7 +14,7 @@ const order: { s: Segment; dots: 1 | 2 | 3 }[] = [
 const dotPos = (n: 1 | 2 | 3): [number, number][] =>
   n === 1 ? [[0, 0]] : n === 2 ? [[-13, 0], [13, 0]] : [[0, -12], [-12, 9], [12, 9]];
 
-/** The three logo rings, big and interactive — each opens its trip page. */
+/** The three logo rings, big and interactive. Each one opens its trip page. */
 export default function RingChooser({ bg = "#F6F2EB" }: { bg?: string }) {
   const [hover, setHover] = useState<Segment | null>(null);
   const reduce = useReducedMotion();
@@ -41,7 +41,7 @@ export default function RingChooser({ bg = "#F6F2EB" }: { bg?: string }) {
               onFocus={() => setHover(s)}
               onBlur={() => setHover(null)}
               className="group flex flex-col items-center gap-3 rounded-3xl px-2 pb-2 outline-offset-8"
-              aria-label={`${seg.label} trips — ${seg.who}`}
+              aria-label={`${seg.label} trips, ${seg.who.toLowerCase()}`}
             >
               <motion.svg
                 viewBox="-64 -64 128 128"

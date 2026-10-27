@@ -19,9 +19,8 @@ export default async function PackagesPage() {
     <>
       <section className="wrap flex flex-col gap-8 pb-10 pt-28 sm:pt-32">
         <div className="flex flex-col gap-4">
-          <p className="eyebrow text-solo-text">All packages</p>
-          <h1 className="text-[clamp(42px,5.4vw,76px)] font-extrabold leading-[0.96] text-ink">Find your next holiday.</h1>
-          <p className="max-w-[620px] text-[18px] text-muted">Every price is a real starting price per person, with what’s included spelled out. Don’t see what you want? We build custom trips too.</p>
+          <h1 className="text-[clamp(42px,5.4vw,76px)] font-extrabold leading-[0.96] text-ink">All trips</h1>
+          <p className="max-w-[620px] text-[18px] text-muted">Starting prices per person, with inclusions listed on every trip. Can’t find what you want? Ask us for a custom plan.</p>
         </div>
         <Suspense
           fallback={
@@ -34,7 +33,7 @@ export default async function PackagesPage() {
         </Suspense>
       </section>
       <div className="h-16" />
-      <EnquirySection title="Want something custom?" text="Tell us where, when and who — a planner will build a trip and send it to you on WhatsApp." />
+      <EnquirySection title="Want something custom?" text="Tell us where, when and who is coming. A planner will put a trip together and send it on WhatsApp." />
     </>
   );
 }

@@ -61,7 +61,7 @@ export default function HeroSearch() {
           <option value="60000">Under ₹60,000</option>
         </select>
       </div>
-      <button type="submit" className="btn min-h-[52px] self-end bg-sun text-ink hover:bg-[#F2B13A]">Find my holiday</button>
+      <button type="submit" className="btn min-h-[52px] self-end bg-sun text-ink hover:bg-[#F2B13A]">Show trips</button>
     </form>
   );
 }

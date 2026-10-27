@@ -114,7 +114,7 @@ export default async function AdminLeads({ searchParams }: PageProps<"/admin">) 
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 text-[15px] text-muted">
-                  <span className="font-semibold text-text">{details.join(" · ") || "—"}</span>
+                  <span className="font-semibold text-text">{details.join(" · ") || "No trip details"}</span>
                   {l.message && <span className="whitespace-pre-wrap">“{l.message}”</span>}
                 </div>
                 <div className="flex flex-col gap-2">

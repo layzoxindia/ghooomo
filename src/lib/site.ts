@@ -3,7 +3,7 @@ export const site = {
   legalName: "Ghooomo India Pvt Ltd",
   tagline: "Solo · Couple · Group",
   description:
-    "Holiday packages planned around who you travel with — solo trips, couple getaways and group tours across India and abroad. Enquire on WhatsApp.",
+    "Solo trips, couple holidays and group tours across India and abroad, planned by Ghooomo in Noida. Clear prices, enquiries answered on WhatsApp.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://ghooomo.in",
   phoneDisplay: "+91 79837 77166",
   phoneE164: "+917983777166",
@@ -11,7 +11,7 @@ export const site = {
   email: "suneet@ghooomo.in",
   address: "Sector 121, Noida, Uttar Pradesh, India",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Sector+121+Noida",
-  hours: "Mon–Sat, 10:00 am – 7:00 pm",
+  hours: "Mon to Sat, 10 am to 7 pm",
   grievanceEmail: "suneet@ghooomo.in",
   // DPDP: how long enquiries are kept before automatic deletion.
   retentionMonths: 12,

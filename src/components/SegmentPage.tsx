@@ -53,8 +53,7 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
         // Split hero on paper
         <section className="wrap flex flex-wrap items-center gap-10 pb-12 pt-28 lg:gap-14 lg:pt-32">
           <div className="flex flex-[1_1_440px] flex-col gap-6">
-            <Reveal><RingMark dots={1} color={seg.color} size={80} /></Reveal>
-            <Reveal delay={0.04}><p className="eyebrow" style={{ color: seg.text }}>{seg.label} trips</p></Reveal>
+            <Reveal className="flex items-center gap-4"><RingMark dots={1} color={seg.color} size={56} /><span className="text-[17px] font-semibold" style={{ color: seg.text }}>Solo trips</span></Reveal>
             <Reveal delay={0.08}><h1 className="text-[clamp(48px,6.4vw,96px)] font-extrabold leading-[0.94] text-ink">{heading}</h1></Reveal>
             <Reveal delay={0.12}><p className="max-w-[520px] text-[18px] text-muted">{intro}</p></Reveal>
             <Reveal delay={0.16}>{ctas(false)}</Reveal>
@@ -69,8 +68,7 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
           <HeroVideo media={media} />
           <div className="absolute inset-0 bg-[#1F160D]/50" aria-hidden="true" />
           <div className="wrap relative z-10 mt-auto flex flex-col gap-6 pb-20 pt-32">
-            <Reveal><RingMark dots={2} color={seg.color} size={80} /></Reveal>
-            <Reveal delay={0.04}><p className="eyebrow text-[#FFD88A]">{seg.label} getaways</p></Reveal>
+            <Reveal className="flex items-center gap-4"><RingMark dots={2} color={seg.color} size={56} /><span className="text-[17px] font-semibold text-[#FFD88A]">Couple holidays</span></Reveal>
             <Reveal delay={0.08}><h1 className="max-w-[920px] text-[clamp(48px,6.8vw,104px)] font-extrabold leading-[0.94]">{heading}</h1></Reveal>
             <Reveal delay={0.12}><p className="max-w-[560px] text-[19px] font-medium text-[#F5ECE0]">{intro}</p></Reveal>
             <Reveal delay={0.16}>{ctas(true)}</Reveal>
@@ -81,8 +79,7 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
         <section className="bg-group-strong text-white">
           <div className="wrap flex flex-wrap items-center gap-10 pb-20 pt-28 lg:pt-32">
             <div className="flex flex-[1_1_440px] flex-col gap-6">
-              <Reveal><RingMark dots={3} color="#19C2B7" size={80} /></Reveal>
-              <Reveal delay={0.04}><p className="eyebrow text-[#BFF0EB]">{seg.label} tours</p></Reveal>
+              <Reveal className="flex items-center gap-4"><RingMark dots={3} color="#19C2B7" size={56} /><span className="text-[17px] font-semibold text-[#BFF0EB]">Group tours</span></Reveal>
               <Reveal delay={0.08}><h1 className="text-[clamp(48px,6.2vw,94px)] font-extrabold leading-[0.94]">{heading}</h1></Reveal>
               <Reveal delay={0.12}><p className="max-w-[520px] text-[19px] font-medium text-[#DDF3F0]">{intro}</p></Reveal>
               <Reveal delay={0.16}>{ctas(true)}</Reveal>
@@ -101,39 +98,36 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
         </section>
       )}
 
-      <section id="packages" className="wrap flex scroll-mt-20 flex-col gap-8 pt-16 sm:pt-20">
+      <section id="packages" className="wrap flex scroll-mt-20 flex-col gap-10 pt-20 sm:pt-28">
         <Reveal className="flex flex-wrap items-baseline justify-between gap-3">
-          <h2 className="text-[clamp(30px,3.4vw,46px)] leading-none text-ink">{seg.label} packages</h2>
-          <span className="text-[15px] font-semibold text-subtle">{items.length} trips · prices per person</span>
+          <h2 className="text-[clamp(36px,4.2vw,58px)] leading-none text-ink">{seg.label} trips</h2>
+          <span className="text-[15px] font-semibold text-subtle">{items.length} trips · starting prices per person</span>
         </Reveal>
         <PackageGrid items={items} showTag={false} />
       </section>
 
       {extra}
 
-      <section className="wrap flex flex-col gap-8 pb-24 pt-20 sm:pt-24">
-        <Reveal className="flex max-w-[680px] flex-col gap-4">
-          <p className="eyebrow" style={{ color: seg.text }}>Why {seg.label.toLowerCase()} with Ghooomo</p>
-          <h2 className="text-[clamp(32px,4vw,54px)] leading-[1.02] text-ink">{whyTitle}</h2>
+      <section className="wrap grid gap-12 py-24 sm:py-32 lg:grid-cols-[0.8fr_1.2fr]">
+        <Reveal>
+          <h2 className="text-[clamp(36px,4.4vw,62px)] leading-[0.98] text-ink">{whyTitle}</h2>
         </Reveal>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="flex flex-col">
           {why.map((w, i) => (
-            <Reveal key={w.t} delay={i * 0.06} className="flex flex-col gap-3 rounded-[22px] border border-line bg-white p-6">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl font-display text-[18px] font-bold" style={{ background: seg.tint, color: seg.text }}>
-                0{i + 1}
-              </span>
-              <span className="font-display text-[21px] text-ink">{w.t}</span>
-              <span className="text-[16px] text-muted">{w.d}</span>
+            <Reveal key={w.t} delay={i * 0.05} className="grid gap-2 border-t border-line py-6 sm:grid-cols-[220px_1fr] sm:gap-8">
+              <dt className="flex items-center gap-3 font-display text-[21px] text-ink">
+                <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: seg.color }} aria-hidden="true" />
+                {w.t}
+              </dt>
+              <dd className="text-[17px] text-muted">{w.d}</dd>
             </Reveal>
           ))}
-        </div>
+        </dl>
       </section>
 
       <EnquirySection
         segment={segment}
         bg={seg.soft}
-        eyebrow={`${seg.label} enquiry`}
-        eyebrowColor={seg.text}
         title={enquiry.title}
         text={enquiry.text}
         submitLabel={enquiry.submit}

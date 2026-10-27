@@ -74,7 +74,7 @@ export function Logo({ ringLinks = true, ...props }: Props) {
   );
 }
 
-/** One ring with 1, 2 or 3 dots — the mark for each trip type. */
+/** One ring with 1, 2 or 3 dots: the mark for each trip type. */
 export function RingMark({ dots, color, size = 84, cut }: { dots: 1 | 2 | 3; color: string; size?: number; cut?: string }) {
   const pts: [number, number][] = dots === 1 ? [[0, 0]] : dots === 2 ? [[-13, 0], [13, 0]] : [[0, -12], [-12, 9], [12, 9]];
   return (

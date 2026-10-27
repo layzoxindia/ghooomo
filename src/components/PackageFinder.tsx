@@ -80,7 +80,7 @@ export default function PackageFinder({ items: packages }: { items: TravelPackag
         </div>
       ) : (
         <div className="flex flex-col items-start gap-4 rounded-[24px] border border-line bg-white p-8">
-          <h2 className="text-2xl text-ink">Nothing matches — yet.</h2>
+          <h2 className="text-2xl text-ink">No package matches these filters.</h2>
           <p className="text-muted">We plan custom trips too. Tell us what you have in mind and a planner will build it.</p>
           <button type="button" onClick={() => router.replace("/packages")} className="btn border-2 border-ink text-ink">Clear filters</button>
         </div>

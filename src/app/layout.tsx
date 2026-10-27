@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Ghooomo — Solo, Couple & Group Holiday Packages",
+    default: "Ghooomo | Solo, Couple and Group Holiday Packages",
     template: "%s · Ghooomo",
   },
   description: site.description,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: "en_IN",
-    title: "Ghooomo — Travel the way you travel",
+    title: "Ghooomo | Holidays planned around who is coming",
     description: site.description,
   },
   twitter: { card: "summary_large_image" },

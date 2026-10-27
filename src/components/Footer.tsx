@@ -16,15 +16,15 @@ export default function Footer() {
             <Link href="/" aria-label="Ghooomo home">
               <Wordmark tone="light" bg="#0F2B5B" width={210} id="ftr" />
             </Link>
-            <p className="text-[15px] text-[#DCE4F2]">Holidays planned around who you travel with — solo, as a couple, or the whole group.</p>
+            <p className="text-[15px] text-[#DCE4F2]">Solo trips, couple holidays and group tours, planned from our office in Noida.</p>
           </div>
           <div className="flex flex-wrap gap-12 sm:gap-16">
             <div className={col}>
               <span className={head}>Trips</span>
               <Link className={link} href="/solo">Solo trips</Link>
-              <Link className={link} href="/couple">Couple getaways</Link>
+              <Link className={link} href="/couple">Couple holidays</Link>
               <Link className={link} href="/group">Group tours</Link>
-              <Link className={link} href="/packages">All packages</Link>
+              <Link className={link} href="/packages">All trips</Link>
             </div>
             <div className={col}>
               <span className={head}>Company</span>

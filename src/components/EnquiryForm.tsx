@@ -17,7 +17,7 @@ type Props = {
   compact?: boolean;
 };
 
-const budgets = ["Under ₹15k", "₹15k – ₹30k", "₹30k – ₹60k", "₹60k+"];
+const budgets = ["Under ₹15k", "₹15k to ₹30k", "₹30k to ₹60k", "₹60k and above"];
 
 export default function EnquiryForm({ variant = "general", segment, packageSlug, packageTitle, submitLabel, compact }: Props) {
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
@@ -163,7 +163,7 @@ export default function EnquiryForm({ variant = "general", segment, packageSlug,
         <div>
           <label className="label" htmlFor={`trav-${uid}`}>Travellers</label>
           <select className="field" id={`trav-${uid}`} name="travellers" defaultValue="2">
-            {["1", "2", "3", "4", "5–8", "9–15", "16+"].map((n) => <option key={n} value={n}>{n}</option>)}
+            {["1", "2", "3", "4", "5 to 8", "9 to 15", "16 or more"].map((n) => <option key={n} value={n}>{n}</option>)}
           </select>
         </div>
       )}

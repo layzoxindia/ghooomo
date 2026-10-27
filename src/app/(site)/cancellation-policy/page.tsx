@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 
 const rows = [
   { when: "30 days or more before departure", charge: "10% of the total package cost" },
-  { when: "15 – 29 days before departure", charge: "25% of the total package cost" },
-  { when: "7 – 14 days before departure", charge: "50% of the total package cost" },
+  { when: "15 to 29 days before departure", charge: "25% of the total package cost" },
+  { when: "7 to 14 days before departure", charge: "50% of the total package cost" },
   { when: "Less than 7 days, or no-show", charge: "100% of the total package cost" },
 ];
 
 export default function CancellationPage() {
   return (
-    <LegalPage title="Cancellation & refunds" updated="28 October 2026" intro={<p>Plans change — here is exactly what happens if you need to cancel. Your written quote may list stricter terms for specific services (for example flights or peak-season hotels); where it does, those terms apply to that service.</p>}>
+    <LegalPage title="Cancellation & refunds" updated="28 October 2026" intro={<p>If you need to cancel, this is exactly what you pay and what you get back. Your written quote may list stricter terms for specific services (for example flights or peak-season hotels); where it does, those terms apply to that service.</p>}>
       <h2>How to cancel</h2>
       <p>Send a cancellation request in writing to {site.email} or on WhatsApp to {site.phoneDisplay}. The date we receive it is the cancellation date.</p>
 
@@ -50,7 +50,7 @@ export default function CancellationPage() {
       <p>If we have to cancel a trip for reasons within our control, you get a full refund of everything you paid us, or a new date of your choice. If a trip is cancelled because of weather, natural disasters, government orders or other events outside our control, we refund whatever suppliers refund to us and help you rebook.</p>
 
       <h2>Refund timeline</h2>
-      <p>Approved refunds are paid to the original payment method within 7–10 working days of the supplier refunding us. Bank processing time may add a few days.</p>
+      <p>Approved refunds are paid to the original payment method within 7 to 10 working days of the supplier refunding us. Bank processing time may add a few days.</p>
     </LegalPage>
   );
 }

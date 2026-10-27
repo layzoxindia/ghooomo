@@ -45,7 +45,7 @@ export default function PrivacyPage() {
 
       <h2>4. Our legal basis: your consent</h2>
       <p>
-        We process enquiry data on the basis of your consent, given by ticking the box on our forms. The box is never pre-ticked. You can withdraw consent at any time — it is as easy as giving it:
+        We process enquiry data on the basis of your consent, given by ticking the box on our forms. The box is never pre-ticked. You can withdraw consent at any time, and it is as easy as giving it:
         use our <Link href="/data-request">data request form</Link>, email {site.grievanceEmail}, or reply “STOP” on WhatsApp. Withdrawing does not affect anything we did before you withdrew, but we will
         stop contacting you and delete your enquiry data unless we must keep it by law (for example, invoices for a completed booking).
       </p>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
       <h2>6. Who we share it with</h2>
       <p>Only the people and services needed to do what you asked:</p>
       <ul>
-        <li><strong>Our service providers (Data Processors)</strong> who host and secure this website and its database — currently Vercel (website hosting), Supabase (database) and Cloudflare (spam protection). They act only on our instructions and under contract.</li>
+        <li><strong>Our service providers (Data Processors)</strong> who host and secure this website and its database: currently Vercel (website hosting), Supabase (database) and Cloudflare (spam protection). They act only on our instructions and under contract.</li>
         <li><strong>WhatsApp (Meta):</strong> when you choose to message us on WhatsApp, your message is handled under WhatsApp’s own terms and privacy policy.</li>
         <li><strong>Travel suppliers:</strong> only if you book, the hotels, transport, airlines and activity operators for your trip receive the details they need to serve you.</li>
         <li><strong>Authorities:</strong> if required by law or a valid legal order.</li>
@@ -106,7 +106,7 @@ export default function PrivacyPage() {
 
       <h2>12. Language and changes</h2>
       <p>
-        You can ask for this notice in Hindi or any language listed in the Eighth Schedule of the Constitution — write to {site.email}. If we change this notice, we will update the date at the top,
+        You can ask for this notice in Hindi or any language listed in the Eighth Schedule of the Constitution by writing to {site.email}. If we change this notice, we will update the date at the top,
         and if the change affects how we use data you already gave us, we will ask you again.
       </p>
     </LegalPage>

@@ -126,6 +126,8 @@ textarea.field { padding: 14px 16px; min-height: 110px; resize: vertical; }
 .prose-legal li { margin-bottom: 0.4rem; }
 .prose-legal a { color: var(--color-ink); text-decoration: underline; text-underline-offset: 3px; }
 
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
 

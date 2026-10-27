@@ -8,7 +8,7 @@ import { ChatIcon, MenuIcon, XIcon } from "./Icons";
 import { segments, site, waLink, type Segment } from "@/lib/site";
 
 const nav = [
-  { href: "/packages", label: "All packages" },
+  { href: "/packages", label: "All trips" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

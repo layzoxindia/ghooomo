@@ -38,10 +38,10 @@ export const packages: TravelPackage[] = [
     price: 16999,
     priceBasis: "per person · triple sharing · ex-Delhi",
     startCity: "Delhi",
-    bestTime: "May – October",
+    bestTime: "May to October",
     pace: "Moderate · high altitude",
     summary:
-      "The full Spiti loop in a small batch of solo travellers — monasteries on cliffs, fossil villages and a night by the moon lake, with a trip captain on the road.",
+      "The full Spiti loop with a small batch of solo travellers. Cliffside monasteries, fossil villages, a night at Chandratal, and a trip captain with you on the road.",
     highlights: ["Key Monastery & Kibber", "Chicham bridge, Asia’s highest", "Langza, Hikkim & Komic", "Camping at Chandratal lake"],
     itinerary: [
       { title: "Delhi → Shimla (overnight)", desc: "Evening departure from Delhi by tempo traveller. Meet your batch and trip captain." },
@@ -56,7 +56,7 @@ export const packages: TravelPackage[] = [
       "Tempo traveller from Delhi and back",
       "5 nights stay: hotels, homestays and camps (triple sharing)",
       "Breakfast and dinner daily",
-      "Trip captain throughout the journey",
+      "Trip captain for the whole trip",
       "Inner line permits and driver allowances",
     ],
     exclusions: ["Lunch and snacks", "Monument and entry fees", "Personal expenses and tips", "Travel insurance", "Anything not listed above"],
@@ -79,7 +79,7 @@ export const packages: TravelPackage[] = [
     price: 22999,
     priceBasis: "per person · twin sharing · ex-Leh",
     startCity: "Leh airport",
-    bestTime: "May – September",
+    bestTime: "May to September",
     pace: "Moderate · acclimatisation built in",
     summary:
       "Two easy days in Leh to acclimatise, then over Khardung La to the dunes of Nubra and a night beside the blue of Pangong.",
@@ -118,10 +118,10 @@ export const packages: TravelPackage[] = [
     price: 18999,
     priceBasis: "per person · twin sharing · shared cab",
     startCity: "Guwahati",
-    bestTime: "October – May",
+    bestTime: "October to May",
     pace: "Easy to moderate · one trek",
     summary:
-      "Waterfalls, caves and the double-decker living root bridge — Meghalaya at a slow pace with a small group of solo travellers.",
+      "Waterfalls, limestone caves and the double-decker root bridge at Nongriat, taken slowly with a small group of solo travellers.",
     highlights: ["Double-decker root bridge trek", "Umngot river at Dawki", "Mawlynnong village", "Seven Sisters falls"],
     itinerary: [
       { title: "Guwahati → Shillong", desc: "Pickup from Guwahati. Stop at Umiam lake, evening at Police Bazaar." },
@@ -153,10 +153,10 @@ export const packages: TravelPackage[] = [
     price: 15999,
     priceBasis: "per person · twin sharing · 3★ stays",
     startCity: "Port Blair airport",
-    bestTime: "October – May",
+    bestTime: "October to May",
     pace: "Easy · beach days",
     summary:
-      "White sand, glass-clear water and long sunsets — Radhanagar beach, a coral walk at Neil and two quiet nights on Havelock.",
+      "Two nights on Havelock with sunset at Radhanagar, a morning snorkelling at Elephant beach, and a quiet night on Neil.",
     highlights: ["Radhanagar beach sunset", "Elephant beach snorkelling", "Natural bridge at Neil", "Cellular Jail light show"],
     itinerary: [
       { title: "Arrive Port Blair", desc: "Airport pickup, Corbyn’s Cove beach and the Cellular Jail light & sound show." },
@@ -192,10 +192,10 @@ export const packages: TravelPackage[] = [
     price: 24499,
     priceBasis: "per person · twin sharing · land only",
     startCity: "Bali (Denpasar) airport",
-    bestTime: "April – October",
+    bestTime: "April to October",
     pace: "Easy · couple-paced",
     summary:
-      "Rice terraces and jungle swings in Ubud, then a beach resort in Nusa Dua — private transfers, a candlelight dinner and nothing to rush.",
+      "Three nights among the rice terraces of Ubud, three by the sea in Nusa Dua. Private transfers throughout and one candlelight dinner.",
     highlights: ["Tegallalang rice terraces", "Bali jungle swing", "Uluwatu temple sunset", "Candlelight dinner on the beach"],
     itinerary: [
       { title: "Arrive in Bali → Ubud", desc: "Private airport pickup and check-in to your Ubud stay." },
@@ -232,10 +232,10 @@ export const packages: TravelPackage[] = [
     price: 11999,
     priceBasis: "per person · twin sharing · ex-Kochi",
     startCity: "Kochi",
-    bestTime: "September – March",
+    bestTime: "September to March",
     pace: "Easy",
     summary:
-      "Misty tea hills, a spice-scented jungle and a night on a private houseboat on the backwaters — Kerala as it should be done for two.",
+      "Tea estates in Munnar, a spice walk in Thekkady and a night on your own houseboat in Alleppey, with a private cab the whole way.",
     highlights: ["Munnar tea gardens", "Periyar lake & spice walk", "Private houseboat night", "Fort Kochi evening"],
     itinerary: [
       { title: "Kochi → Munnar", desc: "Pickup from Kochi. Cheeyappara and Valara waterfalls on the way up to the tea hills." },
@@ -271,7 +271,7 @@ export const packages: TravelPackage[] = [
     price: 29499,
     priceBasis: "per person · twin sharing · 4★ resort · land only",
     startCity: "Malé airport",
-    bestTime: "November – April",
+    bestTime: "November to April",
     pace: "Easy · resort stay",
     summary:
       "Three nights on a private island resort with speedboat transfers, sunset views and the clearest water you will ever swim in.",
@@ -279,7 +279,7 @@ export const packages: TravelPackage[] = [
     itinerary: [
       { title: "Arrive Malé → resort", desc: "Met at Malé airport and transferred by speedboat to your island resort." },
       { title: "Island day", desc: "Snorkel the house reef, kayak in the lagoon, or just do nothing at all." },
-      { title: "Your way", desc: "Optional sandbank picnic, dolphin cruise or couple spa — your planner books it." },
+      { title: "Your way", desc: "Add a sandbank picnic, a dolphin cruise or a couple spa, and your planner books it." },
       { title: "Departure", desc: "Breakfast and speedboat transfer back to Malé airport." },
     ],
     inclusions: [
@@ -308,19 +308,19 @@ export const packages: TravelPackage[] = [
     price: 4799,
     priceBasis: "per person · quad sharing · min 6 people",
     startCity: "Goa airport or railway station",
-    bestTime: "October – March",
+    bestTime: "October to March",
     pace: "Easy · party-friendly",
     summary:
-      "Three nights near the North Goa beaches with both coast tours sorted — you bring the gang, we handle the stay and the wheels.",
+      "Three nights near Calangute and Baga with North and South Goa tours included. Hotel and transport are booked for the whole group.",
     highlights: ["Baga, Anjuna & Vagator", "Fort Aguada & Chapora", "Old Goa churches", "Mandovi river cruise (add-on)"],
     itinerary: [
-      { title: "Arrive in Goa", desc: "Pickup from airport or station and check-in near Calangute–Baga. Evening free." },
+      { title: "Arrive in Goa", desc: "Pickup from airport or station and check-in near Calangute and Baga. Evening free." },
       { title: "North Goa", desc: "Fort Aguada, Sinquerim, Baga, Anjuna and Vagator beaches, Chapora fort at sunset." },
       { title: "South Goa", desc: "Old Goa churches, Panjim, Miramar beach and Dona Paula jetty." },
       { title: "Departure", desc: "Breakfast, check-out and drop to airport or station." },
     ],
     inclusions: [
-      "3 nights stay near Calangute–Baga (quad sharing)",
+      "3 nights stay near Calangute and Baga (quad sharing)",
       "Breakfast daily",
       "AC coach for North and South Goa tours",
       "Airport or station pickup and drop",
@@ -345,20 +345,20 @@ export const packages: TravelPackage[] = [
     price: 9999,
     priceBasis: "per person · triple sharing · ex-Delhi",
     startCity: "Delhi",
-    bestTime: "All year (snow: Dec – Feb)",
+    bestTime: "All year (snow from Dec to Feb)",
     pace: "Easy",
     summary:
-      "Overnight Volvo both ways, two nights in Manali with Solang valley and a riverside night in Kasol — the classic gang trip from Delhi.",
+      "Overnight Volvo from Delhi and back, two nights in Manali with a day at Solang, and a riverside night in Kasol.",
     highlights: ["Solang valley & Atal Tunnel", "Old Manali cafés", "Riverside camp in Kasol", "Manikaran gurudwara"],
     itinerary: [
       { title: "Delhi → Manali (overnight Volvo)", desc: "Evening Volvo departure from Delhi." },
       { title: "Manali", desc: "Check-in. Hadimba temple, Vashisht hot springs and Old Manali in the evening." },
-      { title: "Solang valley", desc: "Solang valley and Atal Tunnel (Sissu) — snow in winter, paragliding in summer." },
+      { title: "Solang valley", desc: "Solang valley and Atal Tunnel to Sissu. Snow in winter, paragliding in summer." },
       { title: "Manali → Kasol", desc: "Drive to Parvati valley. Manikaran gurudwara, riverside camp and bonfire in Kasol." },
       { title: "Kasol → Delhi (overnight Volvo)", desc: "Morning at leisure, evening Volvo back to Delhi." },
     ],
     inclusions: [
-      "Return Volvo seats Delhi–Manali–Delhi",
+      "Return Volvo seats Delhi to Manali and back",
       "2 nights Manali hotel and 1 night Kasol camp (triple sharing)",
       "Breakfast and dinner daily",
       "Sightseeing by tempo traveller",
@@ -383,10 +383,10 @@ export const packages: TravelPackage[] = [
     price: 59999,
     priceBasis: "per person · twin sharing · with flights ex-Delhi",
     startCity: "Delhi",
-    bestTime: "November – April",
+    bestTime: "November to April",
     pace: "Easy · island hopping",
     summary:
-      "Phi Phi island, the four islands of Krabi and Patong nights — with return flights from Delhi, so the whole group just shows up at the airport.",
+      "Phi Phi, the four islands of Krabi and evenings in Patong, with return flights from Delhi included for the whole group.",
     highlights: ["Phi Phi & Maya Bay", "Krabi four-island tour", "Big Buddha & old town", "Patong beach nights"],
     itinerary: [
       { title: "Fly to Phuket", desc: "Arrive in Phuket, transfer to your hotel. Evening on Patong beach." },
