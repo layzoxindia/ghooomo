@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Wordmark } from "./Logo";
 import { site } from "@/lib/site";
 import { destinations } from "@/data/destinations";
+import { guides } from "@/data/guides";
 import { MailIcon, PhoneIcon, PinIcon } from "./Icons";
 
 const col = "flex flex-col gap-3";
@@ -27,12 +28,22 @@ export default function Footer() {
               <Link className={link} href="/solo">Travelling solo</Link>
               <Link className={link} href="/couple">Holidays for two</Link>
               <Link className={link} href="/group">Family & groups</Link>
+              {guides.map((g) => (
+                <Link key={g.slug} className={link} href={`/holidays/${g.slug}`}>{g.nav}</Link>
+              ))}
             </div>
             <div className={col}>
-              <span className={head}>Destinations</span>
-              {destinations.map((d) => (
+              <span className={head}>Abroad</span>
+              {destinations.filter((d) => d.region === "International").map((d) => (
                 <Link key={d.slug} className={link} href={`/destinations/${d.slug}`}>{d.name}</Link>
               ))}
+            </div>
+            <div className={col}>
+              <span className={head}>In India</span>
+              {destinations.filter((d) => d.region === "India").map((d) => (
+                <Link key={d.slug} className={link} href={`/destinations/${d.slug}`}>{d.name}</Link>
+              ))}
+              <Link className={`${link} font-bold`} href="/destinations">All destinations</Link>
             </div>
             <div className={col}>
               <span className={head}>Company</span>

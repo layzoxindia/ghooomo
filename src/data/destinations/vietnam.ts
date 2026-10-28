@@ -1,0 +1,100 @@
+import type { Destination } from "./types";
+
+export const vietnam: Destination = {
+  slug: "vietnam",
+  name: "Vietnam",
+  region: "International",
+  country: "Vietnam",
+  seoTitle: "Vietnam Tour Packages from India | Ha Long Bay, Hoi An",
+  metaDescription: "Plan a Vietnam holiday from India: Hanoi, Ha Long Bay cruises, Hoi An, Da Nang and Phu Quoc. Best time to visit, e-visa for Indians and itineraries.",
+  h1: "Vietnam holidays from India",
+  tagline: "Limestone bays, lantern-lit old towns, mountain passes and some of Asia's best food.",
+  hero: { id: "vietnam-halong-dusk", alt: "Limestone islands of Ha Long Bay at sunset" },
+  gallery: [
+    { id: "vietnam-hoian-bridge", alt: "Hoi An old town lit up at night" },
+    { id: "vietnam-hoian-lanterns", alt: "Silk lanterns in Hoi An" },
+  ],
+  intro: [
+    "Vietnam has become one of the fastest-growing destinations for Indian travellers, and it delivers far more than its price suggests. In a week you can sleep on a cruise among the limestone islands of Ha Long Bay, wander the lantern-lit streets of Hoi An and cross the Golden Bridge in the hills above Da Nang.",
+    "The country is long and narrow, so most first trips focus on the north and centre: Hanoi, Ha Long Bay, Da Nang and Hoi An. With more time, add Ho Chi Minh City and the Mekong Delta in the south, or the island of Phu Quoc for a beach finish.",
+    "Hotels are excellent value, domestic flights are short and cheap, and the food alone is worth the trip. Vegetarian travellers will find more choice than they expect, especially in Hanoi and Hoi An.",
+  ],
+  facts: [
+    { label: "Best time", value: "October to April (varies by region)" },
+    { label: "Ideal stay", value: "7 to 10 nights" },
+    { label: "Flight from India", value: "About 5 hours, direct or one stop" },
+    { label: "Visa for Indians", value: "E-visa, up to 90 days" },
+    { label: "Currency", value: "Vietnamese Dong (VND)" },
+    { label: "Time", value: "1 hour 30 minutes ahead of India" },
+  ],
+  goodFor: [
+    { t: "Couples", d: "Overnight bay cruises, boutique hotels in Hoi An and beach resorts in Da Nang." },
+    { t: "Friends", d: "Street food, night markets, motorbike passes and great value." },
+    { t: "First trip to Southeast Asia", d: "Easy to travel, safe and full of variety." },
+  ],
+  months: ["good", "best", "best", "best", "good", "good", "low", "low", "low", "good", "best", "good"],
+  seasons: [
+    { name: "North (Hanoi, Ha Long)", when: "October to April", text: "Dry and pleasant in autumn and spring; cool and sometimes misty in December and January." },
+    { name: "Centre (Da Nang, Hoi An)", when: "February to August", text: "Sunny and dry. September to December brings heavy rain and the occasional storm." },
+    { name: "South (Saigon, Phu Quoc)", when: "November to April", text: "Dry season with hot, sunny days. May to October has short tropical downpours." },
+  ],
+  reach: [
+    "There are direct flights from Delhi and Mumbai to Hanoi and Ho Chi Minh City, and seasonal direct flights to Da Nang and Phu Quoc. Flying time is about 5 hours. One-stop routes via Bangkok, Singapore or Kuala Lumpur are also common.",
+    "Inside Vietnam, short domestic flights connect Hanoi, Da Nang and Ho Chi Minh City in around an hour. Ha Long Bay is 2 to 3 hours by road from Hanoi, and Hoi An is 45 minutes from Da Nang airport.",
+  ],
+  entry: {
+    title: "Visa for Indian passport holders",
+    text: [
+      "Indian citizens can apply for a Vietnam e-visa online through the official government portal. It allows stays of up to 90 days, single or multiple entry, and usually takes three to five working days. The government fee is 25 US dollars for single entry.",
+      "Phu Quoc island has its own rule: travellers who fly directly to Phu Quoc from abroad and stay only on the island can visit visa-free for up to 30 days. Any trip to the mainland needs the full e-visa.",
+    ],
+    checklist: [
+      "Passport valid for at least 6 months",
+      "Approved e-visa printed or saved on your phone",
+      "Return or onward ticket",
+      "Hotel bookings for your stay",
+    ],
+  },
+  places: [
+    { name: "Hanoi", text: "The old quarter, Hoan Kiem lake, the Temple of Literature and a street food tour in the evening." },
+    { name: "Ha Long Bay and Lan Ha Bay", text: "Thousands of limestone islands, best seen on an overnight cruise with kayaking and caves." },
+    { name: "Hoi An", text: "A UNESCO-listed trading town with lanterns, tailors, riverside cafes and nearby beaches." },
+    { name: "Da Nang and Ba Na Hills", text: "City beaches, the Marble Mountains and the Golden Bridge held up by giant stone hands." },
+    { name: "Ninh Binh", text: "Rice fields and karst scenery, explored by rowing boat through caves." },
+    { name: "Ho Chi Minh City and the Mekong", text: "The busy southern city, the Cu Chi tunnels and floating markets in the delta." },
+    { name: "Phu Quoc", text: "An island with long beaches, resorts and one of the world's longest cable cars." },
+  ],
+  things: [
+    { name: "Overnight bay cruise", text: "Kayak among the karsts, visit a cave and watch the sunset from the deck." },
+    { name: "Lantern night in Hoi An", text: "Release a lantern on the Thu Bon river after dark." },
+    { name: "Street food tour", text: "Pho, banh mi, egg coffee and dozens of dishes you will not find at home." },
+    { name: "Get clothes tailored", text: "Hoi An tailors can make a suit or dress in a day or two." },
+    { name: "Hai Van Pass", text: "A spectacular coastal road between Da Nang and Hue." },
+    { name: "Cooking class", text: "A market visit followed by a hands-on class, often in a farm setting." },
+  ],
+  stay: [
+    { name: "Hanoi old quarter", text: "Walkable to the lake and the best food streets." },
+    { name: "Luxury bay cruise", text: "One night is the minimum; two lets you reach quieter Lan Ha Bay." },
+    { name: "Hoi An boutique hotels", text: "Riverside or near the beach at An Bang." },
+    { name: "Da Nang beach resorts", text: "Large resorts on My Khe and Non Nuoc beaches." },
+  ],
+  itineraries: [
+    { title: "7 nights: north and centre", days: ["Arrive in Hanoi, food tour", "Hanoi sights", "Drive to Ha Long Bay, overnight cruise", "Cruise, then fly to Da Nang, drive to Hoi An", "Hoi An old town", "Ba Na Hills and Golden Bridge", "Beach day or cooking class", "Departure from Da Nang"] },
+    { title: "10 nights: north to south", days: ["Arrive in Hanoi", "Hanoi and Ninh Binh", "Ha Long Bay cruise", "Fly to Da Nang, Hoi An", "Hoi An", "Ba Na Hills", "Fly to Ho Chi Minh City", "Cu Chi tunnels", "Mekong Delta", "Fly to Phu Quoc, beach", "Departure"] },
+  ],
+  tips: [
+    "Apply for the e-visa only on the official government portal; many look-alike sites charge extra.",
+    "The weather differs by region in the same month. We plan the route around it.",
+    "Carry some cash in Vietnamese Dong for markets and street food.",
+    "Traffic moves around you: cross roads slowly and steadily.",
+  ],
+  faqs: [
+    { q: "Do Indians need a visa for Vietnam?", a: "Yes. Indian citizens apply online for a Vietnam e-visa, which allows up to 90 days and usually takes three to five working days. Travellers flying directly to Phu Quoc and staying only on the island can visit visa-free for up to 30 days." },
+    { q: "What is the best time to visit Vietnam?", a: "October to April is best for the north, February to August for Da Nang and Hoi An, and November to April for the south. February to April is a good compromise for a whole-country trip." },
+    { q: "How many days are enough for Vietnam?", a: "Seven nights covers Hanoi, Ha Long Bay and Hoi An. Ten nights or more lets you add the south or Phu Quoc." },
+    { q: "Is Vietnam good for vegetarians?", a: "Yes. Buddhist vegetarian restaurants are common, and Indian restaurants are easy to find in Hanoi, Hoi An, Da Nang and Ho Chi Minh City." },
+    { q: "Is a Ha Long Bay cruise worth it?", a: "Yes. A night on the bay lets you see it at sunset and early morning, when the day-trip boats have gone. Choose a cruise that goes to Lan Ha Bay for fewer crowds." },
+    { q: "Are there direct flights from India to Vietnam?", a: "Yes, from Delhi and Mumbai to Hanoi and Ho Chi Minh City, with seasonal routes to Da Nang and Phu Quoc." },
+  ],
+  packageSlugs: ["vietnam-halong-hoian"],
+};

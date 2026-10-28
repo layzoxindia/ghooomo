@@ -124,7 +124,7 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
         </div>
       </section>
 
-      <div className="wrap grid gap-12 py-16 lg:grid-cols-[240px_1fr] lg:gap-16 lg:py-24">
+      <div className="wrap grid grid-cols-1 gap-12 py-16 lg:grid-cols-[240px_1fr] lg:gap-16 lg:py-24">
         {/* Contents */}
         <aside className="hidden lg:block">
           <nav aria-label="On this page" className="sticky top-28 flex flex-col gap-1 border-l-2 border-line pl-5">
@@ -165,7 +165,7 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
           {/* Best time */}
           <section className="flex flex-col gap-7">
             <H2 id="best-time">Best time to visit {d.name}</H2>
-            <div className="overflow-x-auto rounded-[22px] border border-line bg-white p-4 sm:p-5">
+            <div className="relative overflow-x-auto rounded-[22px] border border-line bg-white p-4 sm:p-5">
               <ol className="grid min-w-[560px] grid-cols-12 gap-1.5">
                 {d.months.map((r, i) => (
                   <li key={MONTHS[i]} className="flex flex-col items-center gap-1.5 rounded-xl py-3 text-center" style={{ background: ratingStyle[r].bg, color: ratingStyle[r].fg }}>

@@ -5,11 +5,12 @@ import EnquirySection from "@/components/EnquirySection";
 import Reveal from "@/components/Reveal";
 import { ArrowIcon } from "@/components/Icons";
 import { destinations } from "@/data/destinations";
+import { guides } from "@/data/guides";
 import { photoSrc } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Holiday Destinations from India: Travel Guides | Ghooomo" },
-  description: "Travel guides to the Maldives, Bali, Dubai, Thailand, Europe, Kashmir, Kerala and Goa: best time to visit, visas, places to see and itineraries.",
+  description: "Travel guides to the Maldives, Bali, Thailand, Switzerland, Japan, Sri Lanka, Kashmir, Kerala, Rajasthan and more: best time to visit, visas and itineraries.",
   alternates: { canonical: "/destinations" },
   openGraph: { images: [{ url: "/photos/world-santorini.jpg" }] },
 };
@@ -53,6 +54,20 @@ export default function DestinationsPage() {
       <div className="wrap flex flex-col gap-20 py-16 sm:py-24">
         <Grid title="International destinations" list={destinations.filter((d) => d.region === "International")} />
         <Grid title="Destinations in India" list={destinations.filter((d) => d.region === "India")} />
+        <section className="flex flex-col gap-7">
+          <h2 className="text-[clamp(30px,3.6vw,48px)] leading-[1.06] text-ink">Holiday guides</h2>
+          <ul className="grid gap-4 md:grid-cols-3">
+            {guides.map((g) => (
+              <li key={g.slug}>
+                <Link href={`/holidays/${g.slug}`} className="group flex h-full flex-col gap-2 rounded-[22px] border border-line bg-white p-6 hover:border-line-strong">
+                  <span className="text-[21px] font-bold text-ink">{g.nav}</span>
+                  <span className="text-[16px] leading-relaxed text-muted">{g.tagline}</span>
+                  <span className="mt-auto flex items-center gap-2 pt-2 text-[15px] font-bold text-ink">Read the guide <ArrowIcon size={15} className="transition-transform group-hover:translate-x-1" /></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
       <EnquirySection title="Looking for somewhere else?" text="We plan holidays worldwide. Tell us where and when, and we’ll put it together for you." />
     </>

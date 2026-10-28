@@ -1,0 +1,95 @@
+import type { Destination } from "./types";
+
+export const switzerland: Destination = {
+  slug: "switzerland",
+  name: "Switzerland",
+  region: "International",
+  country: "Switzerland",
+  seoTitle: "Switzerland Tour Packages from India | Honeymoon & Family",
+  metaDescription: "Plan a Switzerland holiday from India: Interlaken, Jungfraujoch, Lucerne, Titlis, Zermatt and scenic trains. Best time, Schengen visa help and itineraries.",
+  h1: "Switzerland holidays from India",
+  tagline: "Glaciers, lakes, chocolate-box villages and the world's most scenic train rides.",
+  hero: { id: "europe-swiss-train", alt: "Mountain train below the Eiger in Switzerland" },
+  gallery: [{ id: "europe-swiss-valley", alt: "Green valley and peaks in the Bernese Oberland" }],
+  intro: [
+    "Switzerland has been the dream holiday for generations of Indian travellers, and it lives up to it. Snow on the peaks in July, lakes the colour of glass, trains that run to the minute and villages where cars are not allowed.",
+    "A first trip usually covers Lucerne and Mount Titlis, Interlaken and the Jungfrau region, and one of the great scenic trains. With more time, add Zermatt and the Matterhorn, Montreux and Lake Geneva, or St. Moritz in the east.",
+    "Switzerland works for honeymooners, families and older travellers alike. The trick is fewer hotel changes and a Swiss Travel Pass, which covers most trains, boats and buses and gives discounts on mountain excursions.",
+  ],
+  facts: [
+    { label: "Best time", value: "May to September; December to March for snow" },
+    { label: "Ideal stay", value: "6 to 9 nights" },
+    { label: "Flight from India", value: "About 9 hours to Zurich" },
+    { label: "Visa for Indians", value: "Schengen visa" },
+    { label: "Currency", value: "Swiss Franc (CHF)" },
+    { label: "Time", value: "3 hours 30 minutes to 4 hours 30 minutes behind India" },
+  ],
+  goodFor: [
+    { t: "Honeymoons", d: "Lakeside hotels, mountain views and scenic trains." },
+    { t: "Families", d: "Snow in summer at Titlis and Jungfraujoch, boat rides and easy walks." },
+    { t: "Senior travellers", d: "Comfortable trains and cable cars do the climbing for you." },
+  ],
+  months: ["good", "good", "good", "good", "best", "best", "best", "best", "best", "good", "low", "good"],
+  seasons: [
+    { name: "Summer", when: "June to August", text: "Green valleys, open mountain passes and long days. Peak season for Indian travellers." },
+    { name: "Spring and autumn", when: "May, September and October", text: "Fewer crowds, mild weather and good hotel rates. Some high passes open late or close early." },
+    { name: "Winter", when: "December to March", text: "Snow in the villages, skiing and Christmas markets. Excursions to the peaks still run." },
+  ],
+  reach: [
+    "There are direct flights from Mumbai and Delhi to Zurich, and one-stop options through the Gulf and major European hubs. Zurich airport has its own railway station, so you can take a train straight to Lucerne or Interlaken.",
+    "Inside Switzerland, trains, boats and buses connect everything. Paris to Switzerland and Switzerland to Milan are easy train journeys if you are combining countries.",
+  ],
+  entry: {
+    title: "Schengen visa for Indian passport holders",
+    text: [
+      "Switzerland is part of the Schengen area, so Indian citizens need a Schengen visa. If Switzerland is your main destination, you apply to the Swiss mission through its visa centre, with biometrics.",
+      "Processing usually takes 10 to 15 working days and longer in summer, so apply four to eight weeks before travel. We prepare your itinerary, cover letter and document checklist and book the appointment.",
+    ],
+    checklist: [
+      "Passport valid for at least 3 months after return",
+      "Travel insurance with at least 30,000 euros of medical cover",
+      "Flight and hotel bookings and a day-by-day itinerary",
+      "Bank statements, tax returns and employment or business proof",
+    ],
+  },
+  places: [
+    { name: "Lucerne", text: "The Chapel Bridge, the lake and day trips to Mount Titlis, Pilatus and Rigi." },
+    { name: "Interlaken and the Jungfrau region", text: "Jungfraujoch, Grindelwald First, Lauterbrunnen's waterfalls and car-free Mürren." },
+    { name: "Zermatt", text: "The Matterhorn and the Gornergrat railway. Car-free and magical in winter." },
+    { name: "Montreux and Lake Geneva", text: "Chillon Castle, the lakeside promenade and the vineyards of Lavaux." },
+    { name: "Zurich", text: "The old town, the lake and an easy start or end to the trip." },
+    { name: "St. Moritz", text: "Glamorous alpine resort and the end of the Bernina Express." },
+  ],
+  things: [
+    { name: "Jungfraujoch", text: "Train to the Top of Europe at 3,454 metres." },
+    { name: "Mount Titlis", text: "The rotating cable car, the glacier and the cliff walk." },
+    { name: "Glacier Express", text: "Eight hours between Zermatt and St. Moritz in panoramic carriages." },
+    { name: "Lake cruise", text: "On Lake Lucerne, Lake Brienz or Lake Geneva." },
+    { name: "Chocolate and cheese", text: "Factory visits in Gruyères, Broc or Zurich." },
+    { name: "Grindelwald First", text: "The cliff walk, the zipline and mountain carts in summer." },
+  ],
+  stay: [
+    { name: "Lucerne", text: "Lake-view hotels close to the station." },
+    { name: "Interlaken or Grindelwald", text: "Interlaken for convenience, Grindelwald for the views." },
+    { name: "Zermatt", text: "Chalet hotels facing the Matterhorn." },
+  ],
+  itineraries: [
+    { title: "6 nights: classic Switzerland", days: ["Arrive in Zurich, train to Lucerne", "Mount Titlis", "Lake cruise and Lucerne", "Scenic train to Interlaken", "Jungfraujoch", "Grindelwald First", "Departure from Zurich"] },
+    { title: "9 nights: Switzerland in depth", days: ["Arrive, Lucerne", "Mount Titlis", "Interlaken", "Jungfraujoch", "Lauterbrunnen and Mürren", "Zermatt", "Gornergrat and the Matterhorn", "Glacier Express to St. Moritz", "Bernina Express day", "Departure"] },
+  ],
+  tips: [
+    "A Swiss Travel Pass usually pays for itself on a 6 to 8 day trip.",
+    "Check mountain webcams before excursions; clouds can hide the views.",
+    "Carry layers and sunglasses: it can be freezing on the peaks in July.",
+    "Indian restaurants exist in most tourist towns. We can arrange packed meals for long excursion days.",
+  ],
+  faqs: [
+    { q: "Do Indians need a visa for Switzerland?", a: "Yes. Switzerland is in the Schengen area, so Indian citizens need a Schengen visa. Apply four to eight weeks before travel." },
+    { q: "What is the best time to visit Switzerland from India?", a: "May to September for green landscapes and open mountain passes; December to March for snow and winter sports." },
+    { q: "How many days are enough for Switzerland?", a: "Six nights covers Lucerne, Titlis, Interlaken and Jungfraujoch. Eight or nine nights lets you add Zermatt and a scenic train." },
+    { q: "Is the Swiss Travel Pass worth it?", a: "For most trips of six days or more, yes. It covers trains, boats and buses and gives discounts on mountain excursions." },
+    { q: "Can we see snow in Switzerland in summer?", a: "Yes. Jungfraujoch, Mount Titlis and the Matterhorn Glacier Paradise have snow all year." },
+    { q: "Is Switzerland good for a honeymoon?", a: "It is one of the most popular honeymoon destinations for Indian couples, with lakeside hotels, scenic trains and quiet villages." },
+  ],
+  packageSlugs: ["europe-paris-swiss-venice"],
+};

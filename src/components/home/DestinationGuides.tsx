@@ -3,10 +3,16 @@ import Link from "next/link";
 import Reveal from "../Reveal";
 import { ArrowIcon } from "../Icons";
 import { destinations } from "@/data/destinations";
+import { guides } from "@/data/guides";
 import { photoSrc } from "@/lib/site";
 
-/** Links to the destination travel guides, with a one-line teaser each. */
+const FEATURED = ["maldives", "bali", "switzerland", "japan", "dubai", "sri-lanka", "kashmir", "rajasthan"];
+
+/** Links to the destination travel guides: eight featured cards, the rest as chips. */
 export default function DestinationGuides() {
+  const featured = FEATURED.map((s) => destinations.find((d) => d.slug === s)!).filter(Boolean);
+  const rest = destinations.filter((d) => !FEATURED.includes(d.slug));
+  const chip = "flex min-h-11 items-center gap-2 rounded-full border-[1.5px] border-line-strong bg-white px-5 text-[16px] font-semibold text-ink hover:border-ink";
   return (
     <section className="wrap flex flex-col gap-10 py-24 sm:py-32">
       <Reveal className="flex flex-wrap items-end justify-between gap-5">
@@ -17,7 +23,7 @@ export default function DestinationGuides() {
         <Link href="/destinations" className="btn border-2 border-ink text-ink hover:bg-ink hover:text-white">All destinations <ArrowIcon /></Link>
       </Reveal>
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {destinations.map((d, i) => (
+        {featured.map((d, i) => (
           <Reveal as="li" key={d.slug} delay={Math.min(i, 4) * 0.05}>
             <Link href={`/destinations/${d.slug}`} className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-line bg-white">
               <span className="relative aspect-[4/3] overflow-hidden bg-paper-2">
@@ -32,6 +38,17 @@ export default function DestinationGuides() {
           </Reveal>
         ))}
       </ul>
+      <Reveal className="flex flex-col gap-4">
+        <p className="text-[15px] font-bold uppercase tracking-[0.12em] text-subtle">More guides</p>
+        <ul className="flex flex-wrap gap-3">
+          {guides.map((g) => (
+            <li key={g.slug}><Link href={`/holidays/${g.slug}`} className={`${chip} border-ink`}>{g.nav} <ArrowIcon size={15} /></Link></li>
+          ))}
+          {rest.map((d) => (
+            <li key={d.slug}><Link href={`/destinations/${d.slug}`} className={chip}>{d.name}</Link></li>
+          ))}
+        </ul>
+      </Reveal>
     </section>
   );
 }

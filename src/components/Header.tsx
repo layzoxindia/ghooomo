@@ -16,7 +16,7 @@ const nav = [
 
 // Pages that open on a dark full-bleed photo: the header starts transparent with white text.
 const overlayPaths = ["/", "/solo", "/couple", "/group", "/packages", "/about", "/destinations"];
-const isOverlay = (path: string) => overlayPaths.includes(path) || path.startsWith("/packages/") || path.startsWith("/destinations/");
+const isOverlay = (path: string) => overlayPaths.includes(path) || path.startsWith("/packages/") || path.startsWith("/destinations/") || path.startsWith("/holidays/");
 
 export default function Header() {
   const pathname = usePathname();
