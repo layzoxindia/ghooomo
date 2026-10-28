@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroImage from "@/components/HeroImage";
 import TripFinder from "@/components/TripFinder";
+import MobileHome from "@/components/MobileHome";
 import NoSurprises from "@/components/NoSurprises";
 import PackageGrid from "@/components/PackageGrid";
 import EnquirySection from "@/components/EnquirySection";
@@ -46,7 +47,9 @@ export default async function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#13242B] text-white">
+      <MobileHome items={packages} />
+
+      <section className="relative isolate hidden min-h-[100svh] flex-col overflow-hidden bg-[#13242B] text-white md:flex">
         <HeroImage media={heroMedia.home} />
         <div className="absolute inset-0 bg-[#08151E]/45" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#08151E]/80 to-transparent" aria-hidden="true" />
@@ -60,9 +63,6 @@ export default async function Home() {
             <p className="max-w-[580px] text-[clamp(18px,1.5vw,20px)] font-medium text-[#E6ECF1]">
               Travelling alone, as a couple or with a group? Pick one, and a planner from our Noida office puts the trip together for you.
             </p>
-          </div>
-          <div className="hero-rise sm:hidden" style={{ "--d": "0.1s" } as CSSProperties}>
-            <Link href="#packages" className="btn btn-primary w-full">See this season’s trips <ArrowIcon /></Link>
           </div>
           <div className="hero-rise" style={{ "--d": "0.14s" } as CSSProperties}>
             <TripFinder />
@@ -78,12 +78,12 @@ export default async function Home() {
       </section>
 
       {/* DESTINATIONS */}
-      <section aria-label="Destinations" className="border-b border-line pb-4 pt-10">
+      <section aria-label="Destinations" className="hidden border-b border-line pb-4 pt-10 md:block">
         <Marquee items={marquee} />
       </section>
 
       {/* WHO */}
-      <section className="wrap pb-10 pt-24 sm:pt-32">
+      <section className="wrap hidden pb-10 pt-24 sm:pt-32 md:block">
         <Reveal className="mb-10 flex flex-col gap-5 sm:mb-12">
           <h2 className="text-[clamp(40px,5vw,72px)] leading-[1] text-ink">Who’s coming along?</h2>
           <p className="max-w-[560px] text-[18px] text-muted">
@@ -117,7 +117,7 @@ export default async function Home() {
       </section>
 
       {/* PACKAGES */}
-      <section id="packages" className="wrap flex scroll-mt-20 flex-col gap-10 pt-24 sm:pt-32">
+      <section id="packages" className="wrap hidden scroll-mt-20 flex-col gap-10 pt-24 sm:pt-32 md:flex">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <Reveal className="flex max-w-[620px] flex-col gap-4">
             <h2 className="text-[clamp(38px,4.6vw,64px)] leading-[0.98] text-ink">Trips for this season</h2>
@@ -129,7 +129,7 @@ export default async function Home() {
       </section>
 
       {/* PROMISE */}
-      <section className="wrap pt-24 sm:pt-32">
+      <section className="wrap pt-12 sm:pt-32">
         <NoSurprises />
       </section>
 

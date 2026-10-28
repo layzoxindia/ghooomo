@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import WhatsAppFab from "./WhatsAppFab";
+import MobileTabBar from "./MobileTabBar";
 import SmoothScroll from "./SmoothScroll";
 import RevealObserver from "./RevealObserver";
 import Splash from "./Splash";
@@ -18,6 +19,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
       <Header />
       <main id="main">{children}</main>
       <Footer />
+      <MobileTabBar />
       <WhatsAppFab />
     </>
   );

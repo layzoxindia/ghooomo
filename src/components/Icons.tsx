@@ -74,3 +74,49 @@ export const PlusIcon = ({ size = 22, className, strokeWidth = 2.4 }: P) => (
     <path d="M12 5v14M5 12h14" />
   </svg>
 );
+export const SearchIcon = ({ size = 20, className, strokeWidth = 2.2 }: P) => (
+  <svg {...base(size, strokeWidth, className)}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20l-3.5-3.5" />
+  </svg>
+);
+export const SlidersIcon = ({ size = 20, className, strokeWidth = 2.2 }: P) => (
+  <svg {...base(size, strokeWidth, className)}>
+    <path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0" />
+    <circle cx="16" cy="6" r="2" />
+    <circle cx="10" cy="12" r="2" />
+    <circle cx="18" cy="18" r="2" />
+  </svg>
+);
+export const HomeIcon = ({ size = 22, className, strokeWidth = 2.1 }: P) => (
+  <svg {...base(size, strokeWidth, className)}>
+    <path d="M3 10.5L12 3l9 7.5" />
+    <path d="M5 9v11h5v-6h4v6h5V9" />
+  </svg>
+);
+export const GridIcon = ({ size = 22, className, strokeWidth = 2.1 }: P) => (
+  <svg {...base(size, strokeWidth, className)}>
+    <rect x="3.5" y="3.5" width="7" height="7" rx="2" />
+    <rect x="13.5" y="3.5" width="7" height="7" rx="2" />
+    <rect x="3.5" y="13.5" width="7" height="7" rx="2" />
+    <rect x="13.5" y="13.5" width="7" height="7" rx="2" />
+  </svg>
+);
+export const InfoIcon = ({ size = 22, className, strokeWidth = 2.1 }: P) => (
+  <svg {...base(size, strokeWidth, className)}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 11v5M12 8h.01" />
+  </svg>
+);
+export const GlobeIcon = ({ size = 26, className, strokeWidth = 2 }: P) => (
+  <svg {...base(size, strokeWidth, className)}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+  </svg>
+);
+export const MountainIcon = ({ size = 26, className, strokeWidth = 2 }: P) => (
+  <svg {...base(size, strokeWidth, className)}>
+    <path d="M2 20l7-12 4 6 3-4 6 10z" />
+    <path d="M7.5 10.5L9 8l1.6 2.4" />
+  </svg>
+);
