@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
-        light ? "bg-transparent" : "bg-paper shadow-[0_1px_0_rgba(15,43,91,0.1)]"
+        light ? "bg-gradient-to-b from-[#08151E]/55 to-transparent" : "bg-paper shadow-[0_1px_0_rgba(15,43,91,0.1)]"
       }`}
     >
       <div className="wrap flex h-[72px] items-center justify-between gap-4">

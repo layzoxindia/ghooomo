@@ -175,9 +175,9 @@ export const packages: TravelPackage[] = [
     ],
     exclusions: ["Flights to Port Blair", "Lunch and dinner", "Scuba diving and water sports", "Light show tickets", "Travel insurance"],
     photos: [
-      { id: 32959235, alt: "Coconut on a beach on Havelock Island, Andaman" },
-      { id: 29175703, alt: "Tropical beach in the Andaman Islands" },
       { id: 37949154, alt: "Aerial view of Jolly Buoy Island, Andaman" },
+      { id: 29175703, alt: "Tropical beach in the Andaman Islands" },
+      { id: 32959235, alt: "Coconut on a beach on Havelock Island, Andaman" },
     ],
   },
   {
@@ -215,8 +215,8 @@ export const packages: TravelPackage[] = [
     ],
     exclusions: ["International flights", "Indonesia visa on arrival", "Lunch and other dinners", "Water sports and spa", "Travel insurance"],
     photos: [
-      { id: 36965361, alt: "Aerial view of Tegallalang rice terraces in Bali" },
       { id: 35720624, alt: "Swing above Bali rice terraces" },
+      { id: 36965361, alt: "Aerial view of Tegallalang rice terraces in Bali" },
       { id: 29655839, alt: "Bali rice terrace with palm trees" },
     ],
   },

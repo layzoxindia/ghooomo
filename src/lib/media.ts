@@ -28,8 +28,7 @@ export const heroMedia: Record<"home" | "solo" | "couple" | "group" | "stay", He
     posterAlt: "Coastal highway between the sea and green hills",
   },
   stay: {
-    video: { src: "/videos/stay.mp4", ready: true },
-    poster: "/posters/stay.jpg",
-    posterAlt: "A calm, well-made hotel bedroom",
+    poster: "/photos/28843966.jpg",
+    posterAlt: "Overwater villa with a private pool in the Maldives",
   },
 };

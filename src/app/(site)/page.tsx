@@ -30,7 +30,7 @@ const plan = [
 ];
 
 const facts = [
-  { k: "Where we are", v: "Sector 121, Noida. You’re welcome to visit and plan in person." },
+  { k: "Where we are", v: "Sector 121, Noida. You’re welcome to visit and plan in person.", href: site.mapsUrl, cta: "Open in Google Maps" },
   { k: "How we price", v: "Every package shows a starting price and a full list of what’s included and what isn’t." },
   { k: "Who you talk to", v: "One planner from the first message to the last day of the trip." },
   { k: "Your data", v: "Used only to plan your trip. Ask and we delete it." },
@@ -177,7 +177,15 @@ export default async function Home() {
           {facts.map((f, i) => (
             <Reveal key={f.k} delay={i * 0.05} className="grid gap-2 border-t border-line py-6 sm:grid-cols-[200px_1fr] sm:gap-8">
               <dt className="font-display text-[21px] text-ink">{f.k}</dt>
-              <dd className="text-[17px] text-muted">{f.v}</dd>
+              <dd className="text-[17px] text-muted">
+                {f.v}
+                {"href" in f && f.href && (
+                  <>
+                    {" "}
+                    <a href={f.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-ink underline underline-offset-2">{f.cta}</a>
+                  </>
+                )}
+              </dd>
             </Reveal>
           ))}
         </dl>
