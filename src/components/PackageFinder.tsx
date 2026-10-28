@@ -92,7 +92,7 @@ export default function PackageFinder({ items }: { items: TravelPackage[] }) {
 
       <div id="results" className="flex scroll-mt-28 flex-wrap items-center justify-between gap-4" aria-live="polite">
         <p className="text-[17px] font-semibold text-muted">
-          {list.length} {list.length === 1 ? "journey" : "journeys"}
+          {list.length} {list.length === 1 ? "holiday" : "holidays"}
           {month ? ` in season in ${MONTHS[month - 1]}` : ""}
           {dest ? ` in ${dest}` : ""}
         </p>
@@ -123,9 +123,9 @@ export default function PackageFinder({ items }: { items: TravelPackage[] }) {
         </motion.ul>
       ) : (
         <div className="flex flex-col items-start gap-4 rounded-[26px] border border-line bg-white p-8">
-          <h2 className="text-2xl text-ink">Nothing on the list matches that yet.</h2>
-          <p className="text-muted">We plan many more places than we show here. Tell us where and when in the form below, and a planner will design the trip.</p>
-          <button type="button" onClick={() => router.replace("/packages")} className="btn border-2 border-ink text-ink">Show all journeys</button>
+          <h2 className="text-2xl text-ink">No trending holiday matches that yet.</h2>
+          <p className="text-muted">We plan holidays worldwide. Tell us where and when in the form below.</p>
+          <button type="button" onClick={() => router.replace("/packages")} className="btn border-2 border-ink text-ink">Show all holidays</button>
         </div>
       )}
     </div>

@@ -22,8 +22,10 @@ export type TravelPackage = {
   months: number[];
   /** For the globe: [latitude, longitude] */
   coords: [number, number];
-  /** IANA time zone, for the live local time. */
+  /** IANA time zone of the main destination. */
   timeZone: string;
+  /** Local clocks shown on the holiday page: one per country visited. */
+  clocks: { place: string; timeZone: string }[];
   stayStyle: string;
   summary: string;
   highlights: string[];
@@ -33,8 +35,12 @@ export type TravelPackage = {
   photos: Photo[];
 };
 
-type Input = Omit<TravelPackage, "segment">;
-const pkg = (p: Input): TravelPackage => ({ ...p, segment: p.idealFor[0] });
+type Input = Omit<TravelPackage, "segment" | "clocks"> & { clocks?: TravelPackage["clocks"] };
+const pkg = (p: Input): TravelPackage => ({
+  ...p,
+  segment: p.idealFor[0],
+  clocks: p.clocks ?? [{ place: p.destination, timeZone: p.timeZone }],
+});
 
 export const packages: TravelPackage[] = [
   // ---------------- International ----------------
@@ -179,6 +185,7 @@ export const packages: TravelPackage[] = [
     months: [11, 12, 1, 2, 3, 4],
     coords: [7.95, 98.34],
     timeZone: "Asia/Bangkok",
+    clocks: [{ place: "Thailand", timeZone: "Asia/Bangkok" }],
     stayStyle: "Beachfront resorts",
     summary:
       "Six nights split between a beachfront resort in Phuket and the limestone cliffs of Krabi. Phi Phi and Maya Bay by speedboat, Phang Nga Bay, and Railay beach, which you can only reach by boat. Works for couples, families and friends travelling together.",
@@ -266,6 +273,11 @@ export const packages: TravelPackage[] = [
     months: [4, 5, 6, 7, 8, 9, 10],
     coords: [46.68, 7.86],
     timeZone: "Europe/Zurich",
+    clocks: [
+      { place: "Paris", timeZone: "Europe/Paris" },
+      { place: "Switzerland", timeZone: "Europe/Zurich" },
+      { place: "Venice", timeZone: "Europe/Rome" },
+    ],
     stayStyle: "Four and five-star city and lakeside hotels",
     summary:
       "The classic first trip to Europe, done well. Paris, the Bernese Oberland and Lake Lucerne, then the canals of Venice. You travel by first-class train between countries, with timed tickets so there is no queueing.",

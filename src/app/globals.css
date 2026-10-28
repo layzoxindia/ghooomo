@@ -265,3 +265,9 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Hero destination columns and rows */
+@keyframes col-up { from { transform: translateY(0); } to { transform: translateY(calc(-50% - 8px)); } }
+@keyframes col-down { from { transform: translateY(calc(-50% - 8px)); } to { transform: translateY(0); } }
+@keyframes row-left { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 6px)); } }
+@keyframes row-right { from { transform: translateX(calc(-50% - 6px)); } to { transform: translateX(0); } }

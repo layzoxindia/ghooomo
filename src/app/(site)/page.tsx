@@ -1,10 +1,8 @@
-import HeroCinematic, { type HeroSlide } from "@/components/home/HeroCinematic";
+import HeroWorld, { type HeroPlace } from "@/components/home/HeroWorld";
 import JourneyRail, { type RailItem } from "@/components/home/JourneyRail";
-import GlobeSection, { type GlobePoint } from "@/components/home/GlobeSection";
+import GlobeSection from "@/components/home/GlobeSection";
 import TravellerTypes from "@/components/home/TravellerTypes";
-import PricingTrust from "@/components/home/PricingTrust";
-import ServiceTimeline from "@/components/home/ServiceTimeline";
-import FactsStrip from "@/components/home/FactsStrip";
+import WhyUs from "@/components/home/WhyUs";
 import EnquirySection from "@/components/EnquirySection";
 import Testimonials from "@/components/Testimonials";
 import { getCatalog } from "@/lib/server/catalog";
@@ -12,25 +10,31 @@ import { photoSrc } from "@/lib/site";
 
 export const revalidate = 300;
 
-// Order of the opening slideshow.
-const heroOrder = ["maldives-overwater-villa", "vietnam-halong-hoian", "europe-paris-swiss-venice", "sri-lanka-hills-and-coast", "sikkim-darjeeling", "bali-ubud-uluwatu"];
+// Destinations drifting past in the opening section. Mixed on purpose: the
+// company plans holidays worldwide, not only the trips listed on the site.
+const heroPlaces: HeroPlace[] = [
+  { name: "Santorini", country: "Greece", photo: "/photos/world-santorini.jpg" },
+  { name: "Maldives", country: "Indian Ocean", photo: photoSrc(28843922) },
+  { name: "Swiss Alps", country: "Switzerland", photo: "/photos/europe-swiss-train.jpg" },
+  { name: "Kyoto", country: "Japan", photo: "/photos/world-kyoto.jpg" },
+  { name: "Bali", country: "Indonesia", photo: "/photos/bali-villa.jpg" },
+  { name: "Dubai", country: "United Arab Emirates", photo: "/photos/world-dubai.jpg" },
+  { name: "Cappadocia", country: "Türkiye", photo: "/photos/world-cappadocia.jpg" },
+  { name: "Ha Long Bay", country: "Vietnam", photo: "/photos/vietnam-halong-dusk.jpg" },
+  { name: "Udaipur", country: "Rajasthan, India", photo: "/photos/world-udaipur.jpg" },
+  { name: "Mauritius", country: "Indian Ocean", photo: "/photos/world-mauritius.jpg" },
+  { name: "Paris", country: "France", photo: "/photos/europe-paris.jpg" },
+  { name: "Kashmir", country: "India", photo: "/photos/world-kashmir.jpg" },
+  { name: "Singapore", country: "Singapore", photo: "/photos/world-singapore.jpg" },
+  { name: "Phi Phi", country: "Thailand", photo: "/photos/thailand-maya-bay.jpg" },
+  { name: "Venice", country: "Italy", photo: "/photos/europe-venice.jpg" },
+  { name: "Sigiriya", country: "Sri Lanka", photo: "/photos/srilanka-sigiriya.jpg" },
+  { name: "Kerala", country: "India", photo: photoSrc(34489429) },
+  { name: "Kanchenjunga", country: "Sikkim, India", photo: "/photos/sikkim-kanchenjunga.jpg" },
+];
 
 export default async function Home() {
   const packages = await getCatalog();
-
-  const slides: HeroSlide[] = heroOrder
-    .map((slug) => packages.find((p) => p.slug === slug))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p))
-    .map((p) => ({
-      slug: p.slug,
-      title: p.title,
-      place: p.destination,
-      country: p.country,
-      coords: p.coords,
-      timeZone: p.timeZone,
-      photo: photoSrc(p.photos[0].id),
-      alt: p.photos[0].alt,
-    }));
 
   const rail: RailItem[] = packages.map((p) => ({
     slug: p.slug,
@@ -45,28 +49,13 @@ export default async function Home() {
     alt: p.photos[0].alt,
   }));
 
-  const points: GlobePoint[] = [...packages]
-    .sort((a, b) => (a.region === b.region ? 0 : a.region === "International" ? -1 : 1))
-    .map((p) => ({ slug: p.slug, place: p.destination, coords: p.coords, timeZone: p.timeZone, region: p.region }));
-
-  const countries = new Set(packages.filter((p) => p.region === "International").flatMap((p) => p.country.split(", "))).size;
-  const facts = [
-    { n: packages.length, t: "Hand-picked journeys" },
-    { n: countries, t: "Countries abroad" },
-    { n: packages.filter((p) => p.region === "India").length, t: "Regions of India" },
-    { n: 1, t: "Planner, start to finish" },
-    { n: 0, t: "Charges added later" },
-  ];
-
   return (
     <>
-      {slides.length > 0 && <HeroCinematic slides={slides} />}
-      <FactsStrip facts={facts} />
+      <HeroWorld places={heroPlaces} />
       <JourneyRail items={rail} />
-      <GlobeSection points={points} />
+      <GlobeSection />
       <TravellerTypes />
-      <PricingTrust />
-      <ServiceTimeline />
+      <WhyUs />
       <Testimonials />
       <EnquirySection />
     </>

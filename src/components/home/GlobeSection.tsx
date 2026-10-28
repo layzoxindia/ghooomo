@@ -1,98 +1,96 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import DotGlobe from "./DotGlobe";
+import DotGlobe, { type City } from "./DotGlobe";
 import { ArrowIcon } from "../Icons";
-import { useLocalTime, useOffsetFromIST } from "@/lib/geo";
 
-export type GlobePoint = { slug: string; place: string; coords: [number, number]; timeZone: string; region: "India" | "International" };
+const cities: City[] = [
+  { name: "Paris", at: [2.35, 48.86] },
+  { name: "London", at: [-0.13, 51.51] },
+  { name: "Swiss Alps", at: [7.86, 46.68] },
+  { name: "Venice", at: [12.34, 45.44] },
+  { name: "Rome", at: [12.5, 41.9] },
+  { name: "Barcelona", at: [2.17, 41.39] },
+  { name: "Amsterdam", at: [4.9, 52.37] },
+  { name: "Prague", at: [14.42, 50.08] },
+  { name: "Santorini", at: [25.43, 36.39] },
+  { name: "Reykjavik", at: [-21.9, 64.15] },
+  { name: "Istanbul", at: [28.98, 41.01] },
+  { name: "Cappadocia", at: [34.83, 38.64] },
+  { name: "Cairo", at: [31.24, 30.04] },
+  { name: "Dubai", at: [55.27, 25.2] },
+  { name: "Masai Mara", at: [35.14, -1.5] },
+  { name: "Cape Town", at: [18.42, -33.92] },
+  { name: "Seychelles", at: [55.45, -4.68] },
+  { name: "Mauritius", at: [57.55, -20.35] },
+  { name: "Maldives", at: [73.22, 3.2] },
+  { name: "Sri Lanka", at: [80.77, 7.87] },
+  { name: "Bhutan", at: [89.42, 27.43] },
+  { name: "Kathmandu", at: [85.32, 27.7] },
+  { name: "Bangkok", at: [100.5, 13.75] },
+  { name: "Phuket", at: [98.34, 7.95] },
+  { name: "Singapore", at: [103.82, 1.35] },
+  { name: "Bali", at: [115.19, -8.41] },
+  { name: "Hanoi", at: [105.85, 21.03] },
+  { name: "Ha Long Bay", at: [107.18, 20.91] },
+  { name: "Tokyo", at: [139.69, 35.69] },
+  { name: "Kyoto", at: [135.77, 35.01] },
+  { name: "Seoul", at: [126.98, 37.57] },
+  { name: "Sydney", at: [151.21, -33.87] },
+  { name: "Queenstown", at: [168.66, -45.03] },
+  { name: "New York", at: [-74.0, 40.71] },
+  { name: "Cancún", at: [-86.85, 21.16] },
+  { name: "Kashmir", at: [74.8, 34.08], india: true },
+  { name: "Udaipur", at: [73.71, 24.58], india: true },
+  { name: "Kerala", at: [76.52, 9.59], india: true },
+  { name: "Goa", at: [73.94, 15.3], india: true },
+  { name: "Andaman", at: [92.99, 11.97], india: true },
+  { name: "Sikkim", at: [88.61, 27.33], india: true },
+  { name: "Kutch", at: [69.86, 23.87], india: true },
+];
 
-function Row({ p, active, onFocus }: { p: GlobePoint; active: boolean; onFocus: () => void }) {
-  const time = useLocalTime(p.timeZone);
-  const off = useOffsetFromIST(p.timeZone);
-  return (
-    <li>
-      <Link
-        href={`/packages/${p.slug}`}
-        onMouseEnter={onFocus}
-        onFocus={onFocus}
-        className={`grid grid-cols-[1fr_auto] items-center gap-3 border-t border-white/12 py-3 transition-colors ${active ? "text-white" : "text-on-night hover:text-white"}`}
-      >
-        <span className="flex min-w-0 items-center gap-3">
-          <span className={`h-2 w-2 shrink-0 rounded-full transition-all ${active ? "scale-150 bg-ring-1" : "bg-white/40"}`} aria-hidden="true" />
-          <span className="flex min-w-0 flex-col">
-            <span className="truncate text-[17px] font-semibold">{p.place}</span>
-            <span className="tabular text-[14px] font-medium text-white/65">{off || "\u00A0"}</span>
-          </span>
-        </span>
-        <span className="tabular whitespace-nowrap text-[16px] font-semibold">{time}</span>
-      </Link>
-    </li>
-  );
-}
+const regions = [
+  { t: "Europe", list: "Paris, Switzerland, Italy, Greece, London, Spain, Iceland" },
+  { t: "Asia", list: "Bali, Thailand, Vietnam, Singapore, Japan, Bhutan" },
+  { t: "Middle East & Africa", list: "Dubai, Türkiye, Egypt, Kenya, South Africa" },
+  { t: "Islands", list: "Maldives, Mauritius, Seychelles, Sri Lanka" },
+  { t: "India", list: "Kashmir, Rajasthan, Kerala, Goa, Andamans, Sikkim, Gujarat" },
+];
 
-/** Dark "control room" section: a WebGL globe that turns to whichever journey you point at. */
-export default function GlobeSection({ points }: { points: GlobePoint[] }) {
+export default function GlobeSection() {
   const reduce = useReducedMotion();
-  const [active, setActive] = useState(0);
-  const [spin, setSpin] = useState(true);
-  const lngLat = useMemo(() => points.map((p) => [p.coords[1], p.coords[0]] as [number, number]), [points]);
-
-  const focus = (n: number) => {
-    setActive(n);
-    setSpin(false);
-  };
-
-  const intl = points.filter((p) => p.region === "International");
-  const india = points.filter((p) => p.region === "India");
-
   return (
-    <section className="tech-grid relative overflow-hidden bg-night py-24 text-white sm:py-32" onMouseLeave={() => setSpin(true)}>
+    <section className="relative overflow-hidden bg-night py-24 text-white sm:py-32">
       <div className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-ring-3/15 blur-[120px]" aria-hidden="true" />
       <div className="pointer-events-none absolute -right-40 bottom-0 h-[520px] w-[520px] rounded-full bg-ring-1/15 blur-[120px]" aria-hidden="true" />
 
-      <div className="wrap relative grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="flex flex-col gap-8">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col gap-4"
-          >
-            <p className="kicker text-ring-2">02 · From Delhi to the world</p>
-            <h2 className="text-[clamp(36px,4.4vw,62px)] leading-[1.04]">One planner, watching every time zone you travel through.</h2>
-            <p className="max-w-[540px] text-[18px] text-on-night">
-              Point at a journey to see where it is and what time it is there right now. Your planner works on your clock and theirs, so transfers, check-ins and calls line up.
-            </p>
-          </motion.div>
-
-          <div className="grid gap-8 sm:grid-cols-2">
-            {[{ t: "Abroad", list: intl, start: 0 }, { t: "India", list: india, start: intl.length }].map((g) => (
-              <div key={g.t}>
-                <p className="kicker mb-1 text-white/70">{g.t}</p>
-                <ul>
-                  {g.list.map((p, n) => (
-                    <Row key={p.slug} p={p} active={active === g.start + n} onFocus={() => focus(g.start + n)} />
-                  ))}
-                </ul>
+      <div className="wrap relative grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col gap-7"
+        >
+          <h2 className="text-[clamp(36px,4.4vw,62px)] leading-[1.04]">Holidays to every corner of the world</h2>
+          <p className="max-w-[520px] text-[18px] leading-relaxed text-on-night">
+            From the Greek islands to the temples of Kyoto, the beaches of the Maldives to the houseboats of Kashmir. Wherever you want to go, we’ll plan it.
+          </p>
+          <dl className="flex flex-col">
+            {regions.map((r) => (
+              <div key={r.t} className="grid gap-1 border-t border-white/12 py-3.5 sm:grid-cols-[190px_1fr] sm:gap-4">
+                <dt className="text-[16px] font-bold text-ring-2">{r.t}</dt>
+                <dd className="text-[16px] font-medium text-on-night">{r.list}</dd>
               </div>
             ))}
-          </div>
+          </dl>
+          <Link href="#enquire" className="btn btn-primary self-start">Plan a holiday <ArrowIcon /></Link>
+        </motion.div>
 
-          <Link href="/packages" className="btn btn-ghost self-start">See every journey <ArrowIcon /></Link>
-        </div>
-
-        <div className="relative mx-auto aspect-square w-full max-w-[620px]">
-          <div className="absolute inset-[6%] rounded-full border border-white/10" aria-hidden="true" />
-          <div className="absolute inset-[16%] rounded-full border border-dashed border-white/10" aria-hidden="true" />
-          <DotGlobe points={lngLat} active={active} spin={spin} />
-          <p className="tabular absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white/10 px-4 py-2 text-[14px] font-semibold text-on-night backdrop-blur">
-            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-ring-1 align-middle" aria-hidden="true" />
-            {points[active].place}
-          </p>
+        <div className="relative mx-auto aspect-square w-full max-w-[640px]">
+          <div className="absolute inset-[4%] rounded-full border border-white/10" aria-hidden="true" />
+          <DotGlobe cities={cities} />
         </div>
       </div>
     </section>

@@ -25,7 +25,7 @@ export default function CouplePage() {
       segment="couple"
       heading="Holidays for two."
       intro="Honeymoons, anniversaries and long weekends. Rooms chosen for the view and the quiet, private transfers, and a pace with room to breathe."
-      primaryCta="See journeys for two"
+      primaryCta="See holidays for two"
       heroPhoto="/posters/couple.jpg"
       heroAlt="A couple walking hand in hand on the beach"
       whyTitle="What a couple holiday includes"
@@ -40,7 +40,7 @@ export default function CouplePage() {
           <div className="grid gap-10 rounded-[30px] border border-[#F0DDB2] bg-[#FFF6E3] p-7 sm:p-12 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal className="flex flex-col gap-4">
               <h2 className="text-[clamp(30px,3.6vw,48px)] leading-[1.04] text-ink">Add something special</h2>
-              <p className="text-[17px] text-muted">Mention any of these when you enquire. Your planner adds them to the trip and quotes them separately.</p>
+              <p className="text-[17px] text-muted">Mention any of these when you enquire and we’ll add them to your holiday.</p>
             </Reveal>
             <ul className="grid gap-x-8 sm:grid-cols-2">
               {extras.map((x, i) => (
@@ -55,8 +55,8 @@ export default function CouplePage() {
       }
       enquiry={{
         title: "Tell us about your trip",
-        text: "Share the occasion and rough dates. A planner will suggest two or three ways to do it and quote the one you like.",
-        submit: "Get our quote",
+        text: "Share the occasion and rough dates, and we’ll plan it for you.",
+        submit: "Send enquiry",
       }}
     />
   );

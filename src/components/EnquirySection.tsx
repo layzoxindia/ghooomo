@@ -5,8 +5,8 @@ import Reveal from "./Reveal";
 
 export default function EnquirySection({
   segment,
-  title = "Start with a conversation.",
-  text = "Tell us who is travelling, roughly when, and what you have in mind. A planner from our Noida office comes back to you with ideas and a quote for your dates.",
+  title = "Plan your holiday",
+  text = "Tell us where you’d like to go, when, and who is travelling. Our team will get back to you with a plan.",
   submitLabel,
 }: {
   segment?: Segment;
@@ -22,7 +22,6 @@ export default function EnquirySection({
       <div className="pointer-events-none absolute -bottom-32 right-0 h-[420px] w-[420px] rounded-full bg-ring-3/20 blur-[120px]" aria-hidden="true" />
       <div className="wrap relative grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <Reveal className="flex flex-col gap-6 lg:sticky lg:top-28">
-          <p className="kicker text-ring-2">Plan your holiday</p>
           <h2 className="text-[clamp(38px,4.6vw,64px)] leading-[1.02]">{title}</h2>
           <p className="max-w-[480px] text-[18px] leading-relaxed text-on-night">{text}</p>
           <ul className="flex flex-col gap-4 border-t border-white/15 pt-6 text-[16px] font-semibold">

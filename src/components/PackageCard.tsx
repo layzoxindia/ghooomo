@@ -4,7 +4,7 @@ import type { TravelPackage } from "@/data/packages";
 import { photoSrc, segments } from "@/lib/site";
 import { ArrowIcon } from "./Icons";
 
-/** Journey card. No price: every trip is quoted for the traveller's dates. */
+/** Holiday card. */
 export default function PackageCard({ p }: { p: TravelPackage; showTag?: boolean }) {
   const photo = p.photos[0];
   return (
@@ -46,7 +46,7 @@ export default function PackageCard({ p }: { p: TravelPackage; showTag?: boolean
             <span className="text-[16px] font-bold text-ink">{p.bestTime.replace(/ \(.*\)$/, "")}</span>
           </p>
           <span className="flex items-center gap-2 text-[15px] font-bold text-cta">
-            View journey
+            View holiday
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cta text-white transition-transform duration-500 group-hover:translate-x-1">
               <ArrowIcon size={16} />
             </span>

@@ -39,7 +39,7 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
         <div className="wrap mt-auto flex flex-col gap-6 pb-16 pt-36">
           <Reveal className="flex items-center gap-4">
             <span className="rounded-full bg-white p-1.5"><RingMark dots={dots[segment]} color={seg.color} size={44} /></span>
-            <span className="kicker" style={{ color: accent[segment] }}>{seg.label} journeys</span>
+            <span className="kicker" style={{ color: accent[segment] }}>{seg.label} holidays</span>
           </Reveal>
           <Reveal delay={0.06}><h1 className="max-w-[900px] text-[clamp(44px,6.4vw,96px)] font-bold leading-[1.02]">{heading}</h1></Reveal>
           <Reveal delay={0.1}><p className="max-w-[620px] text-[19px] font-medium leading-relaxed text-on-night">{intro}</p></Reveal>
@@ -53,10 +53,9 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
       <section id="journeys" className="wrap flex scroll-mt-20 flex-col gap-10 py-20 sm:py-28">
         <Reveal className="flex flex-wrap items-end justify-between gap-3">
           <div className="flex flex-col gap-3">
-            <p className="kicker text-solo-text">Journeys that suit</p>
-            <h2 className="text-[clamp(34px,4.2vw,58px)] leading-[1.02] text-ink">{seg.label} journeys</h2>
+            <h2 className="text-[clamp(34px,4.2vw,58px)] leading-[1.02] text-ink">{seg.label} holidays</h2>
           </div>
-          <span className="text-[16px] font-semibold text-subtle">{items.length} journeys · quoted for your dates</span>
+          <span className="text-[16px] font-semibold text-subtle">Trending now · every itinerary can be tailored</span>
         </Reveal>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((p, i) => (
@@ -71,7 +70,6 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
 
       <section className="wrap grid gap-12 py-24 sm:py-32 lg:grid-cols-[0.8fr_1.2fr]">
         <Reveal className="flex flex-col gap-4">
-          <p className="kicker text-solo-text">The details</p>
           <h2 className="text-[clamp(34px,4.4vw,60px)] leading-[1.02] text-ink">{whyTitle}</h2>
         </Reveal>
         <dl className="flex flex-col">

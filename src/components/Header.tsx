@@ -8,7 +8,7 @@ import { MenuIcon, XIcon } from "./Icons";
 import { segments, site, type Segment } from "@/lib/site";
 
 const nav = [
-  { href: "/packages", label: "Journeys" },
+  { href: "/packages", label: "Holidays" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

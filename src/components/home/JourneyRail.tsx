@@ -20,7 +20,7 @@ export type RailItem = {
   alt: string;
 };
 
-function Card({ p, index }: { p: RailItem; index: number }) {
+function Card({ p }: { p: RailItem }) {
   return (
     <Link
       href={`/packages/${p.slug}`}
@@ -36,7 +36,6 @@ function Card({ p, index }: { p: RailItem; index: number }) {
       />
       <span className="absolute inset-0 bg-gradient-to-t from-night via-night/35 to-transparent" aria-hidden="true" />
       <span className="absolute left-5 top-5 flex items-center gap-2">
-        <span className="tabular rounded-full bg-night/70 px-3 py-1.5 text-[14px] font-semibold backdrop-blur-md">{String(index + 1).padStart(2, "0")}</span>
         <span className="rounded-full bg-night/70 px-3 py-1.5 text-[14px] font-semibold backdrop-blur-md">{p.nights} nights</span>
       </span>
       <span className="relative flex flex-col gap-3 p-6 sm:p-7">
@@ -51,7 +50,7 @@ function Card({ p, index }: { p: RailItem; index: number }) {
           </span>
         </span>
         <span className="mt-1 flex items-center gap-2 text-[15px] font-bold">
-          View journey
+          View holiday
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-ink transition-transform duration-500 group-hover:translate-x-1">
             <ArrowIcon size={16} />
           </span>
@@ -100,11 +99,8 @@ export default function JourneyRail({ items }: { items: RailItem[] }) {
   const header = (
     <div className="wrap flex flex-wrap items-end justify-between gap-6">
       <div className="flex max-w-[680px] flex-col gap-4">
-        <p className="kicker text-solo-text">01 · Journeys</p>
-        <h2 className="text-[clamp(38px,4.8vw,68px)] leading-[1.02] text-ink">Where we’ll take you</h2>
-        <p className="text-[18px] text-muted">
-          A short list, chosen on purpose. Every journey here is one we plan often, with hotels and local partners we know well.
-        </p>
+        <h2 className="text-[clamp(38px,4.8vw,68px)] leading-[1.02] text-ink">Trending holidays</h2>
+        <p className="text-[18px] text-muted">The season’s most sought-after destinations. Every itinerary can be tailored to you.</p>
       </div>
       <div role="tablist" aria-label="India or abroad" className="flex rounded-full border border-line-strong bg-white p-1">
         {(["International", "India"] as const).map((t) => (
@@ -127,9 +123,9 @@ export default function JourneyRail({ items }: { items: RailItem[] }) {
       <section id="journeys" className="scroll-mt-20 py-24 sm:py-32">
         {header}
         <ul className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-7 lg:px-[max(28px,calc((100vw-1240px)/2+28px))]">
-          {list.map((p, n) => (
+          {list.map((p) => (
             <li key={p.slug} className="h-[480px] w-[84vw] shrink-0 snap-start sm:h-[540px] sm:w-[420px]">
-              <Card p={p} index={n} />
+              <Card p={p} />
             </li>
           ))}
         </ul>
@@ -142,9 +138,9 @@ export default function JourneyRail({ items }: { items: RailItem[] }) {
       <div className="sticky top-0 flex h-screen flex-col justify-center gap-10 overflow-hidden pt-16">
         {header}
         <motion.ul style={{ x }} className="flex gap-6 px-[max(28px,calc((100vw-1240px)/2+28px))]">
-          {list.map((p, n) => (
+          {list.map((p) => (
             <li key={p.slug} className="h-[min(56vh,560px)] w-[min(34vw,460px)] shrink-0">
-              <Card p={p} index={n} />
+              <Card p={p} />
             </li>
           ))}
         </motion.ul>

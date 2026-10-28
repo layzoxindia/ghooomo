@@ -23,7 +23,7 @@ export default function GroupPage() {
       segment="group"
       heading="One plan for the whole group."
       intro="Three generations of a family, a circle of friends or a small company offsite. One planner, one itinerary, and rooms and vehicles sized for your group."
-      primaryCta="See group journeys"
+      primaryCta="See group holidays"
       heroPhoto="/photos/thailand-maya-bay.jpg"
       heroAlt="Boats in the turquoise water of Maya Bay, Thailand"
       whyTitle="What a group trip includes"
@@ -51,8 +51,8 @@ export default function GroupPage() {
       }
       enquiry={{
         title: "How many of you are going?",
-        text: "Share the basics: how many, roughly when and where. We send a draft plan and a quote for the whole group.",
-        submit: "Get a group quote",
+        text: "Tell us how many of you, roughly when and where, and we’ll plan it for the whole group.",
+        submit: "Send enquiry",
       }}
     />
   );

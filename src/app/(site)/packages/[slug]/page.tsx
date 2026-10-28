@@ -7,8 +7,7 @@ import Itinerary from "@/components/Itinerary";
 import PackageCard from "@/components/PackageCard";
 import Reveal from "@/components/Reveal";
 import LocalTimeBadge from "@/components/LocalTimeBadge";
-import NoSurprises from "@/components/NoSurprises";
-import { CheckIcon, XIcon, ClockIcon, PinIcon, ShieldIcon } from "@/components/Icons";
+import { CheckIcon, XIcon, ClockIcon, PinIcon, PhoneIcon } from "@/components/Icons";
 import { packages } from "@/data/packages";
 import { getCatalog } from "@/lib/server/catalog";
 import { photoSrc, segments, site } from "@/lib/site";
@@ -32,16 +31,6 @@ export async function generateMetadata({ params }: PageProps<"/packages/[slug]">
     openGraph: { images: [{ url: photoSrc(p.photos[0].id), width: 1800, height: 1200, alt: p.photos[0].alt }] },
   };
 }
-
-const quoteHas = [
-  "Hotels named, with room type",
-  "Flights, if you want us to book them",
-  "Every transfer, tour and ticket",
-  "Taxes shown on their own line",
-  "How long the price is held",
-];
-
-const affects = ["Your travel dates and season", "Hotel and room category", "Number of travellers", "Flights from your city"];
 
 export default async function PackagePage({ params }: PageProps<"/packages/[slug]">) {
   const { slug } = await params;
@@ -75,7 +64,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         <div className="wrap mt-auto flex flex-col gap-6 pb-14 pt-36">
           <nav aria-label="Breadcrumb" className="flex flex-wrap gap-2 text-[15px] font-medium text-on-night">
             <Link href="/" className="hover:text-white">Home</Link><span aria-hidden="true">/</span>
-            <Link href="/packages" className="hover:text-white">Journeys</Link><span aria-hidden="true">/</span>
+            <Link href="/packages" className="hover:text-white">Holidays</Link><span aria-hidden="true">/</span>
             <span aria-current="page" className="text-white">{p.destination}</span>
           </nav>
           <div className="flex flex-wrap gap-2">
@@ -91,8 +80,8 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
           <h1 className="max-w-[980px] text-[clamp(40px,6vw,88px)] font-bold leading-[1.02]">{p.title}</h1>
           <p className="max-w-[760px] text-[18px] font-medium text-on-night">{p.route}</p>
           <div className="flex flex-wrap items-center gap-4">
-            <a href="#enquire-form" className="btn btn-primary">Get my quote</a>
-            <LocalTimeBadge timeZone={p.timeZone} coords={p.coords} place={p.destination} />
+            <a href="#enquire-form" className="btn btn-primary">Enquire now</a>
+            <LocalTimeBadge clocks={p.clocks} />
           </div>
         </div>
       </section>
@@ -133,7 +122,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
           <div className="flex flex-col gap-5">
             <h2 className="text-[clamp(28px,3vw,40px)] text-ink">Day by day</h2>
             <Itinerary days={p.itinerary} accent="#C9431D" />
-            <p className="text-[15px] text-subtle">This is a starting plan. Your planner will change days, hotels and pace to suit you.</p>
+            <p className="text-[15px] text-subtle">This itinerary can be tailored to suit you.</p>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2">
@@ -159,7 +148,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
             <div className="flex flex-col gap-2">
               <h2 className="text-[clamp(28px,3vw,40px)] text-ink">If you need to cancel</h2>
               <p className="text-[16px] text-muted">
-                Our standard terms, as a share of the trip cost. Your quote shows the exact amounts for your booking before you pay. Refunds reach your account within {REFUND_DAYS}.
+                Standard cancellation charges, as a share of the holiday cost. Refunds are processed within {REFUND_DAYS}.
                 {p.region === "International" ? " Flights and visas already issued are refunded only as the airline or embassy allows." : ""}
               </p>
             </div>
@@ -189,32 +178,21 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         <aside id="enquire" className="w-full flex-[1_1_380px] scroll-mt-24 lg:sticky lg:top-24">
           <div className="relative mb-4 overflow-hidden rounded-[26px] bg-night p-7 text-white">
             <div className="ring-gradient absolute inset-x-0 top-0 h-1.5" aria-hidden="true" />
-            <p className="kicker text-ring-2">Priced for your dates</p>
-            <h2 className="mt-2 text-[26px] font-bold leading-tight">Your quote will show</h2>
-            <ul className="mt-4 flex flex-col gap-2.5">
-              {quoteHas.map((x) => (
-                <li key={x} className="flex gap-2.5 text-[16px] font-medium text-on-night"><CheckIcon size={18} className="mt-0.5 shrink-0 text-[#5BE0D5]" />{x}</li>
-              ))}
-            </ul>
-            <div className="mt-5 border-t border-white/15 pt-4">
-              <p className="text-[14px] font-semibold text-white/70">What changes the price</p>
-              <p className="mt-1 text-[15px] font-medium text-on-night">{affects.join(" · ")}</p>
-            </div>
-            <p className="mt-5 flex gap-2.5 rounded-2xl bg-white/8 p-3.5 text-[14px] font-medium text-on-night">
-              <ShieldIcon size={18} className="mt-0.5 shrink-0 text-ring-2" />
-              You pay only {site.legalName}, against a written confirmation. Never a personal account.
-            </p>
+            <h2 className="text-[26px] font-bold leading-tight">Like this holiday?</h2>
+            <p className="mt-2 text-[16px] font-medium leading-relaxed text-on-night">Share your dates and who is travelling, and we’ll send you the full plan with prices.</p>
+            <a href={`tel:${site.phoneE164}`} className="mt-5 flex items-center gap-3 text-[16px] font-semibold hover:text-ring-2">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10"><PhoneIcon size={18} /></span>
+              {site.phoneDisplay}
+            </a>
           </div>
           <div id="enquire-form" className="scroll-mt-24" />
-          <EnquiryForm variant="package" segment={p.segment} packageSlug={p.slug} packageTitle={`${p.title} · ${p.nights}N/${p.days}D`} compact submitLabel="Get my quote" />
+          <EnquiryForm variant="package" segment={p.segment} packageSlug={p.slug} packageTitle={`${p.title} · ${p.nights}N/${p.days}D`} compact submitLabel="Send enquiry" />
         </aside>
       </section>
 
-      <div className="wrap pb-20"><NoSurprises compact /></div>
-
       {related.length > 0 && (
         <section className="wrap flex flex-col gap-6 pb-32 lg:pb-24">
-          <h2 className="text-[clamp(28px,3vw,40px)] text-ink">More journeys {p.region === "India" ? "in India" : "abroad"}</h2>
+          <h2 className="text-[clamp(28px,3vw,40px)] text-ink">More holidays {p.region === "India" ? "in India" : "abroad"}</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((r) => <PackageCard key={r.slug} p={r} />)}
           </div>
@@ -226,9 +204,9 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         <div className="mx-auto flex max-w-[640px] items-center justify-between gap-3">
           <p className="flex min-w-0 flex-col">
             <span className="truncate text-[16px] font-bold text-ink">{p.destination}</span>
-            <span className="tabular text-[14px] font-semibold text-subtle">{p.nights} nights · priced for your dates</span>
+            <span className="tabular text-[14px] font-semibold text-subtle">{p.nights} nights · tailor-made</span>
           </p>
-          <a href="#enquire-form" className="btn btn-primary shrink-0 !min-h-12 !px-5 !text-[16px]">Get my quote</a>
+          <a href="#enquire-form" className="btn btn-primary shrink-0 !min-h-12 !px-5 !text-[16px]">Enquire now</a>
         </div>
       </div>
     </>

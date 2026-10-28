@@ -7,7 +7,7 @@ import PackageCard from "@/components/PackageCard";
 import { getCatalog } from "@/lib/server/catalog";
 
 export const metadata: Metadata = {
-  title: "Journeys | Tailor-made holidays abroad and in India",
+  title: "Holidays | Trending destinations abroad and in India",
   description:
     "Tailor-made holidays to the Maldives, Bali, Vietnam, Thailand, Sri Lanka and Europe, and to Kerala, the Andamans, Sikkim, Meghalaya, Goa and Gujarat. Quoted for your dates.",
   alternates: { canonical: "/packages" },
@@ -23,10 +23,9 @@ export default async function PackagesPage() {
         <Image src="/photos/vietnam-halong-aerial.jpg" alt="" fill priority sizes="100vw" quality={70} className="-z-10 object-cover opacity-45" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/70 to-night/30" aria-hidden="true" />
         <div className="wrap flex flex-col gap-5">
-          <p className="kicker flex items-center gap-3 text-ring-2"><span className="ring-gradient h-[3px] w-10 rounded-full" aria-hidden="true" />Journeys</p>
-          <h1 className="max-w-[860px] text-[clamp(44px,6vw,88px)] font-bold leading-[1.02]">Every journey, planned around you.</h1>
+          <h1 className="max-w-[860px] text-[clamp(44px,6vw,88px)] font-bold leading-[1.02]">Trending holidays</h1>
           <p className="max-w-[640px] text-[19px] leading-relaxed text-on-night">
-            Use these as a starting point. Each one is changed to suit who is travelling, and quoted for your dates with every hotel named.
+            Popular holidays abroad and across India. We plan holidays worldwide, so if your destination isn’t here, just ask.
           </p>
         </div>
       </section>
@@ -42,8 +41,8 @@ export default async function PackagesPage() {
         </Suspense>
       </section>
       <EnquirySection
-        title="Somewhere not on the list?"
-        text="Tell us where, when and who is coming. If it is a place we know well, a planner will design the trip and send a quote for your dates."
+        title="Planning somewhere else?"
+        text="We plan holidays worldwide. Tell us where and when, and we’ll put it together for you."
       />
     </>
   );

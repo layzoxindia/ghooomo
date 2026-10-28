@@ -17,12 +17,12 @@ export default function Footer() {
             <Link href="/" aria-label="Ghooomo home">
               <Wordmark tone="light" bg="#071530" width={210} id="ftr" />
             </Link>
-            <p className="text-[15px] text-[#DCE4F2]">Tailor-made holidays abroad and across India, planned by one specialist from our office in Noida.</p>
+            <p className="text-[15px] text-[#DCE4F2]">Tailor-made holidays around the world and across India.</p>
           </div>
           <div className="flex flex-wrap gap-12 sm:gap-16">
             <div className={col}>
-              <span className={head}>Journeys</span>
-              <Link className={link} href="/packages">All journeys</Link>
+              <span className={head}>Holidays</span>
+              <Link className={link} href="/packages">Trending holidays</Link>
               <Link className={link} href="/solo">Travelling solo</Link>
               <Link className={link} href="/couple">Holidays for two</Link>
               <Link className={link} href="/group">Family & groups</Link>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-wrap justify-between gap-4 border-t border-white/15 pt-6 text-sm font-medium text-[#C4D0E4]">
           <span>© {new Date().getFullYear()} {site.legalName}. All rights reserved.{site.gstin ? ` GSTIN ${site.gstin}` : ""}</span>
-          <span>Every holiday is quoted for your dates and confirmed in writing before you pay.</span>
+          <span>Holidays worldwide · Solo · Couple · Group</span>
         </div>
       </div>
     </footer>

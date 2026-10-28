@@ -3,7 +3,7 @@ import SegmentPage from "@/components/SegmentPage";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Solo Holidays | Private journeys for one",
+  title: "Solo Holidays | Private holidays for one",
   description: "Private, tailor-made holidays for solo travellers to Vietnam, Sri Lanka, Bali, Sikkim, Meghalaya and Gujarat. Driver-guides, central hotels and a planner who checks in every day.",
   alternates: { canonical: "/solo" },
 };
@@ -21,11 +21,11 @@ export default function SoloPage() {
     <SegmentPage
       segment="solo"
       heading="Travelling alone, well looked after."
-      intro="Private journeys for one person, never a group tour. A driver-guide, hotels in safe and central areas, and a planner who checks in with you every day."
-      primaryCta="See solo journeys"
+      intro="Private holidays for one, never a group tour. A driver-guide, hotels in safe, central areas, and someone to call whenever you need."
+      primaryCta="See solo holidays"
       heroPhoto="/photos/vietnam-hoian-bridge.jpg"
       heroAlt="Hoi An old town lit up at night"
-      whyTitle="What a solo journey includes"
+      whyTitle="What a solo holiday includes"
       why={[
         { t: "Private, not a group", d: "Your own car and driver-guide. You decide when to start, where to linger and when to call it a day." },
         { t: "Hotels chosen for one", d: "Central, well-reviewed by solo guests, and briefed that you are arriving alone, so check-in and late arrivals are smooth." },
@@ -36,7 +36,6 @@ export default function SoloPage() {
         <section className="wrap pb-4">
           <div className="grid gap-10 rounded-[30px] bg-white p-7 sm:p-12 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal className="flex flex-col gap-3">
-              <p className="kicker text-solo-text">On the road</p>
               <h2 className="text-[clamp(30px,3.6vw,48px)] leading-[1.04] text-ink">A normal day, travelling solo</h2>
             </Reveal>
             <ol className="flex flex-col">
@@ -52,8 +51,8 @@ export default function SoloPage() {
       }
       enquiry={{
         title: "Where would you like to go?",
-        text: "Tell us where, when and how you like to travel. Your enquiry is marked as solo, so the right planner picks it up.",
-        submit: "Get my solo quote",
+        text: "Tell us where, when and how you like to travel, and we’ll plan it for you.",
+        submit: "Send enquiry",
       }}
     />
   );

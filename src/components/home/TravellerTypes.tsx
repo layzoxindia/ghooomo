@@ -13,7 +13,7 @@ const panels: { s: Segment; dots: 1 | 2 | 3; title: string; text: string; photo:
     s: "solo",
     dots: 1,
     title: "Travelling alone",
-    text: "A private journey with a driver-guide, hotels in safe central areas, and a planner who checks in every day. Your pace, your plans.",
+    text: "Private holidays with a driver-guide and hotels in safe, central locations. Your pace, your plans.",
     photo: "/photos/europe-swiss-train.jpg",
     alt: "Mountain train below the Eiger in Switzerland",
   },
@@ -21,7 +21,7 @@ const panels: { s: Segment; dots: 1 | 2 | 3; title: string; text: string; photo:
     s: "couple",
     dots: 2,
     title: "The two of you",
-    text: "Honeymoons, anniversaries and long weekends. Rooms chosen for the view and the quiet, private transfers, and the small surprises arranged quietly.",
+    text: "Honeymoons, anniversaries and romantic escapes, with rooms chosen for the view and private transfers throughout.",
     photo: "/photos/28843966.jpg",
     alt: "Overwater villa with a private pool in the Maldives",
   },
@@ -29,7 +29,7 @@ const panels: { s: Segment; dots: 1 | 2 | 3; title: string; text: string; photo:
     s: "group",
     dots: 3,
     title: "Family & friends",
-    text: "Three generations or ten friends, one itinerary. Interconnecting rooms, the right size of vehicle, and one person to call for all of it.",
+    text: "Family holidays, friends’ getaways and celebrations, with the right rooms and transport for everyone.",
     photo: "/photos/thailand-maya-bay.jpg",
     alt: "Boats in Maya Bay, Thailand",
   },
@@ -43,11 +43,8 @@ export default function TravellerTypes() {
   return (
     <section className="wrap py-24 sm:py-32">
       <div className="mb-12 flex max-w-[720px] flex-col gap-4">
-        <p className="kicker text-solo-text">03 · Who’s coming</p>
-        <h2 className="text-[clamp(36px,4.6vw,64px)] leading-[1.02] text-ink">Three rings, three ways to travel.</h2>
-        <p className="text-[18px] text-muted">
-          The circles in our logo stand for travelling alone, as a couple and as a group. The same island needs a different hotel, pace and plan for each, so that is where we start.
-        </p>
+        <h2 className="text-[clamp(36px,4.6vw,64px)] leading-[1.02] text-ink">Holidays for every kind of traveller</h2>
+        <p className="text-[18px] text-muted">Travelling solo, as a couple, or with family and friends. Each holiday is planned around the people on it.</p>
       </div>
 
       <div className="flex flex-col gap-4 lg:h-[560px] lg:flex-row">
@@ -78,7 +75,7 @@ export default function TravellerTypes() {
                     {p.text}
                   </span>
                   <span className="flex items-center gap-2 text-[16px] font-bold">
-                    {seg.label} journeys <ArrowIcon className="transition-transform group-hover:translate-x-1" />
+                    {seg.label} holidays <ArrowIcon className="transition-transform group-hover:translate-x-1" />
                   </span>
                 </span>
               </Link>
