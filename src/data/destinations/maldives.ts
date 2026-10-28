@@ -1,0 +1,101 @@
+import type { Destination } from "./types";
+
+export const maldives: Destination = {
+  slug: "maldives",
+  name: "Maldives",
+  region: "International",
+  country: "Maldives",
+  seoTitle: "Maldives Tour Packages from India | Honeymoon & Family",
+  metaDescription: "Maldives holidays from India: overwater villas, best time to visit, visa on arrival, resort choices and sample itineraries. Tailor-made by Ghooomo.",
+  h1: "Maldives holidays from India",
+  tagline: "Overwater villas, house reefs and the clearest water you will ever swim in.",
+  hero: { id: 28843922, alt: "Overwater villas at dusk in the Maldives" },
+  gallery: [
+    { id: 28843966, alt: "Overwater villa with a private pool" },
+    { id: 28843928, alt: "Aerial view of a Maldivian resort island" },
+  ],
+  intro: [
+    "The Maldives is a chain of about 1,200 coral islands in the Indian Ocean, a short flight from India. Almost every resort sits on its own island, so a Maldives holiday is really a choice of one island and how you want to spend your days there: in the water, at the spa, or doing very little at all.",
+    "For Indian travellers it is one of the easiest international trips to plan. Flights are short, there is a free visa on arrival, and many resorts are used to Indian guests, with vegetarian and Jain meals on request. Couples come for honeymoons and anniversaries, families for the shallow lagoons and kids clubs, and divers for some of the best reefs in Asia.",
+    "The biggest decision is the resort. Islands differ a lot in how you reach them, the quality of the house reef, whether they welcome children, and what is included in the meal plan. That is where most of our planning time goes.",
+  ],
+  facts: [
+    { label: "Best time", value: "November to April" },
+    { label: "Ideal stay", value: "4 to 5 nights" },
+    { label: "Flight from Delhi", value: "About 4 hours (direct)" },
+    { label: "Visa for Indians", value: "Free visa on arrival, 30 days" },
+    { label: "Currency", value: "Maldivian Rufiyaa; US dollars widely used at resorts" },
+    { label: "Time", value: "30 minutes behind India" },
+  ],
+  goodFor: [
+    { t: "Honeymoons", d: "Overwater villas, private dinners on the sand and adults-only islands." },
+    { t: "Families", d: "Beach villas, shallow lagoons and resorts with kids clubs and babysitting." },
+    { t: "Divers and snorkellers", d: "Manta rays, reef sharks and turtles, often right off the beach." },
+  ],
+  months: ["best", "best", "best", "best", "good", "low", "low", "low", "low", "good", "good", "best"],
+  seasons: [
+    { name: "Dry season", when: "November to April", text: "Calm seas, clear water and the most sunshine. This is peak season, so book resorts early, especially for Christmas, New Year and Diwali." },
+    { name: "Shoulder", when: "May and October", text: "A mix of sunny days and short showers. Resorts are quieter and rates are usually better." },
+    { name: "Southwest monsoon", when: "June to September", text: "More rain and wind, but showers are often brief. Good value, and some atolls see manta rays and whale sharks in these months." },
+  ],
+  reach: [
+    "All international flights land at Velana International Airport in Malé. There are direct flights from Delhi, Mumbai, Bengaluru, Kochi, Chennai and other Indian cities. From Delhi the flight takes about 4 hours; from south India it can be under 2.",
+    "From Malé you reach your resort by speedboat, seaplane or a short domestic flight followed by a boat. Resorts close to Malé are a 20 to 60 minute speedboat ride. Islands further out need a seaplane, which flies only in daylight, so late-evening arrivals may need a night near the airport. We plan flights around this so you do not lose a day.",
+  ],
+  entry: {
+    title: "Visa for Indian passport holders",
+    text: [
+      "Indian citizens get a free tourist visa on arrival in the Maldives, usually valid for 30 days. You do not need to apply before you travel.",
+      "Every traveller, including children, must also fill in the IMUGA traveller declaration online within 96 hours before arrival, and again before departure. We send you the link and help you complete it.",
+    ],
+    checklist: [
+      "Passport valid for at least 6 months from the date of arrival",
+      "Confirmed return or onward ticket",
+      "Confirmed resort or hotel booking",
+      "IMUGA declaration completed within 96 hours of arrival",
+    ],
+  },
+  places: [
+    { name: "North and South Malé Atoll", text: "Closest to the airport, reached by speedboat. Good for short trips and families who would rather skip seaplanes." },
+    { name: "Baa Atoll", text: "A UNESCO biosphere reserve. Hanifaru Bay is famous for gatherings of manta rays between June and November." },
+    { name: "Ari Atoll", text: "Known for whale sharks in South Ari and some of the best dive sites in the country." },
+    { name: "Lhaviyani and Raa Atolls", text: "Further north, quieter, with many newer resorts and excellent house reefs." },
+    { name: "Malé city", text: "The capital is worth a few hours if you have a layover: the fish market, the old Friday Mosque and the waterfront." },
+  ],
+  things: [
+    { name: "Snorkel the house reef", text: "Many resorts have a reef a few metres from the beach. Ask for one with a good house reef if snorkelling matters to you." },
+    { name: "Sandbank picnic", text: "A boat drops you on a strip of sand in the middle of the lagoon with lunch, and picks you up a few hours later." },
+    { name: "Sunset dolphin cruise", text: "Spinner dolphins are seen on most evening cruises." },
+    { name: "Dine under water", text: "A few resorts have underwater restaurants. Book these early." },
+    { name: "Try a first dive", text: "Most resorts run beginner dives with a PADI instructor, no certificate needed." },
+    { name: "Spa over the water", text: "Overwater treatment rooms with glass floors are common. Couples treatments book out fast in peak season." },
+  ],
+  stay: [
+    { name: "Overwater villa", text: "The classic Maldives stay, with steps from your deck into the lagoon. Best for couples." },
+    { name: "Beach villa", text: "Direct access to the sand and often more space. Better for families with small children." },
+    { name: "Split stay", text: "Two or three nights in a beach villa and two in an overwater villa. A good way to try both without doubling the cost." },
+    { name: "All inclusive or half board", text: "Food and drink are expensive at resorts, so the meal plan makes a big difference to the final cost. We compare both for you." },
+  ],
+  itineraries: [
+    { title: "4 nights: one island, no rush", days: ["Arrive in Malé, speedboat or seaplane to the resort", "House reef snorkel, afternoon at the pool or spa", "Sandbank picnic and sunset dolphin cruise", "Free day, dinner on the beach", "Transfer back to Malé"] },
+    { title: "6 nights: split stay", days: ["Arrive, transfer to a beach villa", "Lagoon and kids club day", "Excursion: snorkel trip or local island visit", "Move to an overwater villa", "Diving, spa or simply nothing", "Sunset cruise and farewell dinner", "Transfer back to Malé"] },
+  ],
+  tips: [
+    "Seaplanes do not fly after dark. If your flight lands late, plan a night in Malé or Hulhumalé.",
+    "Ask what the meal plan includes. Water, soft drinks and excursions are often extra.",
+    "Resorts charge a green tax per person per night. We include it in the quote so there are no surprises at checkout.",
+    "Local islands follow local customs: dress modestly away from resort beaches.",
+    "Pack reef-safe sunscreen and a rash guard. The sun is strong even on cloudy days.",
+  ],
+  faqs: [
+    { q: "Do Indians need a visa for the Maldives?", a: "No advance visa is needed. Indian passport holders get a free tourist visa on arrival, usually for 30 days, as long as they have a valid passport, a return ticket and a hotel booking. You also need to fill in the IMUGA declaration online within 96 hours of arrival." },
+    { q: "What is the best time to visit the Maldives from India?", a: "November to April is the dry season, with calm seas and the most sunshine. May and October are quieter and often better value. June to September is the wetter season, but showers are usually short." },
+    { q: "How many days are enough for the Maldives?", a: "Four to five nights is ideal for most couples and families. Many people stay at one resort; with six nights or more, a split stay across two villa types works well." },
+    { q: "Is the Maldives good for families with children?", a: "Yes. Many resorts have kids clubs, shallow lagoons and family villas. Some islands are adults only, so we check this before suggesting a resort." },
+    { q: "Speedboat or seaplane: which is better?", a: "Speedboat resorts near Malé are quicker and work with any flight time. Seaplane resorts are further away and often quieter, and the flight itself is a highlight, but seaplanes only fly in daylight." },
+    { q: "Can we get vegetarian or Jain food at Maldives resorts?", a: "Most resorts popular with Indian guests offer vegetarian food, and many can prepare Jain meals with advance notice. We let the resort know before you arrive." },
+    { q: "How far in advance should we book a Maldives holiday?", a: "For December, January, Diwali and school holidays, three to four months ahead is sensible. For other months, four to six weeks is usually enough." },
+    { q: "Can we combine the Maldives with Sri Lanka?", a: "Yes. Colombo is about an hour's flight from Malé, and a week in Sri Lanka followed by a few nights in the Maldives is a popular combination." },
+  ],
+  packageSlugs: ["maldives-overwater-villa"],
+};

@@ -3,6 +3,7 @@ import JourneyRail, { type RailItem } from "@/components/home/JourneyRail";
 import GlobeSection from "@/components/home/GlobeSection";
 import TravellerTypes from "@/components/home/TravellerTypes";
 import WhyUs from "@/components/home/WhyUs";
+import DestinationGuides from "@/components/home/DestinationGuides";
 import EnquirySection from "@/components/EnquirySection";
 import Testimonials from "@/components/Testimonials";
 import { getCatalog } from "@/lib/server/catalog";
@@ -54,6 +55,7 @@ export default async function Home() {
       <HeroWorld places={heroPlaces} />
       <JourneyRail items={rail} />
       <GlobeSection />
+      <DestinationGuides />
       <TravellerTypes />
       <WhyUs />
       <Testimonials />

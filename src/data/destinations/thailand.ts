@@ -1,0 +1,100 @@
+import type { Destination } from "./types";
+
+export const thailand: Destination = {
+  slug: "thailand",
+  name: "Thailand",
+  region: "International",
+  country: "Thailand",
+  seoTitle: "Thailand Tour Packages from India | Phuket, Krabi, Bangkok",
+  metaDescription: "Thailand holidays from India: Phuket, Krabi, Phi Phi, Bangkok and Pattaya, best time to visit, visa-free entry for Indians and itineraries.",
+  h1: "Thailand holidays from India",
+  tagline: "Limestone islands, beach resorts, night markets and some of the best food in Asia.",
+  hero: { id: "thailand-maya-bay", alt: "Boats in Maya Bay, Phi Phi Islands" },
+  gallery: [
+    { id: "thailand-phi-phi", alt: "Limestone cliffs around the Phi Phi Islands" },
+    { id: 37292541, alt: "Limestone cliffs and sea in Krabi" },
+  ],
+  intro: [
+    "Thailand is the most visited country in Asia by Indian travellers, and it is easy to see why. Flights are short and frequent, Indians can visit visa-free, and the country offers almost every kind of holiday: island hopping in the Andaman Sea, temples and shopping in Bangkok, elephants and mountains in the north.",
+    "For a first visit, most people combine Phuket and Krabi on the west coast, with Bangkok at the start or end. Phuket has the widest choice of resorts and day trips; Krabi is quieter, with dramatic limestone cliffs and Railay beach, reached only by boat.",
+    "Thailand works for every budget, from beach villas with private pools to family resorts with water slides. It is also one of the easiest places to travel as a group of friends or with children.",
+  ],
+  facts: [
+    { label: "Best time", value: "November to April" },
+    { label: "Ideal stay", value: "6 to 8 nights" },
+    { label: "Flight from Delhi", value: "About 4 hours to Bangkok" },
+    { label: "Visa for Indians", value: "Visa-free, up to 30 days" },
+    { label: "Currency", value: "Thai Baht (THB)" },
+    { label: "Time", value: "1 hour 30 minutes ahead of India" },
+  ],
+  goodFor: [
+    { t: "Friends", d: "Island hopping, beach clubs, night markets and easy, good-value travel." },
+    { t: "Families", d: "Calm beaches, water parks, elephant sanctuaries and family resorts." },
+    { t: "Couples", d: "Private pool villas, sunset cruises and quiet islands like Koh Yao Noi." },
+  ],
+  months: ["best", "best", "best", "good", "low", "low", "low", "low", "low", "good", "best", "best"],
+  seasons: [
+    { name: "Cool and dry", when: "November to February", text: "The best weather on the Andaman coast: calm seas, sunshine and comfortable temperatures. Peak season." },
+    { name: "Hot season", when: "March to April", text: "Hot and humid but still dry. Songkran, the Thai new year water festival, takes place in mid-April." },
+    { name: "Rainy season", when: "May to October", text: "Rain and rough seas on Phuket and Krabi, and some boat trips may be cancelled. Good value. The Gulf islands such as Koh Samui are drier from June to September." },
+  ],
+  reach: [
+    "There are direct flights from most major Indian cities to Bangkok, and from several cities directly to Phuket and Krabi. Delhi to Bangkok takes about 4 hours.",
+    "Inside Thailand, short domestic flights connect Bangkok with Phuket, Krabi and Chiang Mai. Phuket to Krabi is about 2 hours by road or a scenic ferry across Phang Nga Bay.",
+  ],
+  entry: {
+    title: "Visa for Indian passport holders",
+    text: [
+      "Indian passport holders can visit Thailand for tourism without a visa for up to 30 days. For longer stays, a tourist e-visa can be applied for online before travel.",
+      "All visitors must complete the Thailand Digital Arrival Card online before arrival. We send you the link and check it with you.",
+    ],
+    checklist: [
+      "Passport valid for at least 6 months",
+      "Confirmed return ticket within your permitted stay",
+      "Hotel bookings for the whole trip",
+      "Thailand Digital Arrival Card completed online",
+      "Proof of funds may be asked for at immigration",
+    ],
+  },
+  places: [
+    { name: "Phuket", text: "Thailand's biggest island, with beaches from busy Patong to quiet Kata Noi and Mai Khao. The base for Phi Phi and Phang Nga Bay." },
+    { name: "Krabi and Railay", text: "Limestone cliffs, the four islands tour, and Railay beach, reached only by longtail boat." },
+    { name: "Phi Phi Islands", text: "Maya Bay, Pileh Lagoon and some of the clearest water in the country. Best visited early in the day." },
+    { name: "Bangkok", text: "The Grand Palace, Wat Arun, floating markets, rooftop bars and shopping at every level." },
+    { name: "Pattaya", text: "Two hours from Bangkok, with Coral Island, theme parks and the Sanctuary of Truth." },
+    { name: "Chiang Mai", text: "Old temples, mountain views, night bazaars and ethical elephant sanctuaries in the north." },
+  ],
+  things: [
+    { name: "Phi Phi by speedboat", text: "Go with an early departure to reach Maya Bay before the crowds." },
+    { name: "Phang Nga Bay", text: "Sea caves by canoe and James Bond Island." },
+    { name: "Four islands of Krabi", text: "Phra Nang cave beach, Chicken Island, Tup Island and Poda." },
+    { name: "Bangkok temples by boat", text: "The Grand Palace, Wat Pho and Wat Arun along the Chao Phraya river." },
+    { name: "Thai massage and cooking", text: "Classes are short and fun, and massages are excellent value." },
+    { name: "Night markets", text: "Phuket's weekend market, Chiang Mai's Sunday walking street and Bangkok's Chatuchak." },
+  ],
+  stay: [
+    { name: "Kata and Karon, Phuket", text: "Good beaches, easy access and calmer than Patong. Ideal for families." },
+    { name: "Ao Nang and Railay, Krabi", text: "Ao Nang for convenience, Railay for the cliffs and the quiet." },
+    { name: "Riverside or Sukhumvit, Bangkok", text: "Riverside for views and temples, Sukhumvit for shopping and nightlife." },
+    { name: "Private pool villas", text: "Widely available on Phuket and Koh Samui for couples and families." },
+  ],
+  itineraries: [
+    { title: "6 nights: Phuket and Krabi", days: ["Arrive in Phuket", "Phi Phi Islands by speedboat", "Old Phuket Town and Big Buddha", "Cross Phang Nga Bay to Krabi", "Four islands tour", "Railay beach day", "Departure"] },
+    { title: "8 nights: Bangkok and the islands", days: ["Arrive in Bangkok", "Temples and river cruise", "Floating market and shopping", "Fly to Phuket", "Phi Phi Islands", "Beach day", "Ferry to Krabi", "Four islands tour", "Departure"] },
+  ],
+  tips: [
+    "Book island tours for early departures; afternoons are crowded.",
+    "Cover shoulders and knees at temples, including the Grand Palace.",
+    "Boat trips can be cancelled in rough weather between May and October. Keep a spare day.",
+    "Respect the monarchy: it is a serious offence to criticise the royal family.",
+  ],
+  faqs: [
+    { q: "Do Indians need a visa for Thailand?", a: "Indian passport holders can visit Thailand for tourism visa-free for up to 30 days. You also need to complete the Thailand Digital Arrival Card online before you fly. For longer stays, apply for a tourist e-visa." },
+    { q: "What is the best time to visit Thailand?", a: "November to April for Phuket and Krabi. The Gulf islands such as Koh Samui are a better choice in the June to September monsoon." },
+    { q: "Phuket or Krabi: which is better?", a: "Phuket has more resorts, beaches and nightlife; Krabi is quieter and more scenic. For a first trip, three nights in each is ideal." },
+    { q: "How many days are enough for Thailand?", a: "Six nights is enough for Phuket and Krabi. Add two or three nights for Bangkok or Pattaya." },
+    { q: "Is Thailand good for families?", a: "Yes. Family resorts, calm beaches, water parks and short distances make it one of the easiest family holidays from India." },
+    { q: "Is Indian and vegetarian food available in Thailand?", a: "Yes, especially in Bangkok, Pattaya, Phuket and Krabi, where Indian restaurants are common. Thai kitchens can also make most dishes vegetarian on request." },
+  ],
+  packageSlugs: ["thailand-phuket-krabi"],
+};

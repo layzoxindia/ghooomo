@@ -4,7 +4,7 @@ import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/Icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact Ghooomo",
+  title: "Contact Us",
   description: `Call, WhatsApp or visit Ghooomo in Sector 121, Noida. ${site.phoneDisplay} · ${site.email}`,
   alternates: { canonical: "/contact" },
 };

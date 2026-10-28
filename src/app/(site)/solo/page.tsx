@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Solo Holidays | Private holidays for one",
-  description: "Private, tailor-made holidays for solo travellers to Vietnam, Sri Lanka, Bali, Sikkim, Meghalaya and Gujarat. Driver-guides, central hotels and a planner who checks in every day.",
+  description: "Private solo holidays from India to Vietnam, Sri Lanka, Bali, Sikkim and more, with driver-guides and safe, central hotels. Tailor-made by Ghooomo.",
   alternates: { canonical: "/solo" },
 };
 

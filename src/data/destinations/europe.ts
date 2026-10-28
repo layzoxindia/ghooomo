@@ -1,0 +1,103 @@
+import type { Destination } from "./types";
+
+export const europe: Destination = {
+  slug: "europe",
+  name: "Europe",
+  region: "International",
+  country: "France, Switzerland, Italy and more",
+  seoTitle: "Europe Tour Packages from India | Switzerland, Paris, Italy",
+  metaDescription: "Plan a Europe holiday from India: Paris, Switzerland, Italy, Greece and more. Best time to visit, Schengen visa help and sample itineraries.",
+  h1: "Europe holidays from India",
+  tagline: "Alpine trains, old cities, lakes and islands, planned at the pace you want.",
+  hero: { id: "europe-swiss-train", alt: "Mountain train below the Eiger in Switzerland" },
+  gallery: [
+    { id: "europe-paris", alt: "Eiffel Tower and the Seine at dusk" },
+    { id: "europe-venice", alt: "The Grand Canal in Venice" },
+    { id: "world-santorini-oia", alt: "Oia village in Santorini at sunset" },
+  ],
+  intro: [
+    "A first trip to Europe usually means Paris, the Swiss Alps and Italy, and that combination is popular for good reason. In ten days you can see the Eiffel Tower, ride a cogwheel train to a glacier, cruise a Swiss lake and finish in the canals of Venice or the piazzas of Rome.",
+    "Europe also rewards a second and third visit: the Greek islands, the Amalfi Coast, Spain, Austria, Prague and Budapest, the fjords of Norway or the northern lights in Iceland and Finland. Many Indian families now plan a Europe trip around a single country instead of five.",
+    "The key to a good Europe holiday is pace and logistics: fewer hotel changes, trains instead of long coach drives, timed tickets for the big sights, and a Schengen visa application done properly and on time.",
+  ],
+  facts: [
+    { label: "Best time", value: "April to June, September to October" },
+    { label: "Ideal stay", value: "9 to 14 nights" },
+    { label: "Flight from India", value: "8 to 10 hours to most capitals" },
+    { label: "Visa for Indians", value: "Schengen visa (apply 4 to 6 weeks ahead)" },
+    { label: "Currency", value: "Euro; Swiss Franc in Switzerland" },
+    { label: "Time", value: "3 hours 30 minutes to 4 hours 30 minutes behind India, by season" },
+  ],
+  goodFor: [
+    { t: "Honeymoons", d: "Paris, Switzerland and Venice, or the Greek islands and the Amalfi Coast." },
+    { t: "Families", d: "Theme parks, mountain excursions, lake cruises and easy train travel." },
+    { t: "Senior travellers", d: "Comfortable hotels, short transfers and private guides at a gentle pace." },
+  ],
+  months: ["low", "low", "good", "best", "best", "best", "good", "good", "best", "best", "low", "good"],
+  seasons: [
+    { name: "Spring", when: "April to June", text: "Mild weather, flowers in the Alps and long days. One of the best times for a first visit." },
+    { name: "Summer", when: "July and August", text: "Warm and busy, with the highest prices. Indian summer holidays fall in this period, so book early." },
+    { name: "Autumn", when: "September and October", text: "Pleasant weather, autumn colours and fewer crowds. Great for Switzerland and Italy." },
+    { name: "Winter", when: "November to March", text: "Cold, with snow in the Alps and Christmas markets in December. Some mountain excursions change their schedules." },
+  ],
+  reach: [
+    "There are direct flights from Delhi and Mumbai to Paris, Frankfurt, Zurich, London, Amsterdam, Vienna, Rome and Milan, among others. Flying time is usually 8 to 10 hours.",
+    "Within Europe we use trains wherever possible. Paris to Switzerland and Switzerland to Italy are scenic, comfortable train journeys that take you from city centre to city centre. For longer distances, such as Italy to Greece, a short flight is quicker.",
+  ],
+  entry: {
+    title: "Schengen visa for Indian passport holders",
+    text: [
+      "Indian citizens need a Schengen visa for most of mainland Europe, including France, Switzerland, Italy, Spain, Germany, Austria, Greece and the Netherlands. One visa covers all Schengen countries for stays of up to 90 days in any 180-day period. The United Kingdom and Ireland need separate visas.",
+      "You apply to the embassy of the country where you will spend the most nights, through its visa centre, with biometrics. The standard fee for adults is 80 euros plus a service charge, and processing usually takes 10 to 15 working days, longer in summer. We prepare the cover letter, itinerary, hotel and flight bookings and the document checklist, and book your appointment.",
+    ],
+    checklist: [
+      "Passport valid for at least 3 months after your return, with two blank pages",
+      "Visa form, photographs and biometrics at the visa centre",
+      "Travel insurance with at least 30,000 euros of medical cover",
+      "Flight and hotel bookings and a day-by-day itinerary",
+      "Bank statements, income tax returns and a leave letter or business proof",
+    ],
+  },
+  places: [
+    { name: "Paris", text: "The Eiffel Tower, the Louvre, Montmartre, a Seine cruise and day trips to Versailles or Disneyland Paris." },
+    { name: "Switzerland", text: "Interlaken and the Jungfrau region, Lucerne and Mount Titlis, Zermatt and the Matterhorn, and the Glacier Express." },
+    { name: "Italy", text: "Venice, Florence and Tuscany, Rome and the Vatican, the Amalfi Coast and Lake Como." },
+    { name: "Greece", text: "Athens and the islands: Santorini for sunsets, Mykonos for beaches, Crete for history and food." },
+    { name: "Austria", text: "Vienna, Salzburg and the lakes of the Salzkammergut." },
+    { name: "Spain", text: "Barcelona and Gaudí, Madrid, Seville and the Andalusian coast." },
+  ],
+  things: [
+    { name: "Jungfraujoch", text: "The Top of Europe, reached by cogwheel train from Interlaken." },
+    { name: "Mount Titlis", text: "A rotating cable car to the glacier and the cliff walk, near Lucerne." },
+    { name: "Seine dinner cruise", text: "Paris by night from the river." },
+    { name: "Gondola in Venice", text: "Best in the early morning or at dusk." },
+    { name: "Scenic trains", text: "The Glacier Express and Bernina Express through the Swiss Alps." },
+    { name: "Disneyland Paris", text: "An easy day trip from central Paris." },
+  ],
+  stay: [
+    { name: "Central city hotels", text: "Close to the sights and train stations, so you spend less time in traffic." },
+    { name: "Lakeside in Switzerland", text: "Lucerne, Interlaken and Montreux have hotels with lake and mountain views." },
+    { name: "Fewer, longer stays", text: "Three bases in ten days is far more relaxing than six." },
+  ],
+  itineraries: [
+    { title: "9 nights: Paris, Switzerland and Venice", days: ["Arrive in Paris, Seine cruise", "Eiffel Tower and the Louvre", "Versailles or Disneyland", "Train to Interlaken", "Jungfraujoch", "Scenic train to Lucerne", "Mount Titlis and lake cruise", "Train to Venice", "Venice and gondola ride", "Departure"] },
+    { title: "12 nights: Switzerland and Italy", days: ["Arrive in Zurich, Lucerne", "Mount Titlis", "Interlaken", "Jungfraujoch", "Zermatt and the Matterhorn", "Train to Milan and Lake Como", "Venice", "Venice", "Florence", "Tuscany day trip", "Rome", "Rome and the Vatican", "Departure"] },
+  ],
+  tips: [
+    "Apply for your Schengen visa 4 to 6 weeks before travel, and earlier for June and July.",
+    "Book big attractions like the Eiffel Tower summit and the Vatican in advance with timed tickets.",
+    "Many cities charge a tourist tax at the hotel, paid in cash or card at check-in.",
+    "Pack layers: the Alps can be cold even in summer.",
+    "Indian food is easy to find in big cities. In smaller Swiss and Italian towns we can arrange it in advance.",
+  ],
+  faqs: [
+    { q: "Do Indians need a visa for Europe?", a: "Yes. Indian citizens need a Schengen visa for most of mainland Europe. One visa covers all Schengen countries for up to 90 days in a 180-day period. The UK needs a separate visa." },
+    { q: "How early should we apply for a Schengen visa?", a: "Four to six weeks before travel is the minimum; six to eight weeks for June, July and December. You can usually apply up to six months before your trip." },
+    { q: "What is the best time to visit Europe from India?", a: "April to June and September to October have the best weather and fewer crowds. July and August are warm and busy; December is good for Christmas markets." },
+    { q: "How many days do we need for Europe?", a: "Nine or ten nights for a first trip covering Paris, Switzerland and Italy. Twelve to fourteen nights lets you add more of Italy or Austria at a relaxed pace." },
+    { q: "Is Switzerland good for a honeymoon?", a: "Very. Lakeside hotels, scenic trains, mountain excursions and quiet villages make it one of the most popular honeymoon choices in Europe." },
+    { q: "Can we travel between countries by train?", a: "Yes, and we recommend it. Paris to Switzerland and Switzerland to Italy are comfortable, scenic train journeys from city centre to city centre." },
+    { q: "Do you help with travel insurance for the Schengen visa?", a: "Yes. Schengen rules require at least 30,000 euros of medical cover, and we arrange a policy that meets the requirement." },
+  ],
+  packageSlugs: ["europe-paris-swiss-venice"],
+};

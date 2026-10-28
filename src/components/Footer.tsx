@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Wordmark } from "./Logo";
 import { site } from "@/lib/site";
+import { destinations } from "@/data/destinations";
 import { MailIcon, PhoneIcon, PinIcon } from "./Icons";
 
 const col = "flex flex-col gap-3";
@@ -26,6 +27,12 @@ export default function Footer() {
               <Link className={link} href="/solo">Travelling solo</Link>
               <Link className={link} href="/couple">Holidays for two</Link>
               <Link className={link} href="/group">Family & groups</Link>
+            </div>
+            <div className={col}>
+              <span className={head}>Destinations</span>
+              {destinations.map((d) => (
+                <Link key={d.slug} className={link} href={`/destinations/${d.slug}`}>{d.name}</Link>
+              ))}
             </div>
             <div className={col}>
               <span className={head}>Company</span>

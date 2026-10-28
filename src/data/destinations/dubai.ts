@@ -1,0 +1,96 @@
+import type { Destination } from "./types";
+
+export const dubai: Destination = {
+  slug: "dubai",
+  name: "Dubai",
+  region: "International",
+  country: "United Arab Emirates",
+  seoTitle: "Dubai Tour Packages from India | Family & Couple Holidays",
+  metaDescription: "Dubai holidays from India: Burj Khalifa, desert safari, theme parks, Abu Dhabi, best time to visit and UAE visa for Indians. Tailor-made by Ghooomo.",
+  h1: "Dubai holidays from India",
+  tagline: "Desert dunes, record-breaking towers, theme parks and a beach in the middle of it all.",
+  hero: { id: "world-dubai", alt: "Burj Khalifa and the Dubai skyline" },
+  gallery: [{ id: "world-dubai-burj-al-arab", alt: "Burj Al Arab and the Palm Jumeirah from the air" }],
+  intro: [
+    "Dubai is about three hours from most Indian cities, and it is the easiest long weekend abroad you can take. It is also one of the best family holidays in the region: theme parks, water parks, aquariums, desert camps and safe, clean beaches, all within half an hour of each other.",
+    "Couples come for rooftop dinners, the desert at sunset and stays on the Palm Jumeirah. Many travellers add a day in Abu Dhabi for the Sheikh Zayed Grand Mosque, the Louvre Abu Dhabi, the BAPS Hindu Mandir and Ferrari World.",
+    "Because almost everything in Dubai is bookable in advance, a good plan makes a big difference: timed tickets for the Burj Khalifa at sunset, the right desert safari, and hotels close to what you actually want to do.",
+  ],
+  facts: [
+    { label: "Best time", value: "November to March" },
+    { label: "Ideal stay", value: "4 to 6 nights" },
+    { label: "Flight from Delhi", value: "About 3 hours 30 minutes (direct)" },
+    { label: "Visa for Indians", value: "Tourist e-visa, or visa on arrival if eligible" },
+    { label: "Currency", value: "UAE Dirham (AED)" },
+    { label: "Time", value: "1 hour 30 minutes behind India" },
+  ],
+  goodFor: [
+    { t: "Families", d: "Theme parks, water parks, aquariums and beaches, with hotels built around children." },
+    { t: "Couples", d: "Desert dinners, sunset cruises, the Palm and some of the world's best hotels." },
+    { t: "Short breaks", d: "Short flights from every major Indian city make a 3 or 4 night trip easy." },
+  ],
+  months: ["best", "best", "best", "good", "low", "low", "low", "low", "low", "good", "best", "best"],
+  seasons: [
+    { name: "Winter", when: "November to March", text: "Warm days and cool evenings, perfect for the desert and the beach. Peak season, with events like the Dubai Shopping Festival." },
+    { name: "Shoulder", when: "April and October", text: "Getting hot, but still pleasant in the mornings and evenings. Good hotel rates." },
+    { name: "Summer", when: "May to September", text: "Very hot, often above 40°C. Life moves indoors, and hotel prices are at their lowest. Fine for malls, theme parks and indoor attractions." },
+  ],
+  reach: [
+    "Dubai International Airport has direct flights from almost every major Indian city, including Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Kochi, Ahmedabad, Jaipur and Lucknow. Flying time is about 3 to 4 hours.",
+    "Downtown Dubai is 15 to 20 minutes from the airport, the Palm and Dubai Marina about 40. The metro is clean and easy, but for families a private car or taxis are more comfortable, especially in the heat.",
+  ],
+  entry: {
+    title: "UAE visa for Indian passport holders",
+    text: [
+      "Most Indian travellers need a UAE tourist visa before flying. It is applied for online with a scanned passport and photograph, and is usually issued within a few working days. We handle the application for you.",
+      "Indians who hold a valid visa, residence permit or green card from certain countries, including the United States and EU member states, may be eligible for a visa on arrival instead. Rules change from time to time, so we confirm eligibility before booking.",
+    ],
+    checklist: [
+      "Passport valid for at least 6 months",
+      "Approved UAE e-visa (printed copy), unless eligible for visa on arrival",
+      "Confirmed return ticket",
+      "Hotel booking",
+    ],
+  },
+  places: [
+    { name: "Downtown Dubai", text: "The Burj Khalifa, Dubai Mall, the Dubai Fountain show and the Dubai Opera." },
+    { name: "Palm Jumeirah", text: "The man-made island with Atlantis, Aquaventure Waterpark and some of the best beach resorts." },
+    { name: "Old Dubai", text: "Al Fahidi historic district, an abra ride across the creek and the gold and spice souks." },
+    { name: "Dubai Marina and JBR", text: "Waterfront walks, the beach and dhow dinner cruises." },
+    { name: "The desert", text: "Dune drives, camel rides and dinner at a desert camp under the stars." },
+    { name: "Abu Dhabi", text: "Sheikh Zayed Grand Mosque, the Louvre Abu Dhabi, the BAPS Hindu Mandir, Ferrari World and Yas Island. About 90 minutes by road." },
+  ],
+  things: [
+    { name: "Burj Khalifa at sunset", text: "Book the sunset slot early; it sells out weeks ahead in winter." },
+    { name: "Desert safari", text: "Choose between a standard evening safari and a private one with a quieter camp." },
+    { name: "Theme parks", text: "IMG Worlds, Motiongate and Legoland Dubai, and Ferrari World and Warner Bros. World in Abu Dhabi." },
+    { name: "Dhow dinner cruise", text: "On the creek for old Dubai or the marina for the skyline." },
+    { name: "Museum of the Future", text: "One of the city's newest landmarks. Timed tickets required." },
+    { name: "Miracle Garden and Global Village", text: "Open in the cooler months only, roughly October to April." },
+  ],
+  stay: [
+    { name: "Downtown", text: "Central, walkable to the Burj Khalifa and Dubai Mall. Good for first-timers." },
+    { name: "Palm Jumeirah", text: "Beach resorts and Atlantis. Best for families and couples who want resort time." },
+    { name: "Dubai Marina and JBR", text: "Beach, restaurants and nightlife. Good for friends and couples." },
+    { name: "Deira and Bur Dubai", text: "Close to the souks and the airport, and good value." },
+  ],
+  itineraries: [
+    { title: "4 nights: Dubai highlights", days: ["Arrive, evening at the Dubai Fountain", "Burj Khalifa, Dubai Mall, Old Dubai and the souks", "Morning at leisure, evening desert safari", "Theme park or Atlantis Aquaventure", "Departure"] },
+    { title: "6 nights: Dubai and Abu Dhabi", days: ["Arrive, dhow cruise at the marina", "Downtown and Burj Khalifa", "Desert safari", "Day trip to Abu Dhabi: Grand Mosque and BAPS Mandir", "Ferrari World or Yas Waterworld", "Palm Jumeirah beach day", "Departure"] },
+  ],
+  tips: [
+    "Book the Burj Khalifa and theme parks online in advance: it is cheaper and avoids queues.",
+    "Dress modestly in malls and at religious sites. The Grand Mosque in Abu Dhabi has a strict dress code.",
+    "During Ramadan, eating and drinking in public in daylight is discouraged and many places change their hours.",
+    "Summer is cheaper but very hot. Plan outdoor activities for early morning or after sunset.",
+  ],
+  faqs: [
+    { q: "Do Indians need a visa for Dubai?", a: "Most Indian passport holders need a UAE tourist visa before travelling, applied for online. Indians with a valid visa, residence permit or green card from certain countries, including the US and EU, may qualify for a visa on arrival. We check your eligibility and handle the application." },
+    { q: "What is the best time to visit Dubai?", a: "November to March, when days are warm and evenings are cool. Summer, from May to September, is very hot but good value." },
+    { q: "How many days are enough for Dubai?", a: "Four nights covers the highlights. Five or six nights lets you add Abu Dhabi, a theme park day and some time at the beach." },
+    { q: "Is Dubai good for a family holiday?", a: "It is one of the best. Theme parks, water parks, aquariums, beaches and family hotels are all close together, and the city is very safe." },
+    { q: "Can we visit Abu Dhabi from Dubai?", a: "Yes. It is about 90 minutes by road, and a day trip covers the Sheikh Zayed Grand Mosque and either the BAPS Hindu Mandir, the Louvre or Ferrari World." },
+    { q: "Is vegetarian food easy to find in Dubai?", a: "Very easy. Dubai has a large Indian community and hundreds of Indian and vegetarian restaurants." },
+  ],
+  packageSlugs: [],
+};

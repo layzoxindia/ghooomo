@@ -7,9 +7,9 @@ import PackageCard from "@/components/PackageCard";
 import { getCatalog } from "@/lib/server/catalog";
 
 export const metadata: Metadata = {
-  title: "Holidays | Trending destinations abroad and in India",
+  title: "Holiday Packages from India: International & Domestic",
   description:
-    "Tailor-made holidays to the Maldives, Bali, Vietnam, Thailand, Sri Lanka and Europe, and to Kerala, the Andamans, Sikkim, Meghalaya, Goa and Gujarat. Quoted for your dates.",
+    "Trending holiday packages from India: Maldives, Bali, Vietnam, Thailand, Sri Lanka, Europe, Kerala, Andaman, Sikkim, Goa and Gujarat. Tailor-made by Ghooomo.",
   alternates: { canonical: "/packages" },
 };
 

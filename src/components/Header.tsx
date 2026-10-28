@@ -8,14 +8,15 @@ import { MenuIcon, XIcon } from "./Icons";
 import { segments, site, type Segment } from "@/lib/site";
 
 const nav = [
+  { href: "/destinations", label: "Destinations" },
   { href: "/packages", label: "Holidays" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
 // Pages that open on a dark full-bleed photo: the header starts transparent with white text.
-const overlayPaths = ["/", "/solo", "/couple", "/group", "/packages", "/about"];
-const isOverlay = (path: string) => overlayPaths.includes(path) || path.startsWith("/packages/");
+const overlayPaths = ["/", "/solo", "/couple", "/group", "/packages", "/about", "/destinations"];
+const isOverlay = (path: string) => overlayPaths.includes(path) || path.startsWith("/packages/") || path.startsWith("/destinations/");
 
 export default function Header() {
   const pathname = usePathname();

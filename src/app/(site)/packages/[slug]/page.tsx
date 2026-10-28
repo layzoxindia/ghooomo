@@ -7,9 +7,10 @@ import Itinerary from "@/components/Itinerary";
 import PackageCard from "@/components/PackageCard";
 import Reveal from "@/components/Reveal";
 import LocalTimeBadge from "@/components/LocalTimeBadge";
-import { CheckIcon, XIcon, ClockIcon, PinIcon, PhoneIcon } from "@/components/Icons";
+import { ArrowIcon, CheckIcon, XIcon, ClockIcon, PinIcon, PhoneIcon } from "@/components/Icons";
 import { packages } from "@/data/packages";
 import { getCatalog } from "@/lib/server/catalog";
+import { destinationForPackage } from "@/data/destinations";
 import { photoSrc, segments, site } from "@/lib/site";
 import { cancellationTiers, REFUND_DAYS } from "@/lib/pricing";
 
@@ -20,13 +21,18 @@ export function generateStaticParams() {
 export const dynamicParams = false;
 export const revalidate = 300;
 
+function trim(s: string, n = 155) {
+  if (s.length <= n) return s;
+  return s.slice(0, s.lastIndexOf(" ", n - 1)).replace(/[,.;:]$/, "") + "…";
+}
+
 export async function generateMetadata({ params }: PageProps<"/packages/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const p = (await getCatalog()).find((x) => x.slug === slug);
   if (!p) return {};
   return {
-    title: `${p.title} · ${p.nights} nights`,
-    description: p.summary,
+    title: `${p.title} | ${p.nights} Nights Holiday Package`,
+    description: trim(`${p.nights} nights ${p.title}. ${p.summary}`),
     alternates: { canonical: `/packages/${p.slug}` },
     openGraph: { images: [{ url: photoSrc(p.photos[0].id), width: 1800, height: 1200, alt: p.photos[0].alt }] },
   };
@@ -40,6 +46,16 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
   const related = catalog.filter((x) => x.slug !== p.slug && x.region === p.region).slice(0, 3);
   const [hero, ...gallery] = p.photos;
 
+  const guide = destinationForPackage(p.slug);
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Holidays", item: `${site.url}/packages` },
+      { "@type": "ListItem", position: 3, name: p.title, item: `${site.url}/packages/${p.slug}` },
+    ],
+  };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -52,7 +68,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumb]) }} />
 
       {/* Hero */}
       <section className="relative isolate flex min-h-[86svh] flex-col overflow-hidden bg-night text-white">
@@ -123,6 +139,15 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
             <h2 className="text-[clamp(28px,3vw,40px)] text-ink">Day by day</h2>
             <Itinerary days={p.itinerary} accent="#C9431D" />
             <p className="text-[15px] text-subtle">This itinerary can be tailored to suit you.</p>
+            {guide && (
+              <Link href={`/destinations/${guide.slug}`} className="flex items-center justify-between gap-4 rounded-[22px] bg-paper-2 p-5 text-ink hover:bg-line">
+                <span className="flex flex-col">
+                  <span className="text-[18px] font-bold">{guide.name} travel guide</span>
+                  <span className="text-[15px] text-muted">Best time to visit, visa, places to see and tips</span>
+                </span>
+                <ArrowIcon className="shrink-0" />
+              </Link>
+            )}
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2">

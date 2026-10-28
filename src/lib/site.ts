@@ -3,7 +3,7 @@ export const site = {
   legalName: "Ghooomo India Pvt Ltd",
   tagline: "Solo · Couple · Group",
   description:
-    "Private, tailor-made holidays to the Maldives, Bali, Vietnam, Thailand, Sri Lanka, Europe and the best of India, planned by Ghooomo in Noida. Quoted for your dates, hotels named in writing.",
+    "Tailor-made holidays from India to the Maldives, Bali, Dubai, Thailand, Europe and across India. Honeymoon, family and group trips by Ghooomo, Noida.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://ghooomo.in",
   phoneDisplay: "+91 79837 77166",
   phoneE164: "+917983777166",

@@ -1,0 +1,96 @@
+import type { Destination } from "./types";
+
+export const goa: Destination = {
+  slug: "goa",
+  name: "Goa",
+  region: "India",
+  country: "Goa, India",
+  seoTitle: "Goa Tour Packages | Luxury Beach Resorts, North & South Goa",
+  metaDescription: "Plan a Goa holiday: luxury resorts in South Goa, beaches and nightlife in the north, Old Goa and Fontainhas. Best time to visit and itineraries.",
+  h1: "Goa holidays",
+  tagline: "Beaches, Portuguese lanes, seafood shacks and some of India's best resorts.",
+  hero: { id: 37940208, alt: "Palm trees along a beach in Goa" },
+  gallery: [
+    { id: 28550376, alt: "Aerial view of a beach in Goa" },
+    { id: 30441277, alt: "Beach hut on Kola beach, South Goa" },
+  ],
+  intro: [
+    "Goa is two holidays in one. North Goa has the energy: Calangute, Baga, Anjuna and Vagator, beach clubs, flea markets and nightlife. South Goa is calmer, with long empty beaches, five-star resorts and quiet fishing villages.",
+    "Beyond the beaches there is a lot to see: the churches of Old Goa, the Latin quarter of Fontainhas in Panjim, spice farms, waterfalls and forts. And the food, from Goan fish curry to bebinca, is reason enough to visit.",
+    "Goa suits almost everyone: couples on a long weekend, families on a beach break, friends celebrating a birthday, and companies holding an offsite. Choosing the right part of Goa is the most important decision.",
+  ],
+  facts: [
+    { label: "Best time", value: "November to February" },
+    { label: "Ideal stay", value: "4 to 5 nights" },
+    { label: "Flight from Delhi", value: "About 2 hours 30 minutes" },
+    { label: "Airports", value: "Dabolim (south) and Mopa (north)" },
+    { label: "Weather", value: "Warm all year, heavy rain June to September" },
+    { label: "Good to know", value: "December peaks around Christmas and New Year" },
+  ],
+  goodFor: [
+    { t: "Couples", d: "Luxury South Goa resorts, sunset cruises and quiet beaches." },
+    { t: "Friends", d: "North Goa beach clubs, cafes, nightlife and water sports." },
+    { t: "Families", d: "Calm beaches, resort pools and easy sightseeing." },
+  ],
+  months: ["best", "best", "good", "good", "low", "low", "low", "low", "low", "good", "best", "best"],
+  seasons: [
+    { name: "Peak season", when: "November to February", text: "Dry, sunny and lively, with festivals, Christmas and New Year parties. Book early for December." },
+    { name: "Summer", when: "March to May", text: "Hot and humid, quieter and better value." },
+    { name: "Monsoon", when: "June to September", text: "Heavy rain, green landscapes and waterfalls. Beach shacks close and the sea is rough, but resort rates are at their lowest." },
+  ],
+  reach: [
+    "Goa has two airports. Dabolim in the south is close to South Goa and Panjim; Manohar International Airport at Mopa is in the north. Both have direct flights from most Indian cities, about 2 hours 30 minutes from Delhi and 1 hour from Mumbai.",
+    "Goa is also connected by train, with Madgaon and Thivim as the main stations. Getting around is easiest with a private car and driver, especially between North and South Goa.",
+  ],
+  entry: {
+    title: "Planning notes",
+    text: [
+      "No permits are needed. The main thing to plan is where to stay: North Goa for activity and nightlife, South Goa for space and quiet. Many travellers split their stay between the two.",
+      "Choose your airport based on where you stay. Flying into the wrong one can add over an hour of driving each way.",
+    ],
+    checklist: ["Government photo ID for every adult", "Light clothes and sun protection", "Advance bookings for December and New Year"],
+  },
+  places: [
+    { name: "South Goa", text: "Palolem, Agonda, Cola and Colva beaches, five-star resorts and quiet villages." },
+    { name: "North Goa", text: "Calangute, Baga, Anjuna, Vagator and Morjim, with cafes, beach clubs and markets." },
+    { name: "Old Goa", text: "The Basilica of Bom Jesus and Sé Cathedral, both UNESCO-listed." },
+    { name: "Panjim and Fontainhas", text: "Colourful Portuguese houses, art galleries and riverside restaurants." },
+    { name: "Forts", text: "Aguada, Chapora and Cabo de Rama, with views over the sea." },
+    { name: "Dudhsagar Falls", text: "A spectacular waterfall on the Goa and Karnataka border, best after the monsoon." },
+  ],
+  things: [
+    { name: "Sunset cruise", text: "On the Mandovi river or a private yacht off the coast." },
+    { name: "Heritage walk in Fontainhas", text: "Portuguese-era lanes, chapels and bakeries." },
+    { name: "Spice farm visit", text: "With a traditional Goan lunch." },
+    { name: "Water sports", text: "Parasailing, jet skiing and kayaking, mostly in North Goa." },
+    { name: "Dolphin spotting", text: "Early-morning boat trips from Palolem or Sinquerim." },
+    { name: "Goan food trail", text: "Fish curry rice, xacuti, prawn balchão and bebinca." },
+  ],
+  stay: [
+    { name: "South Goa five-star resorts", text: "Large grounds, private beaches and pools. Ideal for couples and families." },
+    { name: "North Goa boutique hotels", text: "Close to cafes and nightlife. Good for friends." },
+    { name: "Villas with private pools", text: "Great for groups and families who want space." },
+  ],
+  itineraries: [
+    { title: "4 nights: South Goa retreat", days: ["Arrive, resort check-in", "Old Goa and Fontainhas", "Cabo de Rama and Palolem, sunset cruise", "Free day at the resort", "Departure"] },
+    { title: "5 nights: North and South", days: ["Arrive, North Goa", "Forts and Anjuna market", "Beach clubs and water sports", "Move to South Goa via Old Goa", "Beach day and spa", "Departure"] },
+  ],
+  tips: [
+    "Book December and New Year stays two to three months ahead.",
+    "Pick your airport based on where you stay: Dabolim for the south, Mopa for the north.",
+    "Swimming is unsafe during the monsoon. Follow lifeguard flags.",
+    "Hire a car with a driver rather than scooters if you are travelling with family.",
+  ],
+  faqs: [
+    { q: "What is the best time to visit Goa?", a: "November to February for dry, sunny weather and the festive season. The monsoon from June to September is beautiful and cheap, but beaches are not for swimming." },
+    { q: "North Goa or South Goa: where should we stay?", a: "North Goa for nightlife, cafes and activities; South Goa for quiet beaches and luxury resorts. Many travellers spend a few nights in each." },
+    { q: "How many days are enough for Goa?", a: "Four to five nights is ideal. Three nights works for a long weekend if you stay in one area." },
+    { q: "Which airport is better for Goa?", a: "Dabolim for South Goa and Panjim, Mopa for North Goa." },
+    { q: "Is Goa good for families?", a: "Yes. South Goa in particular has calm beaches and family resorts with kids clubs and pools." },
+    { q: "Is Goa good for a honeymoon?", a: "Yes. South Goa's five-star resorts, quiet beaches like Agonda and Cola, sunset cruises and candlelit beach dinners make it one of India's most popular short honeymoon trips." },
+    { q: "What are the best beaches in South Goa?", a: "Palolem, Agonda, Cola, Colva, Betalbatim and Cavelossim. They are quieter and cleaner than the busy beaches of North Goa." },
+    { q: "Can we visit Dudhsagar Falls from Goa?", a: "Yes, usually between October and May once the forest roads reopen after the monsoon. It is a long day trip by jeep from the Mollem side." },
+    { q: "What should we eat in Goa?", a: "Goan fish curry rice, prawn balchão, chicken xacuti, cafreal, sorpotel, poi bread and bebinca for dessert. Vegetarians will find plenty too, from mushroom xacuti to Goan Saraswat thalis." },
+  ],
+  packageSlugs: ["goa-luxury-beach"],
+};

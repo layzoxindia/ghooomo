@@ -7,7 +7,7 @@ import { ArrowIcon } from "@/components/Icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Ghooomo",
+  title: "About Us",
   description: `${site.legalName} creates tailor-made holidays around the world and across India, from its office in Sector 121, Noida.`,
   alternates: { canonical: "/about" },
 };

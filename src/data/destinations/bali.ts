@@ -1,0 +1,100 @@
+import type { Destination } from "./types";
+
+export const bali: Destination = {
+  slug: "bali",
+  name: "Bali",
+  region: "International",
+  country: "Indonesia",
+  seoTitle: "Bali Tour Packages from India | Honeymoon & Family Trips",
+  metaDescription: "Plan a Bali holiday from India: Ubud villas, Uluwatu cliffs, Nusa Penida, best time to visit, visa on arrival and itineraries. Tailor-made by Ghooomo.",
+  h1: "Bali holidays from India",
+  tagline: "Jungle villas, rice terraces, temples on the sea and long evenings by the ocean.",
+  hero: { id: "bali-villa", alt: "Private pool villa among palm trees in Bali" },
+  gallery: [
+    { id: 35720624, alt: "Swing above rice terraces in Bali" },
+    { id: 36965361, alt: "Tegallalang rice terraces from above" },
+  ],
+  intro: [
+    "Bali is an island in Indonesia that manages to feel like several holidays at once. Ubud, in the green centre, is all rice terraces, temples and yoga. The south has beach clubs and surf. The Bukit peninsula has clifftop villas above the Indian Ocean, and the islands of Nusa Penida and Nusa Lembongan are a short boat ride away.",
+    "It is one of the most popular international trips for Indian couples, and for good reason: private pool villas cost far less than in most beach destinations, the food is excellent, and the Hindu culture of the island feels familiar. Families like it too, for the beaches, the water parks and the easy pace.",
+    "Most people split their stay between Ubud and the coast. Traffic on the island is slow, so where you stay matters more than the distance on a map suggests.",
+  ],
+  facts: [
+    { label: "Best time", value: "April to October" },
+    { label: "Ideal stay", value: "6 to 8 nights" },
+    { label: "Flight from India", value: "6 to 9 hours, direct or one stop" },
+    { label: "Visa for Indians", value: "Visa on arrival, 30 days" },
+    { label: "Currency", value: "Indonesian Rupiah (IDR)" },
+    { label: "Time", value: "2 hours 30 minutes ahead of India" },
+  ],
+  goodFor: [
+    { t: "Honeymoons", d: "Private pool villas in the jungle or on the cliffs, at a fraction of Maldives prices." },
+    { t: "Families", d: "Calm beaches in Nusa Dua and Sanur, water parks and easy day trips." },
+    { t: "Friends", d: "Beach clubs, island hopping, rafting and great food at every budget." },
+  ],
+  months: ["low", "low", "good", "best", "best", "best", "best", "best", "best", "best", "good", "low"],
+  seasons: [
+    { name: "Dry season", when: "April to October", text: "Sunny, less humid and best for beaches and island trips. July, August and Indian school holidays are the busiest." },
+    { name: "Shoulder", when: "March and November", text: "Some rain, fewer crowds and better villa rates." },
+    { name: "Wet season", when: "December to February", text: "Heavy afternoon showers and rough seas for boat trips. Ubud is lush and green, and villas are good value outside Christmas and New Year." },
+  ],
+  reach: [
+    "You fly into Ngurah Rai International Airport in Denpasar. There are direct flights from some Indian cities; otherwise you connect through Singapore, Kuala Lumpur or Bangkok. Total journey time is usually between 6 and 9 hours.",
+    "From the airport, Seminyak and Nusa Dua are 30 to 45 minutes away, Uluwatu about an hour, and Ubud around 90 minutes, depending on traffic. We arrange a private car with a driver for the whole trip, which is the easiest way to get around.",
+  ],
+  entry: {
+    title: "Visa and entry for Indian passport holders",
+    text: [
+      "Indians can get a visa on arrival for Indonesia, or apply online for the e-VOA before travelling. The fee is IDR 500,000 per person, children included, and it allows a stay of 30 days, extendable once for another 30.",
+      "Visitors to Bali also pay a separate tourist levy of IDR 150,000 per person. It is paid online before you fly and you show the QR code on arrival.",
+    ],
+    checklist: [
+      "Passport valid for at least 6 months from arrival",
+      "Return or onward ticket",
+      "Visa on arrival fee, or e-VOA applied at least 48 hours before travel",
+      "Bali tourist levy paid online",
+    ],
+  },
+  places: [
+    { name: "Ubud", text: "The cultural centre: rice terraces at Tegallalang, the Monkey Forest, the royal palace, art markets and jungle villas above river valleys." },
+    { name: "Uluwatu", text: "Clifftop temple and the Kecak fire dance at sunset, with some of the island's best beaches and villas nearby." },
+    { name: "Nusa Dua", text: "Calm, clean beaches and large resorts. A good base for families." },
+    { name: "Seminyak and Canggu", text: "Cafes, boutiques, beach clubs and sunsets. Lively in the evenings." },
+    { name: "Nusa Penida", text: "Dramatic cliffs at Kelingking beach and snorkelling with manta rays, by fast boat from Sanur." },
+    { name: "Tanah Lot and Tirta Empul", text: "A sea temple on a rock and a holy spring temple where visitors take part in a purification ritual." },
+  ],
+  things: [
+    { name: "Rice terrace walk", text: "Go early to Tegallalang or Jatiluwih before the crowds and the heat." },
+    { name: "Kecak dance at Uluwatu", text: "A fire dance performed at sunset on the cliff edge." },
+    { name: "Nusa Penida day trip", text: "A long but memorable day. We book a private boat so you are not tied to a group schedule." },
+    { name: "White-water rafting", text: "On the Ayung river near Ubud, suitable for beginners." },
+    { name: "Mount Batur sunrise", text: "A pre-dawn trek up an active volcano for the sunrise over the lake." },
+    { name: "Balinese cooking class", text: "Market visit in the morning, cooking and lunch in a village home." },
+  ],
+  stay: [
+    { name: "Ubud private pool villa", text: "Quiet, green and romantic. Ideal for the first half of a honeymoon." },
+    { name: "Uluwatu clifftop", text: "Ocean views and sunsets, but you will need a car for most outings." },
+    { name: "Nusa Dua resort", text: "Family-friendly, with calm water and everything on site." },
+    { name: "Seminyak", text: "Walkable to restaurants and beach clubs. Good for friends and shorter stays." },
+  ],
+  itineraries: [
+    { title: "6 nights: Ubud and Uluwatu", days: ["Arrive, drive to Ubud", "Rice terraces and Tirta Empul", "Ubud at leisure or cooking class", "Drive south, Uluwatu temple and Kecak dance", "Nusa Penida by private boat", "Beach day", "Departure"] },
+    { title: "8 nights: family Bali", days: ["Arrive, Nusa Dua resort", "Beach and pool", "Water park day", "Move to Ubud: Monkey Forest", "Rafting on the Ayung", "Tanah Lot at sunset", "Shopping in Seminyak", "Free day", "Departure"] },
+  ],
+  tips: [
+    "Traffic is slow. Stay in two bases rather than doing long day trips from one.",
+    "Dress modestly at temples; sarongs are usually provided at the entrance.",
+    "Nyepi, the Balinese day of silence (usually in March), closes the airport and roads for 24 hours. Check the date before booking.",
+    "Carry some cash for small warungs, markets and temple donations.",
+  ],
+  faqs: [
+    { q: "Do Indians need a visa for Bali?", a: "Indian passport holders can get a visa on arrival or an e-VOA online. It costs IDR 500,000 per person and allows 30 days, extendable once. Bali also charges a tourist levy of IDR 150,000 per person, paid online before travel." },
+    { q: "What is the best time to visit Bali from India?", a: "April to October is the dry season and the best time for beaches and island trips. December to February is the wettest period." },
+    { q: "How many days are enough for Bali?", a: "Six to eight nights lets you see Ubud and the coast without rushing. With five nights or fewer, pick one base and one or two day trips." },
+    { q: "Are there direct flights from India to Bali?", a: "Some Indian cities have direct flights, depending on the season and airline. Otherwise, one-stop flights via Singapore, Kuala Lumpur or Bangkok are common. We find the best connection from your city." },
+    { q: "Is Bali good for a honeymoon?", a: "Very. Private pool villas in Ubud and on the Uluwatu cliffs, sunset dinners, spa days and island trips make it one of the most popular honeymoon destinations for Indian couples." },
+    { q: "Is vegetarian food easy to find in Bali?", a: "Yes. Ubud in particular has many vegetarian and vegan restaurants, and Indian restaurants are easy to find in the main areas." },
+    { q: "Ubud or the beach: where should we stay?", a: "Ideally both. Two or three nights in Ubud for culture and nature, then three or four on the coast for the sea and sunsets." },
+  ],
+  packageSlugs: ["bali-ubud-uluwatu"],
+};

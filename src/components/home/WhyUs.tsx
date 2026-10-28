@@ -11,8 +11,11 @@ export default function WhyUs() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="wrap flex flex-col gap-12">
-        <Reveal className="max-w-[640px]">
+        <Reveal className="flex max-w-[760px] flex-col gap-5">
           <h2 className="text-[clamp(34px,4.2vw,56px)] leading-[1.04] text-ink">Why travel with Ghooomo</h2>
+          <p className="text-[18px] leading-relaxed text-muted">
+            Ghooomo is a travel company in Noida that plans tailor-made holidays from India. We arrange international holidays to Europe, the Maldives, Bali, Dubai, Thailand, Vietnam, Sri Lanka and beyond, and holidays across India, from Kashmir and Rajasthan to Kerala, Goa and the Andaman Islands. Honeymoons, family holidays, trips with friends and group tours, each planned around the people travelling.
+          </p>
         </Reveal>
         <ul className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((x, i) => (

@@ -1,0 +1,98 @@
+import type { Destination } from "./types";
+
+export const kashmir: Destination = {
+  slug: "kashmir",
+  name: "Kashmir",
+  region: "India",
+  country: "Jammu & Kashmir, India",
+  seoTitle: "Kashmir Tour Packages | Srinagar, Gulmarg, Pahalgam",
+  metaDescription: "Plan a Kashmir holiday: Dal Lake houseboats, Gulmarg, Pahalgam and Sonamarg. Best time to visit, how to reach and itineraries. Tailor-made by Ghooomo.",
+  h1: "Kashmir holidays",
+  tagline: "Houseboats on Dal Lake, meadows under snow peaks, and gardens built for emperors.",
+  hero: { id: "world-kashmir", alt: "Houseboats on a lake in Kashmir with snow-capped mountains" },
+  gallery: [{ id: "world-kashmir-shikara", alt: "A shikara boat on a still lake in Kashmir" }],
+  intro: [
+    "Kashmir is one of the most beautiful parts of India, and it changes completely with the seasons: tulips in spring, green meadows and rivers in summer, golden chinar trees in autumn and deep snow in winter.",
+    "A classic trip starts in Srinagar with a night on a houseboat and a shikara ride on Dal Lake, then moves to Gulmarg for the gondola and the meadows, Pahalgam for the Lidder valley, and Sonamarg for the glaciers. Families, couples and older travellers all find it easy and rewarding.",
+    "Good planning matters in Kashmir. Distances are short but roads are mountainous, weather can change quickly, and the best houseboats and hotels book out in spring and summer.",
+  ],
+  facts: [
+    { label: "Best time", value: "March to October; December to February for snow" },
+    { label: "Ideal stay", value: "5 to 7 nights" },
+    { label: "Flight from Delhi", value: "About 1 hour 30 minutes to Srinagar" },
+    { label: "Permits", value: "None needed for Indian citizens on the usual route" },
+    { label: "Weather", value: "Cold winters, mild summers" },
+    { label: "Main airport", value: "Srinagar (SXR)" },
+  ],
+  goodFor: [
+    { t: "Honeymoons", d: "Houseboats, shikara rides at sunset and snow in Gulmarg." },
+    { t: "Families", d: "Gondola rides, pony treks, gardens and gentle walks." },
+    { t: "Senior travellers", d: "Short flights from Delhi and comfortable hotels with views." },
+  ],
+  months: ["good", "good", "best", "best", "best", "best", "good", "good", "best", "best", "good", "good"],
+  seasons: [
+    { name: "Spring", when: "March to May", text: "Blossoms, the Tulip Garden in Srinagar (usually late March to April) and pleasant days. One of the busiest seasons." },
+    { name: "Summer", when: "June to August", text: "Green valleys and cool weather while the plains are hot. Peak family season." },
+    { name: "Autumn", when: "September to November", text: "Golden chinar trees, clear skies and fewer crowds. Excellent for photography." },
+    { name: "Winter", when: "December to February", text: "Snow in Gulmarg and Pahalgam, skiing and frozen landscapes. Some roads may close after heavy snowfall." },
+  ],
+  reach: [
+    "Srinagar airport has direct flights from Delhi, Mumbai, Bengaluru, Chandigarh, Jammu and other cities. Delhi to Srinagar takes about 1 hour 30 minutes.",
+    "From Srinagar, Gulmarg is about 2 hours by road, Pahalgam about 3, and Sonamarg about 2 to 3. The Vande Bharat train from Katra to Srinagar is another option. We arrange a private car with an experienced local driver for the whole trip.",
+  ],
+  entry: {
+    title: "Permits and planning",
+    text: [
+      "Indian citizens do not need permits for Srinagar, Gulmarg, Pahalgam or Sonamarg. Some high areas and border regions need permissions, which we arrange where required.",
+      "Note that prepaid mobile connections from other states may not work in Jammu & Kashmir. Postpaid connections usually work. We check the latest travel advisories before every trip and plan around road and weather conditions.",
+    ],
+    checklist: [
+      "Government photo ID for every adult",
+      "A postpaid mobile connection, if possible",
+      "Warm layers in every season, heavier jackets from November to March",
+    ],
+  },
+  places: [
+    { name: "Srinagar", text: "Dal and Nigeen lakes, houseboats, the Mughal gardens of Nishat and Shalimar, and the old city." },
+    { name: "Gulmarg", text: "The Gulmarg Gondola, one of the highest cable cars in the world, meadows in summer and skiing in winter." },
+    { name: "Pahalgam", text: "The Lidder river, Betaab and Aru valleys, and pony rides to the meadows." },
+    { name: "Sonamarg", text: "The Thajiwas glacier and alpine meadows along the Sindh river." },
+    { name: "Doodhpathri and Yusmarg", text: "Quieter meadows for a day away from the main circuit." },
+  ],
+  things: [
+    { name: "Shikara ride on Dal Lake", text: "At sunrise for the floating vegetable market, or at sunset for the light." },
+    { name: "Night on a houseboat", text: "Carved wooden houseboats with views over the lake. We pick deluxe boats we know." },
+    { name: "Gulmarg Gondola", text: "Book in advance; phase two goes to Apharwat peak." },
+    { name: "Tulip Garden", text: "One of the largest in Asia, open for a few weeks in spring." },
+    { name: "Mughal gardens", text: "Nishat, Shalimar and Chashme Shahi, with terraces and fountains." },
+    { name: "Kashmiri food", text: "Wazwan, kahwa and fresh bread from the local bakers." },
+  ],
+  stay: [
+    { name: "Houseboat on Dal or Nigeen Lake", text: "One or two nights for the experience; Nigeen is quieter." },
+    { name: "Srinagar hotels", text: "Lake-view hotels near the boulevard, convenient for the gardens and the old city." },
+    { name: "Gulmarg and Pahalgam resorts", text: "Mountain resorts with valley or river views." },
+  ],
+  itineraries: [
+    { title: "5 nights: classic Kashmir", days: ["Arrive in Srinagar, shikara ride, houseboat night", "Mughal gardens and old city", "Day trip to Gulmarg and the gondola", "Drive to Pahalgam: Betaab and Aru valleys", "Day trip to Sonamarg", "Departure from Srinagar"] },
+    { title: "7 nights: slower Kashmir", days: ["Arrive, houseboat on Nigeen Lake", "Srinagar gardens", "Drive to Gulmarg", "Gondola and meadows", "Drive to Pahalgam", "Aru and Betaab valleys", "Sonamarg on the way back to Srinagar", "Departure"] },
+  ],
+  tips: [
+    "Carry warm layers in every season. Evenings are cool even in summer.",
+    "Book the Gulmarg Gondola online in advance in peak season.",
+    "In winter, allow a buffer day: snow can close roads at short notice.",
+    "Respect local customs: dress modestly and ask before photographing people.",
+  ],
+  faqs: [
+    { q: "What is the best time to visit Kashmir?", a: "March to October for pleasant weather, gardens and green valleys. December to February for snow in Gulmarg and Pahalgam." },
+    { q: "How many days are enough for Kashmir?", a: "Five nights covers Srinagar, Gulmarg, Pahalgam and Sonamarg. Six or seven nights allows a slower pace and an extra valley." },
+    { q: "How do we reach Kashmir?", a: "Fly into Srinagar. There are direct flights from Delhi, Mumbai and several other cities. From Srinagar, all the main valleys are 2 to 3 hours by road." },
+    { q: "When does the Tulip Garden open?", a: "Usually from late March to April, for a few weeks, depending on the weather. The exact dates are announced each year." },
+    { q: "Is a houseboat stay worth it?", a: "Yes, for one or two nights. A good deluxe houseboat is comfortable and memorable. We only book boats we know." },
+    { q: "Will our mobile phone work in Kashmir?", a: "Postpaid connections usually work. Prepaid connections from outside Jammu & Kashmir often do not, so plan ahead." },
+    { q: "Is Kashmir good for a honeymoon?", a: "Yes. A night on a deluxe houseboat, shikara rides at sunset, the snow in Gulmarg and quiet riverside resorts in Pahalgam make it one of India's favourite honeymoon trips." },
+    { q: "When does it snow in Kashmir?", a: "Usually from December to February, sometimes into March. Gulmarg gets the most snow and is the best place for skiing and snow activities." },
+    { q: "Can senior citizens travel comfortably in Kashmir?", a: "Yes. Flights to Srinagar are short, distances are manageable, and most sights can be enjoyed without strenuous walking. We plan a gentle pace and comfortable hotels." },
+    { q: "What should we buy in Kashmir?", a: "Pashmina shawls, carpets, papier-mâché, walnut wood carvings, saffron and dry fruits. We recommend government emporiums or trusted shops to be sure of quality." },
+  ],
+  packageSlugs: [],
+};

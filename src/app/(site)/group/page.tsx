@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Family and Group Holidays",
-  description: "Tailor-made holidays for families, friends and small company offsites to Thailand, Bali, Vietnam, Europe, Goa, Kerala and Gujarat. One planner and one itinerary for everyone.",
+  description: "Family, friends and group holidays from India to Thailand, Bali, Dubai, Europe, Goa and Kerala, with the right rooms and transport for everyone.",
   alternates: { canonical: "/group" },
 };
 

@@ -1,0 +1,101 @@
+import type { Destination } from "./types";
+
+export const kerala: Destination = {
+  slug: "kerala",
+  name: "Kerala",
+  region: "India",
+  country: "Kerala, India",
+  seoTitle: "Kerala Tour Packages | Munnar, Alleppey Houseboat, Kovalam",
+  metaDescription: "Plan a Kerala holiday: Munnar tea hills, Alleppey and Kumarakom houseboats, Thekkady and beaches. Best time to visit and itineraries by Ghooomo.",
+  h1: "Kerala holidays",
+  tagline: "Tea hills, backwater houseboats, spice forests and quiet beaches.",
+  hero: { id: 34489429, alt: "A houseboat on the Alleppey backwaters in Kerala" },
+  gallery: [
+    { id: 32262521, alt: "Tea plantations in the hills of Munnar" },
+    { id: 14479189, alt: "Sunset over the Kuttanad backwaters" },
+  ],
+  intro: [
+    "Kerala packs a lot into a narrow strip of south-west India. In one week you can wake up among the tea estates of Munnar, walk through a spice plantation in Thekkady, spend a night on a houseboat on the backwaters and finish on a beach at Marari or Kovalam.",
+    "It is one of India's most popular honeymoon destinations and an easy, relaxed family holiday. The pace is slow, the food is excellent, and Ayurveda resorts offer proper treatments, not just spa menus.",
+    "The best Kerala trips avoid too many long drives. We plan the route so the hills, the backwaters and the coast flow naturally, with one or two nights more than you think you need.",
+  ],
+  facts: [
+    { label: "Best time", value: "September to March" },
+    { label: "Ideal stay", value: "6 to 8 nights" },
+    { label: "Flight from Delhi", value: "About 3 hours 30 minutes to Kochi" },
+    { label: "Main airports", value: "Kochi, Thiruvananthapuram, Kozhikode" },
+    { label: "Weather", value: "Warm and humid by the sea, cool in the hills" },
+    { label: "Good to know", value: "Monsoon (June to August) is the season for Ayurveda" },
+  ],
+  goodFor: [
+    { t: "Honeymoons", d: "Hill resorts, a private houseboat and a quiet beach to finish." },
+    { t: "Families", d: "Tea gardens, elephant spotting, boat rides and easy beaches." },
+    { t: "Wellness", d: "Authentic Ayurveda retreats with doctor-led programmes." },
+  ],
+  months: ["best", "best", "good", "good", "low", "low", "low", "good", "best", "best", "best", "best"],
+  seasons: [
+    { name: "Winter", when: "October to February", text: "Pleasant days, cool nights in the hills and calm backwaters. Peak season, especially Christmas and New Year." },
+    { name: "Summer", when: "March to May", text: "Hot and humid on the coast, comfortable in Munnar and Thekkady." },
+    { name: "Monsoon", when: "June to August", text: "Heavy rain, lush green landscapes and the best time for Ayurveda treatments. Good value." },
+  ],
+  reach: [
+    "Most trips start at Kochi airport, which has direct flights from Delhi, Mumbai, Bengaluru, Chennai, Hyderabad and the Gulf. Delhi to Kochi takes about 3 hours 30 minutes. Thiruvananthapuram is convenient for Kovalam and Varkala.",
+    "Munnar is about 4 hours by road from Kochi, Thekkady about 4 to 5, and the backwaters of Alleppey and Kumarakom about 1 hour 30 minutes. We arrange a private car with a driver for the whole trip.",
+  ],
+  entry: {
+    title: "Planning notes",
+    text: [
+      "No permits are needed for the usual Kerala route. Foreign nationals travelling with you do not need additional permits either.",
+      "Houseboats come in very different standards. We book premium houseboats with air-conditioned bedrooms and a crew we know, and avoid the crowded parts of the backwaters where possible.",
+    ],
+    checklist: [
+      "Government photo ID for every adult",
+      "Light cotton clothes, and a light jacket for Munnar",
+      "Mosquito repellent for the backwaters",
+    ],
+  },
+  places: [
+    { name: "Munnar", text: "Rolling tea estates, Eravikulam National Park with its Nilgiri tahr, and misty viewpoints." },
+    { name: "Thekkady", text: "Periyar wildlife sanctuary, spice plantations and boat rides on Periyar lake." },
+    { name: "Alleppey and Kumarakom", text: "The backwaters: houseboats, village canals and lakeside resorts on Vembanad." },
+    { name: "Fort Kochi", text: "Chinese fishing nets, Mattancherry, the Jew Town and Kathakali performances." },
+    { name: "Marari and Kovalam", text: "Quiet beaches and beach resorts to end the trip." },
+    { name: "Varkala", text: "Red cliffs above the beach, cafes and a relaxed atmosphere." },
+  ],
+  things: [
+    { name: "Overnight houseboat", text: "A day and night on the backwaters with meals cooked on board." },
+    { name: "Tea estate walk", text: "With a planter in Munnar, finishing with a tasting." },
+    { name: "Spice plantation tour", text: "Cardamom, pepper and cinnamon in Thekkady." },
+    { name: "Kathakali performance", text: "Arrive early to watch the make-up being applied." },
+    { name: "Ayurveda treatment", text: "From a single massage to a 14-day programme." },
+    { name: "Village canoe ride", text: "Through narrow canals that houseboats cannot reach." },
+  ],
+  stay: [
+    { name: "Munnar tea estate resorts", text: "Valley views and cool evenings." },
+    { name: "Kumarakom lake resorts", text: "Quieter than Alleppey, with private lake access." },
+    { name: "Premium houseboat", text: "One night is enough for most travellers." },
+    { name: "Marari beach resorts", text: "Calm, uncrowded, and close to Kochi airport." },
+  ],
+  itineraries: [
+    { title: "6 nights: hills, backwaters and beach", days: ["Arrive in Kochi, drive to Munnar", "Munnar tea estates and Eravikulam", "Drive to Kumarakom", "Overnight houseboat", "Drive to Marari", "Fort Kochi", "Departure"] },
+    { title: "8 nights: complete Kerala", days: ["Arrive in Kochi, Fort Kochi", "Drive to Munnar", "Munnar", "Drive to Thekkady", "Periyar and spice plantation", "Drive to Alleppey, houseboat", "Kumarakom", "Kovalam or Varkala", "Departure from Thiruvananthapuram"] },
+  ],
+  tips: [
+    "Hill roads are slow. Do not plan more than one long drive in a day.",
+    "One night on a houseboat is enough for most people; spend the second at a lake resort.",
+    "Book Christmas and New Year three months ahead.",
+    "Many temples have dress codes and some do not allow non-Hindus inside.",
+  ],
+  faqs: [
+    { q: "What is the best time to visit Kerala?", a: "September to March. October to February is peak season. June to August is the monsoon, the best time for Ayurveda and the greenest time of year." },
+    { q: "How many days are enough for Kerala?", a: "Six nights covers Munnar, the backwaters and a beach. Eight nights lets you add Thekkady or Fort Kochi without rushing." },
+    { q: "Alleppey or Kumarakom for the houseboat?", a: "Both are on the same backwaters. Alleppey has more houseboats and is busier; Kumarakom is quieter and has better lake resorts." },
+    { q: "Is Kerala good for a honeymoon?", a: "Yes. Hill resorts in Munnar, a private houseboat and a beach resort make it one of the most popular honeymoon trips in India." },
+    { q: "Which airport should we fly into?", a: "Kochi for most routes. Thiruvananthapuram if you are ending in Kovalam or Varkala." },
+    { q: "How many nights should we spend on a houseboat?", a: "One night is enough for most travellers. It covers a full afternoon and evening on the backwaters, the sunset and a quiet morning. Spend the next night at a lakeside resort instead." },
+    { q: "Is Kerala good for families with children?", a: "Yes. Tea gardens, boat rides, elephant spotting in Thekkady, short walks and calm beaches make it easy and safe for children and older travellers." },
+    { q: "When is the best time for Ayurveda in Kerala?", a: "The monsoon months of June to August are traditionally considered the best, as the cool, humid air helps the treatments. Good centres run programmes all year." },
+    { q: "Can we see wildlife in Kerala?", a: "Yes. Periyar in Thekkady has elephants, bison and birds, best seen on an early-morning boat ride or guided walk. Eravikulam near Munnar is home to the Nilgiri tahr." },
+  ],
+  packageSlugs: ["kerala-hills-backwaters-beach"],
+};

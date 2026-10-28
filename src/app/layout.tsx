@@ -6,8 +6,8 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Ghooomo | Tailor-made Holidays from India",
-    template: "%s · Ghooomo",
+    default: "Holiday Packages from India | Tailor-made Holidays | Ghooomo",
+    template: "%s | Ghooomo",
   },
   description: site.description,
   applicationName: site.name,
@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: "en_IN",
-    title: "Ghooomo | Tailor-made holidays, planned around who's coming",
+    title: "Ghooomo | Your world, beautifully planned",
+    images: [{ url: "/photos/world-santorini.jpg", width: 1200, height: 831, alt: "Santorini, Greece" }],
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
