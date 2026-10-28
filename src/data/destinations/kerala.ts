@@ -9,7 +9,7 @@ export const kerala: Destination = {
   metaDescription: "Plan a Kerala holiday: Munnar tea hills, Alleppey and Kumarakom houseboats, Thekkady and beaches. Best time to visit and itineraries by Ghooomo.",
   h1: "Kerala holidays",
   tagline: "Tea hills, backwater houseboats, spice forests and quiet beaches.",
-  hero: { id: 34489429, alt: "A houseboat on the Alleppey backwaters in Kerala" },
+  hero: { id: 34489429, alt: "A tourist boat on the Alappuzha backwaters, Kerala" },
   gallery: [
     { id: 32262521, alt: "Tea plantations in the hills of Munnar" },
     { id: 14479189, alt: "Sunset over the Kuttanad backwaters" },
@@ -60,7 +60,7 @@ export const kerala: Destination = {
     { name: "Alleppey and Kumarakom", text: "The backwaters: houseboats, village canals and lakeside resorts on Vembanad." },
     { name: "Fort Kochi", text: "Chinese fishing nets, Mattancherry, the Jew Town and Kathakali performances." },
     { name: "Marari and Kovalam", text: "Quiet beaches and beach resorts to end the trip." },
-    { name: "Varkala", text: "Red cliffs above the beach, cafes and a relaxed atmosphere." },
+    { name: "Varkala", text: "Red cliffs above the beach, cafés and a relaxed atmosphere." },
   ],
   things: [
     { name: "Overnight houseboat", text: "A day and night on the backwaters with meals cooked on board." },

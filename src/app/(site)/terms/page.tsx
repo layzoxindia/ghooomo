@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms for using the Ghooomo website and booking holidays with Ghooomo India Pvt Ltd.",
+  description: "Terms for using the Ghooomo website and booking holidays with Ghooomo.",
   alternates: { canonical: "/terms" },
 };
 

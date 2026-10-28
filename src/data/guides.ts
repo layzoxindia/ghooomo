@@ -183,11 +183,11 @@ export const guides: Guide[] = [
       { name: "Bali, Indonesia", dest: "bali", when: "April to October", text: "Visa on arrival, also available online before you fly. Villas, temples and beaches." },
       { name: "Sri Lanka", dest: "sri-lanka", when: "December to April", text: "Free online travel authorisation. Hill country, wildlife and beaches." },
       { name: "Mauritius", dest: "mauritius", when: "May to December", text: "Visa-free entry. Lagoons, mountains and a warm Indian welcome." },
-      { name: "Malaysia", when: "December to April", text: "Visa-free. Kuala Lumpur, Langkawi and Penang, an easy add-on to Singapore." },
-      { name: "Bhutan", when: "March to May, September to November", text: "No visa needed for Indians, though an entry permit and fee apply. Monasteries, valleys and calm." },
-      { name: "Nepal", when: "October to May", text: "No visa or passport needed for Indians with valid ID. Kathmandu, Pokhara and the Himalayas." },
-      { name: "Seychelles", when: "April, May, October, November", text: "Electronic travel authorisation before you fly. Granite beaches and island hopping." },
-      { name: "Kazakhstan", when: "May to September", text: "Visa-free. Almaty's mountains, lakes and canyons, a new favourite for Indian travellers." },
+      { name: "Malaysia", dest: "malaysia", when: "December to April", text: "Visa-free. Kuala Lumpur, Langkawi and Penang, an easy add-on to Singapore." },
+      { name: "Bhutan", dest: "bhutan", when: "March to May, September to November", text: "No visa needed for Indians, though an entry permit and fee apply. Monasteries, valleys and calm." },
+      { name: "Nepal", dest: "nepal", when: "October to May", text: "No visa or passport needed for Indians with valid ID. Kathmandu, Pokhara and the Himalayas." },
+      { name: "Seychelles", dest: "seychelles", when: "April, May, October, November", text: "Electronic travel authorisation before you fly. Granite beaches and island hopping." },
+      { name: "Kazakhstan", dest: "kazakhstan", when: "May to September", text: "Visa-free. Almaty's mountains, lakes and canyons, a new favourite for Indian travellers." },
     ],
     sections: [
       {
@@ -213,7 +213,7 @@ export const guides: Guide[] = [
     ],
     table: {
       heading: "Full list for Indian passport holders",
-      intro: "Based on the Henley Passport Index 2026, where India ranks 80th with access to 55 destinations without a visa in advance.",
+      intro: "In the October 2026 Henley Passport Index, India ranks 84th, with access to 55 destinations without a visa in advance. The list below is a guide to those options; requirements can change at short notice.",
       groups: [
         {
           label: "Visa-free",
@@ -223,7 +223,7 @@ export const guides: Guide[] = [
         {
           label: "Visa on arrival",
           note: "Visa issued at the airport or border, sometimes for a fee.",
-          countries: ["Burundi", "Cambodia", "Cape Verde", "Comoros", "Djibouti", "Ethiopia", "Guinea-Bissau", "Indonesia", "Jordan", "Laos", "Madagascar", "Maldives", "Marshall Islands", "Mongolia", "Mozambique", "Palau", "Philippines", "Qatar", "Samoa", "Sierra Leone", "Somalia", "Sri Lanka", "St Lucia", "Tanzania", "Timor-Leste", "Tuvalu", "Zimbabwe"],
+          countries: ["Burundi", "Cambodia", "Cape Verde", "Comoros", "Djibouti", "Guinea-Bissau", "Indonesia", "Jordan", "Laos", "Madagascar", "Maldives", "Marshall Islands", "Mongolia", "Mozambique", "Palau", "Philippines", "Qatar", "Samoa", "Sierra Leone", "Somalia", "Sri Lanka", "St Lucia", "Tanzania", "Timor-Leste", "Tuvalu", "Zimbabwe"],
         },
         {
           label: "Electronic travel authorisation",
@@ -231,10 +231,10 @@ export const guides: Guide[] = [
           countries: ["Kenya", "Myanmar", "Seychelles", "St Kitts and Nevis"],
         },
       ],
-      source: "Source: Henley Passport Index 2026. Some countries list more than one option; Sri Lanka, for example, also offers a free online ETA.",
+      source: "Source: Henley Passport Index, October 2026, and official government sites. Some countries offer more than one option; Sri Lanka, for example, also offers a free online ETA.",
     },
     faqs: [
-      { q: "How many countries can Indians visit without a visa in 2026?", a: "According to the Henley Passport Index 2026, Indian passport holders can visit 55 destinations without a visa in advance, through visa-free entry, visa on arrival or an electronic travel authorisation." },
+      { q: "How many countries can Indians visit without a visa in 2026?", a: "According to the Henley Passport Index of October 2026, Indian passport holders can visit 55 destinations without a visa in advance, through visa-free entry, visa on arrival or an electronic travel authorisation." },
       { q: "Which countries are visa-free for Indians for a holiday?", a: "Popular choices include Thailand, Malaysia, Mauritius, Bhutan, Nepal, Kazakhstan and Fiji. The Maldives, Indonesia and Sri Lanka are also easy, with visa on arrival or an online authorisation." },
       { q: "Is Dubai visa-free for Indians?", a: "Not usually. Most Indian travellers need a UAE tourist visa in advance. Indians with a valid US visa or green card, or a UK or EU residence permit, may be eligible for visa on arrival." },
       { q: "Is Europe visa-free for Indians?", a: "No. Indian passport holders need a Schengen visa for most of Europe, including France, Switzerland, Italy and Greece." },

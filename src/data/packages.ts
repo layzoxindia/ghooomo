@@ -189,13 +189,13 @@ export const packages: TravelPackage[] = [
     stayStyle: "Beachfront resorts",
     summary:
       "Six nights split between a beachfront resort in Phuket and the limestone cliffs of Krabi. Phi Phi and Maya Bay by speedboat, Phang Nga Bay, and Railay beach, which you can only reach by boat. Works for couples, families and friends travelling together.",
-    highlights: ["Phi Phi Islands & Maya Bay", "Phang Nga Bay & James Bond Island", "Railay beach by longtail boat", "Four islands of Krabi", "Old Phuket Town"],
+    highlights: ["Phi Phi Islands & Maya Bay", "Phang Nga Bay & James Bond Island", "Railay beach by long-tail boat", "Four islands of Krabi", "Old Phuket Town"],
     itinerary: [
       { title: "Arrive in Phuket", desc: "Private transfer to your beachfront resort. Evening at leisure." },
       { title: "Phi Phi Islands", desc: "Speedboat to Phi Phi, Maya Bay and Pileh Lagoon, with snorkelling stops and lunch." },
       { title: "Old Phuket Town", desc: "Sino-Portuguese shophouses, Big Buddha and a sunset view from Promthep Cape." },
       { title: "Phuket to Krabi via Phang Nga Bay", desc: "Cross Phang Nga Bay by boat, past James Bond Island, and arrive at your Krabi resort." },
-      { title: "Four islands", desc: "Longtail boat to Phra Nang cave, Chicken island, Tup island and Poda island." },
+      { title: "Four islands", desc: "Long-tail boat to Phra Nang cave, Chicken island, Tup island and Poda island." },
       { title: "Railay", desc: "A free day on Railay beach, reached only by boat. We can book a spa or a dinner on the sand." },
       { title: "Departure", desc: "Transfer to Krabi or Phuket airport." },
     ],
@@ -349,7 +349,7 @@ export const packages: TravelPackage[] = [
     ],
     exclusions: ["Flights to Kochi (we can book them)", "Meals not listed", "Ayurveda treatments", "Personal expenses"],
     photos: [
-      { id: 34489429, alt: "Houseboat on the Alappuzha backwaters, Kerala" },
+      { id: 34489429, alt: "A tourist boat on the Alappuzha backwaters, Kerala" },
       { id: 32262521, alt: "Tea estates in the hills of Kerala" },
       { id: 14479189, alt: "Sunset over the Kuttanad backwaters" },
     ],
@@ -493,7 +493,7 @@ export const packages: TravelPackage[] = [
     inclusions: ["4 nights at a five-star beach resort", "Daily breakfast", "Private car for sightseeing and transfers", "Private sunset cruise", "Guided heritage walk"],
     exclusions: ["Flights to Goa (we can book them)", "Meals not listed", "Personal expenses"],
     photos: [
-      { id: 37940208, alt: "Palm trees along a Goa beach" },
+      { id: 37940208, alt: "Beach shacks on the sand in Goa" },
       { id: 28550376, alt: "Aerial view of a Goa beach" },
       { id: 30441277, alt: "Beach hut on Kola beach, South Goa" },
     ],

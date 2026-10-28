@@ -9,7 +9,7 @@ export const goa: Destination = {
   metaDescription: "Plan a Goa holiday: luxury resorts in South Goa, beaches and nightlife in the north, Old Goa and Fontainhas. Best time to visit and itineraries.",
   h1: "Goa holidays",
   tagline: "Beaches, Portuguese lanes, seafood shacks and some of India's best resorts.",
-  hero: { id: 37940208, alt: "Palm trees along a beach in Goa" },
+  hero: { id: 37940208, alt: "Beach shacks on the sand in Goa" },
   gallery: [
     { id: 28550376, alt: "Aerial view of a beach in Goa" },
     { id: 30441277, alt: "Beach hut on Kola beach, South Goa" },
@@ -29,7 +29,7 @@ export const goa: Destination = {
   ],
   goodFor: [
     { t: "Couples", d: "Luxury South Goa resorts, sunset cruises and quiet beaches." },
-    { t: "Friends", d: "North Goa beach clubs, cafes, nightlife and water sports." },
+    { t: "Friends", d: "North Goa beach clubs, cafés, nightlife and water sports." },
     { t: "Families", d: "Calm beaches, resort pools and easy sightseeing." },
   ],
   months: ["best", "best", "good", "good", "low", "low", "low", "low", "low", "good", "best", "best"],
@@ -52,7 +52,7 @@ export const goa: Destination = {
   },
   places: [
     { name: "South Goa", text: "Palolem, Agonda, Cola and Colva beaches, five-star resorts and quiet villages." },
-    { name: "North Goa", text: "Calangute, Baga, Anjuna, Vagator and Morjim, with cafes, beach clubs and markets." },
+    { name: "North Goa", text: "Calangute, Baga, Anjuna, Vagator and Morjim, with cafés, beach clubs and markets." },
     { name: "Old Goa", text: "The Basilica of Bom Jesus and Sé Cathedral, both UNESCO-listed." },
     { name: "Panjim and Fontainhas", text: "Colourful Portuguese houses, art galleries and riverside restaurants." },
     { name: "Forts", text: "Aguada, Chapora and Cabo de Rama, with views over the sea." },
@@ -68,7 +68,7 @@ export const goa: Destination = {
   ],
   stay: [
     { name: "South Goa five-star resorts", text: "Large grounds, private beaches and pools. Ideal for couples and families." },
-    { name: "North Goa boutique hotels", text: "Close to cafes and nightlife. Good for friends." },
+    { name: "North Goa boutique hotels", text: "Close to cafés and nightlife. Good for friends." },
     { name: "Villas with private pools", text: "Great for groups and families who want space." },
   ],
   itineraries: [
@@ -83,7 +83,7 @@ export const goa: Destination = {
   ],
   faqs: [
     { q: "What is the best time to visit Goa?", a: "November to February for dry, sunny weather and the festive season. The monsoon from June to September is beautiful and cheap, but beaches are not for swimming." },
-    { q: "North Goa or South Goa: where should we stay?", a: "North Goa for nightlife, cafes and activities; South Goa for quiet beaches and luxury resorts. Many travellers spend a few nights in each." },
+    { q: "North Goa or South Goa: where should we stay?", a: "North Goa for nightlife, cafés and activities; South Goa for quiet beaches and luxury resorts. Many travellers spend a few nights in each." },
     { q: "How many days are enough for Goa?", a: "Four to five nights is ideal. Three nights works for a long weekend if you stay in one area." },
     { q: "Which airport is better for Goa?", a: "Dabolim for South Goa and Panjim, Mopa for North Goa." },
     { q: "Is Goa good for families?", a: "Yes. South Goa in particular has calm beaches and family resorts with kids clubs and pools." },

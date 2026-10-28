@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps<"/packages/[slug]">
   const p = (await getCatalog()).find((x) => x.slug === slug);
   if (!p) return {};
   return {
-    title: `${p.title} | ${p.nights} Nights Holiday Package`,
+    title: `${p.title} | ${p.nights} Nights Holiday`,
     description: trim(`${p.nights} nights ${p.title}. ${p.summary}`),
     alternates: { canonical: `/packages/${p.slug}` },
     openGraph: { images: [{ url: photoSrc(p.photos[0].id), width: 1800, height: 1200, alt: p.photos[0].alt }] },

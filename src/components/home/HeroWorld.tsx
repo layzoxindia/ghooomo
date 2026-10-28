@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowIcon } from "../Icons";
 
-export type HeroPlace = { name: string; country: string; photo: string };
+export type HeroPlace = { name: string; country: string; photo: string; href: string };
 
 function Column({ items, reverse, duration }: { items: HeroPlace[]; reverse?: boolean; duration: number }) {
   // The list is doubled so the loop is seamless.
@@ -13,18 +13,26 @@ function Column({ items, reverse, duration }: { items: HeroPlace[]; reverse?: bo
   return (
     <div className="relative h-full overflow-hidden">
       <div
-        className="flex flex-col gap-4 motion-reduce:!animate-none"
+        className="flex flex-col gap-4 hover:[animation-play-state:paused] motion-reduce:!animate-none"
         style={{ animation: `${reverse ? "col-down" : "col-up"} ${duration}s linear infinite` }}
       >
         {loop.map((p, i) => (
-          <figure key={`${p.name}-${i}`} className="relative aspect-[3/4] w-full shrink-0 overflow-hidden rounded-[22px] bg-night-2">
-            <Image src={p.photo} alt="" fill sizes="(max-width: 1024px) 40vw, 16vw" quality={68} className="object-cover" />
+          <Link
+            key={`${p.name}-${i}`}
+            href={p.href}
+            aria-label={`${p.name}, ${p.country}: read the guide`}
+            aria-hidden={i >= items.length || undefined}
+            tabIndex={i >= items.length ? -1 : undefined}
+            className="group relative block aspect-[3/4] w-full shrink-0 overflow-hidden rounded-[22px] bg-night-2 ring-white/70 transition-shadow hover:ring-2"
+          >
+            <Image src={p.photo} alt="" fill sizes="(max-width: 1024px) 40vw, 16vw" quality={68} className="object-cover transition-transform duration-700 group-hover:scale-110" />
             <span className="absolute inset-0 bg-gradient-to-t from-night/85 via-night/10 to-transparent" />
-            <figcaption className="absolute inset-x-0 bottom-0 p-4">
+            <span className="absolute inset-x-0 bottom-0 p-4">
               <span className="block text-[17px] font-bold leading-tight text-white">{p.name}</span>
               <span className="block text-[14px] font-medium text-on-night">{p.country}</span>
-            </figcaption>
-          </figure>
+              <span className="mt-2 flex items-center gap-1.5 text-[14px] font-bold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">View guide <ArrowIcon size={14} /></span>
+            </span>
+          </Link>
         ))}
       </div>
     </div>
@@ -36,15 +44,22 @@ function Row({ items, reverse }: { items: HeroPlace[]; reverse?: boolean }) {
   return (
     <div className="overflow-hidden">
       <div
-        className="flex w-max gap-3 motion-reduce:!animate-none"
+        className="flex w-max gap-3 active:[animation-play-state:paused] motion-reduce:!animate-none"
         style={{ animation: `${reverse ? "row-right" : "row-left"} 60s linear infinite` }}
       >
         {loop.map((p, i) => (
-          <figure key={`${p.name}-${i}`} className="relative h-[150px] w-[120px] shrink-0 overflow-hidden rounded-[18px] bg-night-2">
+          <Link
+            key={`${p.name}-${i}`}
+            href={p.href}
+            aria-label={`${p.name}, ${p.country}: read the guide`}
+            aria-hidden={i >= items.length || undefined}
+            tabIndex={i >= items.length ? -1 : undefined}
+            className="relative block h-[150px] w-[120px] shrink-0 overflow-hidden rounded-[18px] bg-night-2"
+          >
             <Image src={p.photo} alt="" fill sizes="120px" quality={60} className="object-cover" />
             <span className="absolute inset-0 bg-gradient-to-t from-night/85 to-transparent" />
-            <figcaption className="absolute inset-x-0 bottom-0 p-2.5 text-[14px] font-bold leading-tight text-white">{p.name}</figcaption>
-          </figure>
+            <span className="absolute inset-x-0 bottom-0 p-2.5 text-[14px] font-bold leading-tight text-white">{p.name}</span>
+          </Link>
         ))}
       </div>
     </div>
@@ -90,20 +105,20 @@ export default function HeroWorld({ places }: { places: HeroPlace[] }) {
         </div>
 
         {/* Desktop: three drifting columns */}
-        <div
-          aria-hidden="true"
+        <nav
+          aria-label="Featured destinations"
           className="relative hidden h-[100svh] min-w-0 grid-cols-3 gap-4 lg:grid [mask-image:linear-gradient(to_bottom,transparent_9%,black_24%,black_84%,transparent)]"
         >
           <Column items={cols[0]} duration={46} />
           <Column items={cols[1]} duration={54} reverse />
           <Column items={cols[2]} duration={50} />
-        </div>
+        </nav>
 
         {/* Phones and tablets: two drifting rows */}
-        <div aria-hidden="true" className="-mx-5 flex min-w-0 flex-col gap-3 overflow-hidden sm:-mx-7 lg:hidden">
+        <nav aria-label="Featured destinations" className="-mx-5 flex min-w-0 flex-col gap-3 overflow-hidden sm:-mx-7 lg:hidden">
           <Row items={places.slice(0, half)} />
           <Row items={places.slice(half)} reverse />
-        </div>
+        </nav>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 export const site = {
   name: "Ghooomo",
-  legalName: "Ghooomo India Pvt Ltd",
+  legalName: "Ghooomo",
   tagline: "Solo · Couple · Group",
   description:
     "Tailor-made holidays from India to the Maldives, Bali, Dubai, Thailand, Europe and across India. Honeymoon, family and group trips by Ghooomo, Noida.",

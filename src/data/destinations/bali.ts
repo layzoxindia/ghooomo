@@ -59,7 +59,7 @@ export const bali: Destination = {
     { name: "Ubud", text: "The cultural centre: rice terraces at Tegallalang, the Monkey Forest, the royal palace, art markets and jungle villas above river valleys." },
     { name: "Uluwatu", text: "Clifftop temple and the Kecak fire dance at sunset, with some of the island's best beaches and villas nearby." },
     { name: "Nusa Dua", text: "Calm, clean beaches and large resorts. A good base for families." },
-    { name: "Seminyak and Canggu", text: "Cafes, boutiques, beach clubs and sunsets. Lively in the evenings." },
+    { name: "Seminyak and Canggu", text: "Cafés, boutiques, beach clubs and sunsets. Lively in the evenings." },
     { name: "Nusa Penida", text: "Dramatic cliffs at Kelingking beach and snorkelling with manta rays, by fast boat from Sanur." },
     { name: "Tanah Lot and Tirta Empul", text: "A sea temple on a rock and a holy spring temple where visitors take part in a purification ritual." },
   ],

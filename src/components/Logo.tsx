@@ -48,6 +48,12 @@ export function Wordmark({ tone = "ink", bg = "#F6F2EB", width = 172, id = "g" }
   );
 }
 
+const rings = [
+  { href: "/solo", label: "Solo trips", cx: 403, dots: 1 as const, color: "#F2603A" },
+  { href: "/couple", label: "Couple trips", cx: 507, dots: 2 as const, color: "#EFA21C" },
+  { href: "/group", label: "Group trips", cx: 611, dots: 3 as const, color: "#13B2A8" },
+];
+
 /** Logo with home link; each of the three rings links to Solo / Couple / Group. */
 export function Logo({ ringLinks = true, ...props }: Props) {
   const width = props.width ?? 172;
@@ -65,9 +71,21 @@ export function Logo({ ringLinks = true, ...props }: Props) {
       </Link>
       {ringLinks && (
         <>
-          <Link href="/solo" aria-label="Solo trips" title="Solo trips" className="absolute hidden rounded-full md:block" style={ringBox(403)} />
-          <Link href="/couple" aria-label="Couple trips" title="Couple trips" className="absolute hidden rounded-full md:block" style={ringBox(507)} />
-          <Link href="/group" aria-label="Group trips" title="Group trips" className="absolute hidden rounded-full md:block" style={ringBox(611)} />
+          {rings.map((r) => (
+            <Link
+              key={r.href}
+              href={r.href}
+              aria-label={r.label}
+              title={r.label}
+              className="group/ring absolute z-10 hidden rounded-full outline-offset-2 md:block"
+              style={ringBox(r.cx)}
+            >
+              {/* The ring pops out of the logo on hover or keyboard focus. */}
+              <span className="pointer-events-none absolute inset-0 scale-90 opacity-0 transition-[transform,opacity] duration-300 ease-out group-hover/ring:scale-[1.7] group-hover/ring:opacity-100 group-focus-visible/ring:scale-[1.7] group-focus-visible/ring:opacity-100 motion-reduce:transition-none">
+                <RingMark dots={r.dots} color={r.color} size="100%" cut={!props.bg || props.bg === "transparent" ? "#071530" : props.bg} />
+              </span>
+            </Link>
+          ))}
         </>
       )}
     </div>
@@ -75,11 +93,11 @@ export function Logo({ ringLinks = true, ...props }: Props) {
 }
 
 /** One ring with 1, 2 or 3 dots: the mark for each trip type. */
-export function RingMark({ dots, color, size = 84, cut }: { dots: 1 | 2 | 3; color: string; size?: number; cut?: string }) {
+export function RingMark({ dots, color, size = 84, cut }: { dots: 1 | 2 | 3; color: string; size?: number | string; cut?: string }) {
   const pts: [number, number][] = dots === 1 ? [[0, 0]] : dots === 2 ? [[-13, 0], [13, 0]] : [[0, -12], [-12, 9], [12, 9]];
   return (
     <svg width={size} height={size} viewBox="-62 -62 124 124" aria-hidden="true" focusable="false">
-      {cut && <circle r="47" fill="none" stroke={cut} strokeWidth="40" />}
+      {cut && <circle r="47" fill={cut} stroke={cut} strokeWidth="40" />}
       <circle r="47" fill="none" stroke={color} strokeWidth="26" />
       {pts.map(([x, y], i) => (
         <circle key={i} cx={x} cy={y} r={dots === 1 ? 10 : 9} fill={color} />

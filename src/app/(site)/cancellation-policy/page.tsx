@@ -5,7 +5,7 @@ import { cancellationTiers } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Cancellation & Refund Policy",
-  description: "Cancellation charges and refund timelines for holidays booked with Ghooomo India Pvt Ltd.",
+  description: "Cancellation charges and refund timelines for holidays booked with Ghooomo.",
   alternates: { canonical: "/cancellation-policy" },
 };
 

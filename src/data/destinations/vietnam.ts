@@ -58,7 +58,7 @@ export const vietnam: Destination = {
   places: [
     { name: "Hanoi", text: "The old quarter, Hoan Kiem lake, the Temple of Literature and a street food tour in the evening." },
     { name: "Ha Long Bay and Lan Ha Bay", text: "Thousands of limestone islands, best seen on an overnight cruise with kayaking and caves." },
-    { name: "Hoi An", text: "A UNESCO-listed trading town with lanterns, tailors, riverside cafes and nearby beaches." },
+    { name: "Hoi An", text: "A UNESCO-listed trading town with lanterns, tailors, riverside cafés and nearby beaches." },
     { name: "Da Nang and Ba Na Hills", text: "City beaches, the Marble Mountains and the Golden Bridge held up by giant stone hands." },
     { name: "Ninh Binh", text: "Rice fields and karst scenery, explored by rowing boat through caves." },
     { name: "Ho Chi Minh City and the Mekong", text: "The busy southern city, the Cu Chi tunnels and floating markets in the delta." },

@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy & Notice",
-  description: "How Ghooomo India Pvt Ltd collects, uses, stores and deletes your personal data under India’s Digital Personal Data Protection Act, 2023.",
+  description: "How Ghooomo collects, uses, stores and deletes your personal data under India’s Digital Personal Data Protection Act, 2023.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
       updated="28 October 2026"
       intro={
         <p>
-          This notice explains, in plain language, what personal data {site.legalName} (“Ghooomo”, “we”) collects through this website, why, how long we keep it,
+          This notice explains, in plain language, what personal data {site.legalName} (“we”) collects through this website, why, how long we keep it,
           and how you can control it. We follow India’s Digital Personal Data Protection Act, 2023 (DPDP Act) and the rules made under it.
         </p>
       }

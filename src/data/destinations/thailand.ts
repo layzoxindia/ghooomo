@@ -58,7 +58,7 @@ export const thailand: Destination = {
   },
   places: [
     { name: "Phuket", text: "Thailand's biggest island, with beaches from busy Patong to quiet Kata Noi and Mai Khao. The base for Phi Phi and Phang Nga Bay." },
-    { name: "Krabi and Railay", text: "Limestone cliffs, the four islands tour, and Railay beach, reached only by longtail boat." },
+    { name: "Krabi and Railay", text: "Limestone cliffs, the four islands tour, and Railay beach, reached only by long-tail boat." },
     { name: "Phi Phi Islands", text: "Maya Bay, Pileh Lagoon and some of the clearest water in the country. Best visited early in the day." },
     { name: "Bangkok", text: "The Grand Palace, Wat Arun, floating markets, rooftop bars and shopping at every level." },
     { name: "Pattaya", text: "Two hours from Bangkok, with Coral Island, theme parks and the Sanctuary of Truth." },
