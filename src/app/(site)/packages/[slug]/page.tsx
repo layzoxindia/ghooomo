@@ -112,9 +112,12 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
                 { k: "Where you stay", v: p.stayStyle, I: PinIcon },
                 { k: "Suits", v: p.idealFor.map((s) => segments[s].label).join(", "), I: CheckIcon },
               ].map(({ k, v, I }) => (
-                <div key={k} className="flex gap-3 rounded-[20px] border border-line bg-white p-4">
-                  <span className="mt-0.5 text-cta"><I size={20} /></span>
-                  <div><dt className="text-[14px] font-semibold text-subtle">{k}</dt><dd className="text-[16px] font-semibold text-ink">{v}</dd></div>
+                <div key={k} className="relative rounded-[20px] border border-line bg-white p-4 pl-12">
+                  <dt className="text-[14px] font-semibold text-subtle">
+                    <span className="absolute left-4 top-[18px] text-cta" aria-hidden="true"><I size={20} /></span>
+                    {k}
+                  </dt>
+                  <dd className="text-[16px] font-semibold text-ink">{v}</dd>
                 </div>
               ))}
             </dl>

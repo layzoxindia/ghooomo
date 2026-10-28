@@ -2,7 +2,11 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import DotGlobe, { type City } from "./DotGlobe";
+import dynamic from "next/dynamic";
+import type { City } from "./DotGlobe";
+
+// The globe (d3 and the land map) loads in its own chunk after the page is interactive.
+const DotGlobe = dynamic(() => import("./DotGlobe"), { ssr: false, loading: () => <div className="h-full w-full" aria-hidden="true" /> });
 import { ArrowIcon } from "../Icons";
 
 const cities: City[] = [

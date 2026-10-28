@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/server/db";
 import { adminConfigured, isAdmin } from "@/lib/server/admin-auth";
 import { turnstileConfigured } from "@/lib/server/security";
+import { alertChannels } from "@/lib/server/notify";
 
 export const dynamic = "force-dynamic";
 
@@ -34,6 +35,7 @@ export async function GET() {
       admin: adminConfigured() ? "ok" : "not-configured",
       spamCheck: turnstileConfigured() ? "on" : "off",
       rateLimit,
+      alerts: alertChannels(),
     },
     { headers },
   );

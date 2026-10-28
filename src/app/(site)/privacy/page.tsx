@@ -94,8 +94,8 @@ export default function PrivacyPage() {
 
       <h2>10. Cookies and tracking</h2>
       <p>
-        This website uses no advertising or analytics cookies. Our spam-protection service may set a strictly necessary cookie to tell people from bots. If we ever add analytics,
-        we will ask for your permission first and update this notice.
+        This website uses no advertising or tracking cookies. To understand which pages are useful, we count visits with Vercel Web Analytics, which works without cookies,
+        does not store your IP address and cannot identify you or follow you to other websites. Our spam-protection service may set a strictly necessary cookie to tell people from bots.
       </p>
 
       <h2>11. How we protect your data</h2>

@@ -4,6 +4,7 @@ import { deleteLead, updateLead } from "./actions";
 import { requireAdmin } from "@/lib/server/admin-auth";
 import { db } from "@/lib/server/db";
 import { turnstileConfigured } from "@/lib/server/security";
+import { alertChannels } from "@/lib/server/notify";
 import { segments, type Segment } from "@/lib/site";
 import { getPackage } from "@/data/packages";
 
@@ -97,6 +98,9 @@ export default async function AdminLeads({ searchParams }: PageProps<"/admin">) 
               {dbDetail ? ` Error: ${dbDetail}` : ""}
             </p>
           </div>
+        )}
+        {!Object.values(alertChannels()).some(Boolean) && (
+          <p className="rounded-xl bg-[#FFF4DB] p-4 font-semibold text-[#7A4B00]">New-lead alerts are off. Add Telegram, email (Resend) or webhook settings in Vercel to get every enquiry on your phone.</p>
         )}
         {!turnstileConfigured() && (
           <p className="rounded-xl bg-[#FFF4DB] p-4 font-semibold text-[#7A4B00]">Spam check is off. Add the Cloudflare Turnstile keys in Vercel to turn it on.</p>

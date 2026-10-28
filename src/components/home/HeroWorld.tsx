@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import { ArrowIcon } from "../Icons";
 
 export type HeroPlace = { name: string; country: string; photo: string; href: string };
@@ -20,6 +17,8 @@ function Column({ items, reverse, duration }: { items: HeroPlace[]; reverse?: bo
           <Link
             key={`${p.name}-${i}`}
             href={p.href}
+            // Moving cards would otherwise prefetch every guide as it drifts into view.
+            prefetch={false}
             aria-label={`${p.name}, ${p.country}: read the guide`}
             aria-hidden={i >= items.length || undefined}
             tabIndex={i >= items.length ? -1 : undefined}
@@ -39,7 +38,7 @@ function Column({ items, reverse, duration }: { items: HeroPlace[]; reverse?: bo
   );
 }
 
-function Row({ items, reverse }: { items: HeroPlace[]; reverse?: boolean }) {
+function Row({ items, reverse, eager }: { items: HeroPlace[]; reverse?: boolean; eager?: boolean }) {
   const loop = [...items, ...items];
   return (
     <div className="overflow-hidden">
@@ -51,12 +50,24 @@ function Row({ items, reverse }: { items: HeroPlace[]; reverse?: boolean }) {
           <Link
             key={`${p.name}-${i}`}
             href={p.href}
+            // Moving cards would otherwise prefetch every guide as it drifts into view.
+            prefetch={false}
             aria-label={`${p.name}, ${p.country}: read the guide`}
             aria-hidden={i >= items.length || undefined}
             tabIndex={i >= items.length ? -1 : undefined}
             className="relative block h-[150px] w-[120px] shrink-0 overflow-hidden rounded-[18px] bg-night-2"
           >
-            <Image src={p.photo} alt="" fill sizes="120px" quality={60} className="object-cover" />
+            <Image
+              src={p.photo}
+              alt=""
+              fill
+              sizes="120px"
+              quality={60}
+              // The first cards are the largest thing on a phone screen at load, so fetch them straight away.
+              loading={eager && i < 4 ? "eager" : "lazy"}
+              fetchPriority={eager && i === 0 ? "high" : undefined}
+              className="object-cover"
+            />
             <span className="absolute inset-0 bg-gradient-to-t from-night/85 to-transparent" />
             <span className="absolute inset-x-0 bottom-0 p-2.5 text-[14px] font-bold leading-tight text-white">{p.name}</span>
           </Link>
@@ -68,16 +79,10 @@ function Row({ items, reverse }: { items: HeroPlace[]; reverse?: boolean }) {
 
 /** Opening section: the message on a calm background, with destinations from around the world drifting past beside it. */
 export default function HeroWorld({ places }: { places: HeroPlace[] }) {
-  const reduce = useReducedMotion();
   const third = Math.ceil(places.length / 3);
   const cols = [places.slice(0, third), places.slice(third, third * 2), places.slice(third * 2)];
   const half = Math.ceil(places.length / 2);
 
-  const rise = (d: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 22 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, delay: d, ease: [0.22, 1, 0.36, 1] as const },
-  });
 
   return (
     <section className="relative isolate overflow-hidden bg-night text-white">
@@ -86,22 +91,22 @@ export default function HeroWorld({ places }: { places: HeroPlace[] }) {
 
       <div className="wrap grid min-h-[100svh] grid-cols-1 items-center gap-10 pb-12 pt-32 lg:grid-cols-[1fr_0.95fr] lg:gap-14 lg:py-0">
         <div className="flex min-w-0 flex-col gap-7 lg:py-32">
-          <motion.p {...rise(0.05)} className="flex items-center gap-3 text-[16px] font-semibold text-on-night">
+          <p className="hero-rise flex items-center gap-3 text-[16px] font-semibold text-on-night" style={{ animationDelay: "0.05s" }}>
             <span className="ring-gradient h-[3px] w-10 rounded-full" aria-hidden="true" />
             Holidays across the world
-          </motion.p>
-          <motion.h1 {...rise(0.12)} className="text-[clamp(46px,6.4vw,96px)] font-bold leading-[1.02] tracking-[-0.035em]">
+          </p>
+          <h1 className="hero-rise text-[clamp(46px,6.4vw,96px)] font-bold leading-[1.02] tracking-[-0.035em]" style={{ animationDelay: "0.12s" }}>
             Your world,
             <br />
             beautifully planned.
-          </motion.h1>
-          <motion.p {...rise(0.22)} className="max-w-[560px] text-[clamp(18px,1.4vw,21px)] font-medium leading-relaxed text-on-night">
+          </h1>
+          <p className="hero-rise max-w-[560px] text-[clamp(18px,1.4vw,21px)] font-medium leading-relaxed text-on-night" style={{ animationDelay: "0.22s" }}>
             Tailor-made holidays to Europe, the Maldives, Bali, Dubai, Japan and every corner of India. For solo travellers, couples, families and groups.
-          </motion.p>
-          <motion.div {...rise(0.32)} className="flex flex-wrap gap-3">
+          </p>
+          <div className="hero-rise flex flex-wrap gap-3" style={{ animationDelay: "0.32s" }}>
             <Link href="#enquire" className="btn btn-primary">Plan my holiday <ArrowIcon /></Link>
             <Link href="/packages" className="btn btn-ghost">Explore destinations</Link>
-          </motion.div>
+          </div>
         </div>
 
         {/* Desktop: three drifting columns */}
@@ -116,7 +121,7 @@ export default function HeroWorld({ places }: { places: HeroPlace[] }) {
 
         {/* Phones and tablets: two drifting rows */}
         <nav aria-label="Featured destinations" className="-mx-5 flex min-w-0 flex-col gap-3 overflow-hidden sm:-mx-7 lg:hidden">
-          <Row items={places.slice(0, half)} />
+          <Row items={places.slice(0, half)} eager />
           <Row items={places.slice(half)} reverse />
         </nav>
       </div>

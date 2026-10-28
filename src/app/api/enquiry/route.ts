@@ -1,9 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { enquirySchema } from "@/lib/validation";
 import { clientIp, globalLimited, hashIp, sameOrigin, verifyTurnstile } from "@/lib/server/security";
 import { db } from "@/lib/server/db";
 import { site, waLink, segments } from "@/lib/site";
 import { getPackage } from "@/data/packages";
+import { sendAlert } from "@/lib/server/notify";
 
 export async function POST(req: Request) {
   if (!sameOrigin(req)) return NextResponse.json({ error: "Bad request" }, { status: 403 });
@@ -42,6 +43,9 @@ export async function POST(req: Request) {
 
   const pkg = e.packageSlug ? getPackage(e.packageSlug) : undefined;
 
+  const sourcePath = new URL(req.headers.get("referer") || site.url).pathname.slice(0, 200);
+  let saved = false;
+  let failure = "";
   const client = db();
   if (client) {
     const { error } = await client.from("leads").insert({
@@ -59,16 +63,42 @@ export async function POST(req: Request) {
       message: e.message || null,
       consent_at: new Date().toISOString(),
       notice_version: e.noticeVersion,
-      source_path: new URL(req.headers.get("referer") || site.url).pathname.slice(0, 200),
+      source_path: sourcePath,
       ip_hash: ipHash,
     });
     if (error) {
-      console.error("LEAD NOT SAVED: insert failed", error.code, error.message);
-      // Still hand the person over to WhatsApp so the enquiry is not lost.
-    }
-  } else if (process.env.NODE_ENV === "production") {
-    console.error("SUPABASE not configured: lead not stored");
+      failure = [error.code, error.message].filter(Boolean).join(": ").slice(0, 200) || "insert failed";
+      console.error("LEAD NOT SAVED: insert failed", failure);
+    } else saved = true;
+  } else {
+    failure = "database not configured";
+    if (process.env.NODE_ENV === "production") console.error("SUPABASE not configured: lead not stored");
   }
+
+  // Tell the team straight away. The alert holds every detail, so the lead survives a database failure.
+  after(() =>
+    sendAlert({
+      title: saved ? `New enquiry: ${e.name}` : `LEAD NOT SAVED: ${e.name}`,
+      urgent: !saved,
+      fields: [
+        ["Name", e.name],
+        ["Phone", e.phone],
+        ["Email", e.email],
+        ["Trip type", segments[e.segment].label],
+        ["Package", pkg ? `${pkg.title} (${pkg.nights}N/${pkg.days}D)` : ""],
+        ["Destination", e.destination],
+        ["When", e.travelMonth],
+        ["Travellers", e.travellers],
+        ["Group", e.groupType],
+        ["Occasion", e.occasion],
+        ["Budget", e.budget],
+        ["Note", e.message],
+        ["Page", sourcePath],
+        ["Saved in admin", saved ? "Yes" : `No (${failure})`],
+      ],
+      data: { kind: "enquiry", saved, segment: e.segment, packageSlug: pkg?.slug ?? null },
+    }),
+  );
 
   const lines = [
     `Hi Ghooomo! I'd like a quote for a ${segments[e.segment].label.toLowerCase()} holiday.`,
