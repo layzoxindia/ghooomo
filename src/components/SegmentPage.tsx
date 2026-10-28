@@ -1,14 +1,14 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import HeroVideo from "./HeroVideo";
+import HeroImage from "./HeroImage";
 import PackageGrid from "./PackageGrid";
 import EnquirySection from "./EnquirySection";
 import Reveal from "./Reveal";
 import { RingMark } from "./Logo";
-import { ChatIcon } from "./Icons";
+import { ArrowIcon } from "./Icons";
 import { heroMedia } from "@/lib/media";
 import { getCatalog } from "@/lib/server/catalog";
-import { photoSrc, segments, waLink, type Segment } from "@/lib/site";
+import { photoSrc, segments, type Segment } from "@/lib/site";
 
 type Props = {
   segment: Segment;
@@ -29,20 +29,14 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
 
   const ctas = (light: boolean) => (
     <div className="flex flex-wrap gap-3">
-      <a
-        href="#packages"
-        className="btn"
-        style={{ background: segment === "couple" ? seg.color : light ? "#fff" : seg.strong, color: segment === "couple" ? "#0F2B5B" : light ? seg.strong : "#fff" }}
-      >
-        {primaryCta}
+      <a href="#packages" className="btn btn-primary">
+        {primaryCta} <ArrowIcon />
       </a>
       <a
-        href={waLink(`Hi Ghooomo! I'd like to plan a ${seg.label.toLowerCase()} trip.`)}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#enquire"
         className={`btn border-2 ${light ? "border-white text-white hover:bg-white/10" : "border-ink text-ink hover:bg-ink hover:text-white"}`}
       >
-        <ChatIcon /> Plan on WhatsApp
+        Ask for a custom plan
       </a>
     </div>
   );
@@ -59,13 +53,13 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
             <Reveal delay={0.16}>{ctas(false)}</Reveal>
           </div>
           <Reveal delay={0.1} className="relative h-[460px] flex-[1_1_460px] overflow-hidden rounded-[34px] bg-[#1d3b4a] sm:h-[580px]">
-            <HeroVideo media={media} />
+            <HeroImage media={media} />
           </Reveal>
         </section>
       ) : segment === "couple" ? (
-        // Full-bleed video hero
+        // Full-bleed photo hero
         <section className="relative isolate flex min-h-[92svh] flex-col overflow-hidden bg-[#3E3326] text-white">
-          <HeroVideo media={media} />
+          <HeroImage media={media} />
           <div className="absolute inset-0 bg-[#1F160D]/50" aria-hidden="true" />
           <div className="wrap relative z-10 mt-auto flex flex-col gap-6 pb-20 pt-32">
             <Reveal className="flex items-center gap-4"><RingMark dots={2} color={seg.color} size={56} /><span className="text-[17px] font-semibold text-[#FFD88A]">Couple holidays</span></Reveal>
@@ -75,7 +69,7 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
           </div>
         </section>
       ) : (
-        // Teal block with video + photo mosaic
+        // Teal block with photo mosaic
         <section className="bg-group-strong text-white">
           <div className="wrap flex flex-wrap items-center gap-10 pb-20 pt-28 lg:pt-32">
             <div className="flex flex-[1_1_440px] flex-col gap-6">
@@ -86,7 +80,7 @@ export default async function SegmentPage({ segment, heading, intro, primaryCta,
             </div>
             <div className="grid h-[460px] flex-[1_1_480px] grid-cols-2 grid-rows-2 gap-3 sm:h-[540px]">
               <Reveal delay={0.08} className="relative row-span-2 overflow-hidden rounded-[28px] bg-[#0a524d]">
-                <HeroVideo media={media} />
+                <HeroImage media={media} />
               </Reveal>
               {(mosaic ?? []).slice(0, 2).map((m, i) => (
                 <Reveal key={m.id} delay={0.14 + i * 0.06} className="relative overflow-hidden rounded-[28px] bg-[#0a524d]">

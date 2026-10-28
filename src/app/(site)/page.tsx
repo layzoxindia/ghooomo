@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import HeroVideo from "@/components/HeroVideo";
+import HeroImage from "@/components/HeroImage";
 import TripFinder from "@/components/TripFinder";
 import NoSurprises from "@/components/NoSurprises";
 import PackageGrid from "@/components/PackageGrid";
@@ -10,10 +10,10 @@ import Testimonials from "@/components/Testimonials";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import { RingMark } from "@/components/Logo";
-import { ArrowIcon, ChatIcon } from "@/components/Icons";
+import { ArrowIcon } from "@/components/Icons";
 import { heroMedia } from "@/lib/media";
 import { getCatalog } from "@/lib/server/catalog";
-import { photoSrc, segments, site, waLink } from "@/lib/site";
+import { photoSrc, segments, site } from "@/lib/site";
 
 export const revalidate = 300;
 
@@ -47,7 +47,7 @@ export default async function Home() {
     <>
       {/* HERO */}
       <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#13242B] text-white">
-        <HeroVideo media={heroMedia.home} />
+        <HeroImage media={heroMedia.home} />
         <div className="absolute inset-0 bg-[#08151E]/45" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#08151E]/80 to-transparent" aria-hidden="true" />
         <div className="wrap relative z-10 mt-auto flex flex-col gap-8 pb-10 pt-32 sm:pb-14">
@@ -61,11 +61,8 @@ export default async function Home() {
               Travelling alone, as a couple or with a group? Pick one, and a planner from our Noida office puts the trip together for you.
             </p>
           </div>
-          <div className="hero-rise flex flex-wrap gap-3 sm:hidden" style={{ "--d": "0.1s" } as CSSProperties}>
-            <a href={waLink("Hi Ghooomo! I'd like to plan a holiday.")} target="_blank" rel="noopener noreferrer" className="btn flex-1 bg-wa text-white hover:bg-wa-deep">
-              <ChatIcon /> WhatsApp us
-            </a>
-            <Link href="#packages" className="btn flex-1 bg-white text-ink">See trips</Link>
+          <div className="hero-rise sm:hidden" style={{ "--d": "0.1s" } as CSSProperties}>
+            <Link href="#packages" className="btn btn-primary w-full">See this season’s trips <ArrowIcon /></Link>
           </div>
           <div className="hero-rise" style={{ "--d": "0.14s" } as CSSProperties}>
             <TripFinder />
@@ -139,7 +136,7 @@ export default async function Home() {
       {/* STAYS */}
       <section className="wrap grid items-center gap-10 pt-24 sm:pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
         <Reveal className="relative aspect-[16/10] overflow-hidden rounded-[30px] bg-paper-2">
-          <HeroVideo media={heroMedia.stay} priority={false} />
+          <HeroImage media={heroMedia.stay} priority={false} />
         </Reveal>
         <Reveal delay={0.08} className="flex flex-col gap-5">
           <h2 className="text-[clamp(34px,4vw,56px)] leading-[1] text-ink">You’ll know the hotel before you pay.</h2>

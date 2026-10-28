@@ -24,6 +24,10 @@
   --color-wa: #14834A;
   --color-wa-deep: #0F6E3D;
   --color-sun: #F7C25A;
+
+  /* Main call to action: brand orange, white text passes WCAG AA (4.6:1) */
+  --color-cta: #D2441B;
+  --color-cta-deep: #A93412;
 }
 
 html {
@@ -88,6 +92,19 @@ h1, h2, h3, .font-display {
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 .btn:hover { transform: translateY(-1px); }
+
+/* The one main action on each screen. Bright, bold and slightly larger than other buttons. */
+.btn-primary {
+  background: var(--color-cta);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  min-height: 56px;
+  padding: 0 30px;
+  box-shadow: 0 12px 28px rgba(210, 68, 27, 0.38);
+}
+.btn-primary:hover { background: var(--color-cta-deep); box-shadow: 0 16px 34px rgba(210, 68, 27, 0.45); }
+.btn-primary:focus-visible { outline-color: var(--color-ink); }
 .btn:active { transform: translateY(0); }
 
 /* flex-basis columns must be allowed to shrink below their content on phones */

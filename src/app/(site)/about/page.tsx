@@ -57,7 +57,7 @@ export default function AboutPage() {
             <h2 className="text-[clamp(30px,3.6vw,46px)] leading-[1.04]">Visit us in Sector 121, Noida</h2>
             <p className="text-[17px] text-[#DCE4F2]">{site.hours}. Messages outside these hours are answered the next working day.</p>
           </div>
-          <Link href="/contact" className="btn bg-sun text-ink hover:bg-[#F2B13A]">Contact us <ArrowIcon /></Link>
+          <Link href="/contact" className="btn btn-primary">Contact us <ArrowIcon /></Link>
         </div>
       </section>
     </>

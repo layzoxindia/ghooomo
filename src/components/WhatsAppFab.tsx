@@ -4,8 +4,9 @@ import { usePathname } from "next/navigation";
 import { ChatIcon } from "./Icons";
 import { waLink } from "@/lib/site";
 
+/** The only direct WhatsApp link on the site. Shown on every page. */
 export default function WhatsAppFab() {
-  // Package pages have their own bottom bar on phones with the same WhatsApp button.
+  // Package pages have a price bar fixed to the bottom on phones: sit above it.
   const onPackage = usePathname().startsWith("/packages/");
   return (
     <a
@@ -13,10 +14,10 @@ export default function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className={`btn fixed bottom-5 right-5 z-40 min-h-[58px] w-[58px] bg-wa px-0 text-white sm:w-auto sm:px-5 shadow-[0_14px_30px_rgba(20,131,74,0.4)] hover:bg-wa-deep ${onPackage ? "max-lg:hidden" : ""}`}
+      className={`btn fixed right-5 z-40 min-h-[60px] w-[60px] bg-wa px-0 text-white shadow-[0_14px_30px_rgba(20,131,74,0.4)] hover:bg-wa-deep sm:w-auto sm:px-6 ${onPackage ? "bottom-[104px] lg:bottom-6" : "bottom-5 sm:bottom-6"}`}
     >
-      <ChatIcon size={22} />
-      <span className="hidden sm:inline">Chat</span>
+      <ChatIcon size={24} />
+      <span className="hidden sm:inline">WhatsApp us</span>
     </a>
   );
 }

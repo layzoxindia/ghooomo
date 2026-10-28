@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import EnquiryForm from "@/components/EnquiryForm";
-import { ChatIcon, ClockIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/Icons";
-import { site, waLink } from "@/lib/site";
+import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/Icons";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Ghooomo",
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 };
 
 const cards = [
-  { I: ChatIcon, k: "WhatsApp", v: site.phoneDisplay, href: waLink("Hi Ghooomo! I'd like to plan a holiday."), ext: true },
   { I: PhoneIcon, k: "Call", v: site.phoneDisplay, href: `tel:${site.phoneE164}` },
   { I: MailIcon, k: "Email", v: site.email, href: `mailto:${site.email}` },
   { I: PinIcon, k: "Office", v: site.address, href: site.mapsUrl, ext: true },
@@ -21,7 +20,7 @@ export default function ContactPage() {
     <section className="wrap grid gap-10 pb-24 pt-28 sm:pt-32 lg:grid-cols-[0.85fr_1.15fr]">
       <div className="flex flex-col gap-6">
         <h1 className="text-[clamp(42px,5.4vw,76px)] font-extrabold leading-[0.96] text-ink">Contact us</h1>
-        <p className="text-[18px] text-muted">WhatsApp is the quickest way to reach a planner. You can also call, email or visit the office in Noida.</p>
+        <p className="text-[18px] text-muted">Fill in the form and a planner gets back to you on WhatsApp. You can also call, email or visit the office in Noida. For a quick chat, use the WhatsApp button at the bottom of the screen.</p>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
           {cards.map(({ I, k, v, href, ext }) => (
             <li key={k}>

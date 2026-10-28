@@ -89,7 +89,7 @@ export default function TripFinder({ tone = "dark" }: { tone?: "dark" | "light" 
             {MONTH_NAMES.map((m, i) => <option key={m} value={String(i + 1)}>{m}</option>)}
           </select>
         </div>
-        <button type="submit" className="btn col-span-2 min-h-[52px] bg-sun text-ink hover:bg-[#F2B13A] sm:col-span-1">Show matching trips</button>
+        <button type="submit" className="btn btn-primary col-span-2 sm:col-span-1">Show matching trips</button>
       </div>
       <p className={`text-[14px] font-medium ${dark ? "text-[#DCE4EC]" : "text-subtle"}`} aria-live="polite">
         {summary ? <>Looking for trips around <strong className={dark ? "text-white" : "text-ink"}>{summary}</strong>, taxes included.</> : "Prices are compared with taxes included."}

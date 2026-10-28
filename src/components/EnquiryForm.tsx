@@ -225,10 +225,9 @@ export default function EnquiryForm({ variant = "general", segment, packageSlug,
       <button
         type="submit"
         disabled={state === "sending"}
-        className="btn sm:col-span-2 min-h-14 bg-wa text-[17px] text-white hover:bg-wa-deep disabled:opacity-70"
+        className="btn btn-primary sm:col-span-2 min-h-14 disabled:opacity-70"
       >
-        <ChatIcon />
-        {state === "sending" ? "Sending…" : submitLabel || "Send enquiry on WhatsApp"}
+        {state === "sending" ? "Sending…" : submitLabel || "Send my enquiry"}
       </button>
     </form>
   );

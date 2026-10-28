@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { TravelPackage } from "@/data/packages";
-import { formatINR, photoSrc, segments, waLink } from "@/lib/site";
-import { ArrowIcon, ChatIcon } from "./Icons";
+import { formatINR, photoSrc, segments } from "@/lib/site";
+import { ArrowIcon } from "./Icons";
 import { priceOf } from "@/lib/pricing";
 
 export default function PackageCard({ p, showTag = true }: { p: TravelPackage; showTag?: boolean }) {
@@ -48,15 +48,6 @@ export default function PackageCard({ p, showTag = true }: { p: TravelPackage; s
             <span className="text-[14px] font-medium text-subtle">{p.priceBasis.split(" · ")[0]}{price.tcs ? " · plus 2% TCS" : ""}</span>
           </p>
           <div className="relative z-10 flex items-center gap-2">
-            <a
-              href={waLink(`Hi Ghooomo! I'm interested in ${p.title} (${p.nights}N/${p.days}D).`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-wa text-white transition-colors hover:bg-wa-deep"
-              aria-label={`Ask about ${p.title} on WhatsApp`}
-            >
-              <ChatIcon />
-            </a>
             <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink text-ink transition-colors group-hover:bg-ink group-hover:text-white" aria-hidden="true">
               <ArrowIcon />
             </span>

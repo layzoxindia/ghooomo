@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
-import { ChatIcon, MenuIcon, XIcon } from "./Icons";
-import { segments, site, waLink, type Segment } from "@/lib/site";
+import { MenuIcon, XIcon } from "./Icons";
+import { segments, site, type Segment } from "@/lib/site";
 
 const nav = [
   { href: "/packages", label: "All trips" },
@@ -75,14 +75,9 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={waLink("Hi Ghooomo! I'd like to plan a holiday.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn hidden bg-wa text-white hover:bg-wa-deep sm:inline-flex"
-          >
-            <ChatIcon /> WhatsApp us
-          </a>
+          <Link href="/contact" className="btn btn-primary hidden !min-h-12 !px-6 !text-[16px] sm:inline-flex">
+            Plan my trip
+          </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -111,9 +106,7 @@ export default function Header() {
                 {n.label}
               </Link>
             ))}
-            <a href={waLink("Hi Ghooomo! I'd like to plan a holiday.")} target="_blank" rel="noopener noreferrer" className="btn mt-2 bg-wa text-white">
-              <ChatIcon /> WhatsApp us
-            </a>
+            <Link href="/contact" className="btn btn-primary mt-2">Plan my trip</Link>
             <a href={`tel:${site.phoneE164}`} className="btn border-2 border-ink text-ink">
               Call {site.phoneDisplay}
             </a>

@@ -6,10 +6,10 @@ import EnquiryForm from "@/components/EnquiryForm";
 import Itinerary from "@/components/Itinerary";
 import PackageCard from "@/components/PackageCard";
 import Reveal from "@/components/Reveal";
-import { CheckIcon, XIcon, ClockIcon, PinIcon, ChatIcon } from "@/components/Icons";
+import { CheckIcon, XIcon, ClockIcon, PinIcon } from "@/components/Icons";
 import { packages } from "@/data/packages";
 import { getCatalog } from "@/lib/server/catalog";
-import { formatINR, photoSrc, segments, site, waLink } from "@/lib/site";
+import { formatINR, photoSrc, segments, site } from "@/lib/site";
 import { cancellationFor, priceOf, REFUND_DAYS } from "@/lib/pricing";
 import NoSurprises from "@/components/NoSurprises";
 
@@ -192,15 +192,9 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
               )}
               <p className="text-[14px] text-[#C4D0E4]">No booking fee, no convenience fee, nothing added at checkout.</p>
             </div>
-            <a
-              href={waLink(`Hi Ghooomo! I'm interested in ${p.title} (${p.nights}N/${p.days}D) from ${formatINR(price.total)}.`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn mt-4 bg-wa text-white hover:bg-wa-deep"
-            >
-              <ChatIcon /> Quick question on WhatsApp
-            </a>
+            <a href="#enquire-form" className="btn btn-primary mt-4">Check dates &amp; price</a>
           </div>
+          <div id="enquire-form" className="scroll-mt-24" />
           <EnquiryForm variant="package" segment={p.segment} packageSlug={p.slug} packageTitle={`${p.title} · ${p.nights}N/${p.days}D`} compact submitLabel="Check dates & price" />
         </aside>
       </section>
@@ -214,18 +208,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
             <span className="text-[13px] font-semibold text-subtle">From, taxes included</span>
             <span className="text-[22px] font-bold leading-tight text-ink">{formatINR(price.total)}<span className="text-[14px] font-semibold text-subtle"> /person</span></span>
           </p>
-          <div className="flex shrink-0 items-center gap-2">
-            <a
-              href={waLink(`Hi Ghooomo! I'm interested in ${p.title} (${p.nights}N/${p.days}D) from ${formatINR(price.total)}.`)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Ask about ${p.title} on WhatsApp`}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-wa text-white"
-            >
-              <ChatIcon />
-            </a>
-            <a href="#enquire" className="btn min-h-12 bg-ink px-5 text-[15px] text-white">Check dates</a>
-          </div>
+          <a href="#enquire-form" className="btn btn-primary shrink-0 !min-h-12 !px-5 !text-[16px]">Check dates</a>
         </div>
       </div>
 
