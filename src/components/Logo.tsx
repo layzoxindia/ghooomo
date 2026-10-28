@@ -77,7 +77,7 @@ export function Logo({ ringLinks = true, ...props }: Props) {
               href={r.href}
               aria-label={r.label}
               title={r.label}
-              className="group/ring absolute z-10 hidden rounded-full outline-offset-2 md:block"
+              className="group/ring absolute z-10 rounded-full outline-offset-2 before:absolute before:-inset-x-px before:-inset-y-3 before:content-['']"
               style={ringBox(r.cx)}
             >
               {/* The ring pops out of the logo on hover or keyboard focus. */}
