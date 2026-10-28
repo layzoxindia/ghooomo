@@ -15,8 +15,8 @@ export default function NoSurprises({ compact = false }: { compact?: boolean }) 
     <section className={`rounded-[32px] border-2 border-ink ${compact ? "p-6 sm:p-10" : "p-7 sm:p-14"}`} aria-labelledby={compact ? "ns-c" : "ns"}>
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
         <Reveal className="flex flex-col gap-4">
-          <h2 id={compact ? "ns-c" : "ns"} className={`${compact ? "text-[clamp(28px,3vw,40px)]" : "text-[clamp(36px,4.4vw,62px)]"} leading-[0.98] text-ink`}>
-            Our no-surprises promise
+          <h2 id={compact ? "ns-c" : "ns"} className={`${compact ? "text-[clamp(28px,3vw,40px)]" : "text-[clamp(36px,4.4vw,62px)]"} leading-[1] text-ink [hyphens:none]`}>
+            Our <span className="whitespace-nowrap">no-surprises</span> promise
           </h2>
           <p className="text-[17px] text-muted">What you see before paying is what you pay. If we ever break one of these, tell us and we will make it right.</p>
         </Reveal>

@@ -5,14 +5,16 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { checkPassword, endSession, requireAdmin, startSession } from "@/lib/server/admin-auth";
-import { rateLimited } from "@/lib/server/security";
+import { globalLimited, hashIp } from "@/lib/server/security";
 import { db } from "@/lib/server/db";
 import { packages } from "@/data/packages";
 
 export async function login(_: { error?: string } | undefined, fd: FormData) {
   const h = await headers();
   const ip = (h.get("x-forwarded-for")?.split(",")[0] || "local").trim();
-  if (rateLimited(`admin:${ip}`, 5, 15 * 60 * 1000)) return { error: "Too many attempts. Try again in 15 minutes." };
+  // Per IP, plus an overall cap so a password cannot be guessed from many IPs at once.
+  const locked = (await globalLimited(`admin:${await hashIp(ip)}`, 5, 15 * 60 * 1000)) || (await globalLimited("admin-all", 30, 60 * 60 * 1000));
+  if (locked) return { error: "Too many attempts. Try again in 15 minutes." };
   const pw = String(fd.get("password") || "");
   if (!checkPassword(pw)) return { error: "Wrong password." };
   await startSession();

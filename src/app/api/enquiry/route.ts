@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { enquirySchema } from "@/lib/validation";
-import { clientIp, hashIp, rateLimited, sameOrigin, verifyTurnstile } from "@/lib/server/security";
+import { clientIp, globalLimited, hashIp, sameOrigin, verifyTurnstile } from "@/lib/server/security";
 import { db } from "@/lib/server/db";
 import { site, waLink, segments, formatINR } from "@/lib/site";
 import { priceOf } from "@/lib/pricing";
@@ -10,7 +10,8 @@ export async function POST(req: Request) {
   if (!sameOrigin(req)) return NextResponse.json({ error: "Bad request" }, { status: 403 });
 
   const ip = clientIp(req);
-  if (rateLimited(`enq:${ip}`, 6)) {
+  const ipHash = await hashIp(ip);
+  if (await globalLimited(`enq:${ipHash}`, 6, 10 * 60 * 1000)) {
     return NextResponse.json({ error: "Too many enquiries. Please try again in a few minutes or call us." }, { status: 429 });
   }
 
@@ -35,11 +36,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Verification failed. Please refresh and try again." }, { status: 400 });
   }
 
+  // Same number many times, or a flood from many IPs: stop before touching the leads table.
+  if ((await globalLimited(`enq-phone:${await hashIp(e.phone)}`, 4, 60 * 60 * 1000)) || (await globalLimited("enq-all", 120, 60 * 60 * 1000))) {
+    return NextResponse.json({ error: "We have received a lot of enquiries just now. Please message us on WhatsApp directly." , whatsapp: waLink("Hi Ghooomo! I'd like to plan a holiday.") }, { status: 429 });
+  }
+
   const pkg = e.packageSlug ? getPackage(e.packageSlug) : undefined;
 
   const client = db();
   if (client) {
-    const ipHash = await hashIp(ip);
     const { error } = await client.from("leads").insert({
       name: e.name,
       phone: e.phone,
@@ -59,7 +64,7 @@ export async function POST(req: Request) {
       ip_hash: ipHash,
     });
     if (error) {
-      console.error("lead insert failed", error.message);
+      console.error("LEAD NOT SAVED: insert failed", error.code, error.message);
       // Still hand the person over to WhatsApp so the enquiry is not lost.
     }
   } else if (process.env.NODE_ENV === "production") {

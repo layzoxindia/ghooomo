@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { dataRequestSchema } from "@/lib/validation";
-import { clientIp, hashIp, rateLimited, sameOrigin, verifyTurnstile } from "@/lib/server/security";
+import { clientIp, globalLimited, hashIp, sameOrigin, verifyTurnstile } from "@/lib/server/security";
 import { db } from "@/lib/server/db";
 
 export async function POST(req: Request) {
   if (!sameOrigin(req)) return NextResponse.json({ error: "Bad request" }, { status: 403 });
   const ip = clientIp(req);
-  if (rateLimited(`dr:${ip}`, 3)) {
+  if (await globalLimited(`dr:${await hashIp(ip)}`, 3, 10 * 60 * 1000)) {
     return NextResponse.json({ error: "Too many requests. Please email us instead." }, { status: 429 });
   }
   let body: unknown;

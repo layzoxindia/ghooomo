@@ -4,23 +4,23 @@ import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
 import TripFinder from "@/components/TripFinder";
 import NoSurprises from "@/components/NoSurprises";
-import RingChooser from "@/components/RingChooser";
 import PackageGrid from "@/components/PackageGrid";
 import EnquirySection from "@/components/EnquirySection";
+import Testimonials from "@/components/Testimonials";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import { RingMark } from "@/components/Logo";
-import { ArrowIcon } from "@/components/Icons";
+import { ArrowIcon, ChatIcon } from "@/components/Icons";
 import { heroMedia } from "@/lib/media";
 import { getCatalog } from "@/lib/server/catalog";
-import { photoSrc, segments, site } from "@/lib/site";
+import { photoSrc, segments, site, waLink } from "@/lib/site";
 
 export const revalidate = 300;
 
 const circleCards = [
-  { s: "solo" as const, title: "Solo trips", text: "Small batches of people travelling on their own, with a trip captain on the road.", photo: 38056503, alt: "Key Monastery, Spiti Valley", bg: "#C9431D", ink: "#fff", sub: "#FFE9DF" },
+  { s: "solo" as const, title: "Solo trips", text: "Small batches of people travelling on their own, with a trip captain on the road.", photo: 38056503, alt: "Key Monastery, Spiti Valley", bg: "#B23C17", ink: "#fff", sub: "#FFFFFF" },
   { s: "couple" as const, title: "Couple holidays", text: "Honeymoons, anniversaries and long weekends with private transfers.", photo: 28843922, alt: "Overwater villas in the Maldives", bg: "#F2A51A", ink: "#0F2B5B", sub: "#2A3550" },
-  { s: "group" as const, title: "Group tours", text: "Friends, families and office teams on one plan, with one coordinator.", photo: 28550376, alt: "Chapora beach, Goa", bg: "#0B6B65", ink: "#fff", sub: "#DDF3F0" },
+  { s: "group" as const, title: "Group tours", text: "Friends, families and office teams on one plan, with one coordinator.", photo: 28550376, alt: "Chapora beach, Goa", bg: "#0B6B65", ink: "#fff", sub: "#FFFFFF" },
 ];
 
 const plan = [
@@ -52,7 +52,7 @@ export default async function Home() {
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#08151E]/80 to-transparent" aria-hidden="true" />
         <div className="wrap relative z-10 mt-auto flex flex-col gap-8 pb-10 pt-32 sm:pb-14">
           <div className="hero-rise">
-            <h1 className="max-w-[1050px] text-[clamp(50px,7.6vw,120px)] font-extrabold leading-[0.92] tracking-[-0.035em]">
+            <h1 className="max-w-[1050px] text-[clamp(44px,7.6vw,120px)] font-extrabold leading-[1.02] tracking-[-0.03em]">
               Holidays planned around <span className="font-bold italic text-sun">who’s coming.</span>
             </h1>
           </div>
@@ -60,6 +60,12 @@ export default async function Home() {
             <p className="max-w-[580px] text-[clamp(18px,1.5vw,20px)] font-medium text-[#E6ECF1]">
               Travelling alone, as a couple or with a group? Pick one, and a planner from our Noida office puts the trip together for you.
             </p>
+          </div>
+          <div className="hero-rise flex flex-wrap gap-3 sm:hidden" style={{ "--d": "0.1s" } as CSSProperties}>
+            <a href={waLink("Hi Ghooomo! I'd like to plan a holiday.")} target="_blank" rel="noopener noreferrer" className="btn flex-1 bg-wa text-white hover:bg-wa-deep">
+              <ChatIcon /> WhatsApp us
+            </a>
+            <Link href="#packages" className="btn flex-1 bg-white text-ink">See trips</Link>
           </div>
           <div className="hero-rise" style={{ "--d": "0.14s" } as CSSProperties}>
             <TripFinder />
@@ -80,17 +86,13 @@ export default async function Home() {
       </section>
 
       {/* WHO */}
-      <section className="wrap grid items-center gap-12 pb-10 pt-24 sm:pt-32 lg:grid-cols-[0.9fr_1.1fr]">
-        <Reveal className="flex flex-col gap-6">
-          <h2 className="text-[clamp(40px,5vw,72px)] leading-[0.96] text-ink">Who’s coming along?</h2>
-          <p className="max-w-[460px] text-[18px] text-muted">
-            The three rings in our logo stand for the three ways people travel. Each has its own trips, prices and planners. Tap one to start.
+      <section className="wrap pb-10 pt-24 sm:pt-32">
+        <Reveal className="mb-10 flex flex-col gap-5 sm:mb-12">
+          <h2 className="text-[clamp(40px,5vw,72px)] leading-[1] text-ink">Who’s coming along?</h2>
+          <p className="max-w-[560px] text-[18px] text-muted">
+            The three rings in our logo stand for the three ways people travel. Each has its own trips, prices and planners. Pick one to start.
           </p>
         </Reveal>
-        <RingChooser />
-      </section>
-
-      <section className="wrap pb-10 pt-12">
         <div className="grid gap-5 md:grid-cols-3">
           {circleCards.map((c, i) => (
             <Reveal key={c.s} delay={i * 0.08}>
@@ -99,9 +101,11 @@ export default async function Home() {
                 className="group relative flex min-h-[460px] flex-col justify-end overflow-hidden rounded-[30px] p-7"
                 style={{ background: c.bg, color: c.ink }}
               >
-                <Image src={photoSrc(c.photo)} alt={c.alt} fill sizes="(max-width: 768px) 100vw, 33vw" quality={70} className="object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
-                <span className="absolute inset-x-0 bottom-0 h-[52%]" style={{ background: c.bg }} aria-hidden="true" />
-                <span className="absolute inset-x-0 bottom-[52%] h-20" style={{ background: `linear-gradient(to top, ${c.bg}, transparent)` }} aria-hidden="true" />
+                <span className="absolute inset-x-0 top-0 h-[62%] overflow-hidden">
+                  <Image src={photoSrc(c.photo)} alt={c.alt} fill sizes="(max-width: 768px) 100vw, 33vw" quality={70} className="object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
+                </span>
+                <span className="absolute inset-x-0 bottom-0 h-[44%]" style={{ background: c.bg }} aria-hidden="true" />
+                <span className="absolute inset-x-0 bottom-[44%] h-36" style={{ background: `linear-gradient(to top, ${c.bg} 10%, transparent)` }} aria-hidden="true" />
                 <span className="relative flex flex-col gap-3">
                   <span className="font-display text-[34px] leading-none">{c.title}</span>
                   <span className="text-[16px] font-medium leading-relaxed" style={{ color: c.sub }}>{c.text}</span>
@@ -178,6 +182,8 @@ export default async function Home() {
           ))}
         </dl>
       </section>
+
+      <Testimonials />
 
       <EnquirySection />
     </>

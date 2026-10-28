@@ -77,11 +77,11 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap gap-2">
-              <span className="rounded-full px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.08em]" style={{ background: p.segment === "couple" ? seg.color : seg.strong, color: p.segment === "couple" ? "#0F2B5B" : "#fff" }}>{seg.label}</span>
-              <span className="rounded-full border border-line bg-white px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.08em] text-ink">{p.nights}N / {p.days}D</span>
-              <span className="rounded-full border border-line bg-white px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.08em] text-ink">{p.region}</span>
+              <span className="rounded-full px-3 py-1.5 text-[13px] font-bold uppercase tracking-[0.08em]" style={{ background: p.segment === "couple" ? seg.color : seg.strong, color: p.segment === "couple" ? "#0F2B5B" : "#fff" }}>{seg.label}</span>
+              <span className="rounded-full border border-line bg-white px-3 py-1.5 text-[13px] font-bold uppercase tracking-[0.08em] text-ink">{p.nights}N / {p.days}D</span>
+              <span className="rounded-full border border-line bg-white px-3 py-1.5 text-[13px] font-bold uppercase tracking-[0.08em] text-ink">{p.region}</span>
             </div>
-            <h1 className="text-[clamp(40px,5.4vw,76px)] font-extrabold leading-[0.96] text-ink">{p.title}</h1>
+            <h1 className="text-[clamp(40px,5.4vw,76px)] font-extrabold leading-[1.02] text-ink">{p.title}</h1>
             <p className="max-w-[720px] text-[17px] font-medium text-muted">{p.route}</p>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
                   <span>Not a fee. It is income tax paid in advance and you claim it back when you file your ITR.</span>
                 </div>
               )}
-              <p className="text-[13px] text-[#C4D0E4]">No booking fee, no convenience fee, nothing added at checkout.</p>
+              <p className="text-[14px] text-[#C4D0E4]">No booking fee, no convenience fee, nothing added at checkout.</p>
             </div>
             <a
               href={waLink(`Hi Ghooomo! I'm interested in ${p.title} (${p.nights}N/${p.days}D) from ${formatINR(price.total)}.`)}
@@ -207,8 +207,30 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
 
       <div className="wrap pb-20"><NoSurprises compact /></div>
 
+      {/* Phones: price and enquiry always one tap away */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-white/98 px-4 pb-[max(12px,env(safe-area-inset-bottom))] pt-3 shadow-[0_-10px_30px_rgba(15,43,91,0.12)] lg:hidden">
+        <div className="mx-auto flex max-w-[640px] items-center justify-between gap-3">
+          <p className="flex min-w-0 flex-col">
+            <span className="text-[13px] font-semibold text-subtle">From, taxes included</span>
+            <span className="text-[22px] font-bold leading-tight text-ink">{formatINR(price.total)}<span className="text-[14px] font-semibold text-subtle"> /person</span></span>
+          </p>
+          <div className="flex shrink-0 items-center gap-2">
+            <a
+              href={waLink(`Hi Ghooomo! I'm interested in ${p.title} (${p.nights}N/${p.days}D) from ${formatINR(price.total)}.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ask about ${p.title} on WhatsApp`}
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-wa text-white"
+            >
+              <ChatIcon />
+            </a>
+            <a href="#enquire" className="btn min-h-12 bg-ink px-5 text-[15px] text-white">Check dates</a>
+          </div>
+        </div>
+      </div>
+
       {related.length > 0 && (
-        <section className="wrap flex flex-col gap-6 pb-24">
+        <section className="wrap flex flex-col gap-6 pb-32 lg:pb-24">
           <h2 className="text-[clamp(28px,3vw,40px)] text-ink">More {seg.label.toLowerCase()} trips</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((r) => <PackageCard key={r.slug} p={r} showTag={false} />)}

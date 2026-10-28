@@ -51,6 +51,10 @@ export default function EnquiryForm({ variant = "general", segment, packageSlug,
       turnstileToken: token,
       website: get("website"),
     };
+    if (variant === "general" && !get("segment")) {
+      setError({ msg: "Please choose who is travelling: solo, couple or group.", field: "segment" });
+      return;
+    }
     if (!payload.consent) {
       setError({ msg: "Please tick the consent box so we can contact you about this enquiry.", field: "consent" });
       return;
@@ -118,7 +122,8 @@ export default function EnquiryForm({ variant = "general", segment, packageSlug,
       {showSegmentPicker ? (
         <div>
           <label className="label" htmlFor={`segment-${uid}`}>Travelling as</label>
-          <select className="field" id={`segment-${uid}`} name="segment" defaultValue="couple">
+          <select className="field" id={`segment-${uid}`} name="segment" defaultValue="" required aria-invalid={error?.field === "segment"} aria-describedby={err("segment")}>
+            <option value="" disabled>Choose one</option>
             <option value="solo">Solo</option>
             <option value="couple">Couple</option>
             <option value="group">Group</option>

@@ -3,6 +3,7 @@ import AdminNav from "./AdminNav";
 import { deleteLead, updateLead } from "./actions";
 import { requireAdmin } from "@/lib/server/admin-auth";
 import { db } from "@/lib/server/db";
+import { turnstileConfigured } from "@/lib/server/security";
 import { segments, type Segment } from "@/lib/site";
 import { getPackage } from "@/data/packages";
 
@@ -39,12 +40,16 @@ export default async function AdminLeads({ searchParams }: PageProps<"/admin">) 
   let leads: Lead[] = [];
   let counts: Record<string, number> = {};
   let dbError = !client;
+  let dbDetail = client ? "" : "No database keys found.";
   if (client) {
     let q = client.from("leads").select("*").order("created_at", { ascending: false }).limit(300);
     if (seg && seg in segments) q = q.eq("segment", seg);
     if (st && statuses.includes(st)) q = q.eq("status", st);
     const { data, error } = await q;
-    if (error) dbError = true;
+    if (error) {
+      dbError = true;
+      dbDetail = [error.code, error.message].filter(Boolean).join(": ");
+    }
     leads = (data as Lead[]) || [];
     const all = await client.from("leads").select("status");
     counts = (all.data || []).reduce<Record<string, number>>((m, r: { status: string }) => ((m[r.status] = (m[r.status] || 0) + 1), m), {});
@@ -84,7 +89,18 @@ export default async function AdminLeads({ searchParams }: PageProps<"/admin">) 
           {statuses.map((s) => filterLink("status", s, s))}
         </div>
 
-        {dbError && <p className="rounded-xl bg-[#FDECEA] p-4 font-semibold text-[#9B1C1C]">Database not connected. Check SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.</p>}
+        {dbError && (
+          <div role="alert" className="rounded-xl bg-[#FDECEA] p-4 text-[#9B1C1C]">
+            <p className="font-semibold">Database not connected: new enquiries are NOT being saved.</p>
+            <p className="text-[15px]">
+              Check GHOOOMO_DB_URL and GHOOOMO_DB_SERVICE_KEY in Vercel (use the Supabase secret / service_role key, pasted with no spaces), then redeploy.
+              {dbDetail ? ` Error: ${dbDetail}` : ""}
+            </p>
+          </div>
+        )}
+        {!turnstileConfigured() && (
+          <p className="rounded-xl bg-[#FFF4DB] p-4 font-semibold text-[#7A4B00]">Spam check is off. Add the Cloudflare Turnstile keys in Vercel to turn it on.</p>
+        )}
         {!dbError && leads.length === 0 && <p className="rounded-2xl border border-line bg-white p-8 text-muted">No enquiries yet.</p>}
 
         <ul className="flex flex-col gap-3">

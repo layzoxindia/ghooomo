@@ -22,12 +22,12 @@ export default function PackageCard({ p, showTag = true }: { p: TravelPackage; s
         />
         <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-2">
           {showTag ? (
-            <span className="flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-[13px] font-semibold text-ink">
+            <span className="flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-[14px] font-semibold text-ink">
               <span className="h-2 w-2 rounded-full" style={{ background: seg.color }} />
               {seg.label}
             </span>
           ) : <span />}
-          <span className="rounded-full bg-ink/80 px-3 py-1.5 text-[13px] font-semibold text-white backdrop-blur">
+          <span className="rounded-full bg-ink px-3 py-1.5 text-[14px] font-semibold text-white">
             {p.nights}N · {p.days}D
           </span>
         </div>
@@ -43,9 +43,9 @@ export default function PackageCard({ p, showTag = true }: { p: TravelPackage; s
         <p className="line-clamp-2 text-[15px] text-muted">{p.highlights.join(" · ")}</p>
         <div className="mt-3 flex items-end justify-between gap-3 border-t border-line pt-4">
           <p className="flex flex-col">
-            <span className="text-[13px] font-medium text-subtle">From, all taxes included</span>
+            <span className="text-[14px] font-medium text-subtle">From, all taxes included</span>
             <span className="text-[24px] font-bold leading-tight text-ink">{formatINR(price.total)}</span>
-            <span className="text-[12px] font-medium text-subtle">{p.priceBasis.split(" · ")[0]}{price.tcs ? " · plus 2% TCS" : ""}</span>
+            <span className="text-[14px] font-medium text-subtle">{p.priceBasis.split(" · ")[0]}{price.tcs ? " · plus 2% TCS" : ""}</span>
           </p>
           <div className="relative z-10 flex items-center gap-2">
             <a

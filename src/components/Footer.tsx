@@ -43,11 +43,13 @@ export default function Footer() {
               <a className={`${link} flex items-center gap-2`} href={`tel:${site.phoneE164}`}><PhoneIcon size={16} />{site.phoneDisplay}</a>
               <a className={`${link} flex items-center gap-2`} href={`mailto:${site.email}`}><MailIcon size={16} />{site.email}</a>
               <a className={`${link} flex items-center gap-2`} href={site.mapsUrl} target="_blank" rel="noopener noreferrer"><PinIcon size={16} />{site.address}</a>
+              {site.instagram && <a className={link} href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>}
+              {site.googleReviewsUrl && <a className={link} href={site.googleReviewsUrl} target="_blank" rel="noopener noreferrer">Google reviews</a>}
             </div>
           </div>
         </div>
         <div className="flex flex-wrap justify-between gap-4 border-t border-white/15 pt-6 text-sm font-medium text-[#C4D0E4]">
-          <span>© {new Date().getFullYear()} {site.legalName}. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} {site.legalName}. All rights reserved.{site.gstin ? ` GSTIN ${site.gstin}` : ""}</span>
           <span>Prices are per person unless stated and subject to availability.</span>
         </div>
       </div>

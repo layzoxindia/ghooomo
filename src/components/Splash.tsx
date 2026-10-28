@@ -2,9 +2,9 @@ import SplashControl from "./SplashControl";
 
 const NAVY = "#0F2B5B";
 
-// Runs during HTML parsing, before the splash paints: show it once per browser session,
+// Runs during HTML parsing, before the splash paints: show it once every 30 days per device,
 // and never for people who prefer reduced motion.
-const gate = `try{var d=document.documentElement;if(sessionStorage.getItem("ghooomo-intro")||matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("no-intro")}else{sessionStorage.setItem("ghooomo-intro","1");d.classList.add("intro-on")}}catch(e){document.documentElement.classList.add("no-intro")}`;
+const gate = `try{var d=document.documentElement,k="ghooomo-intro",t=+localStorage.getItem(k)||0;if(Date.now()-t<2592e6||matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("no-intro")}else{localStorage.setItem(k,String(Date.now()));d.classList.add("intro-on")}}catch(e){document.documentElement.classList.add("no-intro")}`;
 
 /**
  * Opening screen: the full Ghooomo logo draws itself, then the letters step aside

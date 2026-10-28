@@ -58,13 +58,13 @@ export default function TripFinder({ tone = "dark" }: { tone?: "dark" | "light" 
           placeholder="e.g. ₹80k for 2 of us in December"
           autoComplete="off"
         />
-        <div className="mt-2 flex flex-wrap gap-2">
+        <div className="mt-2 hidden flex-wrap gap-2 sm:flex">
           {examples.map((ex) => (
             <button
               key={ex}
               type="button"
               onClick={() => onText(ex)}
-              className={`min-h-9 rounded-full px-3 text-[13px] font-semibold transition-colors ${dark ? "bg-white/12 text-white hover:bg-white/22" : "bg-paper text-ink hover:bg-paper-2"}`}
+              className={`min-h-10 rounded-full px-4 text-[14px] font-semibold transition-colors ${dark ? "bg-white/12 text-white hover:bg-white/22" : "bg-paper text-ink hover:bg-paper-2"}`}
             >
               {ex}
             </button>

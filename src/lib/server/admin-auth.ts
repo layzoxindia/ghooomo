@@ -33,10 +33,16 @@ export function checkPassword(input: string) {
   return safeEqual(sign("pw:" + input), sign("pw:" + real));
 }
 
+// Ties every session to the current password: changing ADMIN_PASSWORD signs everyone out.
+function pwTag() {
+  return sign("tag:" + (process.env.ADMIN_PASSWORD || "")).slice(0, 12);
+}
+
 export async function startSession() {
   const exp = String(Date.now() + TTL_MS);
+  const payload = `${exp}~${pwTag()}`;
   const jar = await cookies();
-  jar.set(COOKIE, `${exp}.${sign(exp)}`, {
+  jar.set(COOKIE, `${payload}.${sign(payload)}`, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
@@ -53,8 +59,10 @@ export async function isAdmin() {
   if (!adminConfigured()) return false;
   const v = (await cookies()).get(COOKIE)?.value;
   if (!v) return false;
-  const [exp, sig] = v.split(".");
-  if (!exp || !sig || !safeEqual(sig, sign(exp))) return false;
+  const [payload, sig] = v.split(".");
+  if (!payload || !sig || !safeEqual(sig, sign(payload))) return false;
+  const [exp, tag] = payload.split("~");
+  if (!tag || !safeEqual(tag, pwTag())) return false;
   return Number(exp) > Date.now();
 }
 

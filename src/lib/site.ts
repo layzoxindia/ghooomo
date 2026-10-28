@@ -16,7 +16,20 @@ export const site = {
   // DPDP: how long enquiries are kept before automatic deletion.
   retentionMonths: 12,
   privacyNoticeVersion: "2026-10-28",
+
+  // Trust details. Each one shows on the site only once it is filled in.
+  gstin: "", // e.g. "09ABCDE1234F1Z5" (shown in the footer)
+  instagram: "", // e.g. "https://www.instagram.com/ghooomo"
+  googleReviewsUrl: "", // link to the Google Business reviews page
 };
+
+/**
+ * Real reviews from real travellers only, with their permission.
+ * The reviews section on the home page stays hidden until there are at least 3.
+ */
+export const testimonials: { name: string; trip: string; quote: string; city?: string }[] = [
+  // { name: "Riya S.", city: "Delhi", trip: "Spiti Valley Circuit, Sep 2026", quote: "..." },
+];
 
 export type Segment = "solo" | "couple" | "group";
 
