@@ -1,18 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Zodiak", Georgia, "Times New Roman", serif;
+  /* One simple, readable family for everything (General Sans, Indian Type Foundry). */
+  --font-display: "General Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-sans: "General Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --color-paper: #F6F2EB;
-  --color-paper-2: #EFE8DC;
+  /* Taken from the logo: navy wordmark and the three rings. */
   --color-ink: #0F2B5B;
   --color-ink-deep: #0A1F44;
-  --color-text: #1E2A3B;
-  --color-muted: #3A4556;
+  --color-night: #071530;
+  --color-night-2: #0C2049;
+  --color-ring-1: #F2603A;
+  --color-ring-2: #F7AE2A;
+  --color-ring-3: #13B2A8;
+
+  --color-paper: #F4F6FA;
+  --color-paper-2: #E8EDF5;
+  --color-text: #142033;
+  --color-muted: #354156;
   --color-subtle: #4A5468;
-  --color-line: #E4DDD1;
-  --color-line-strong: #CFC6B8;
+  --color-line: #DCE2EC;
+  --color-line-strong: #C2CBDA;
+  --color-on-night: #D9E2F1;
 
   --color-solo: #E8552B;
   --color-solo-strong: #C9431D;
@@ -23,9 +32,9 @@
   --color-group-strong: #0B6B65;
   --color-wa: #14834A;
   --color-wa-deep: #0F6E3D;
-  --color-sun: #F7C25A;
+  --color-sun: #F7AE2A;
 
-  /* Main call to action: brand orange, white text passes WCAG AA (4.6:1) */
+  /* Main call to action: logo orange, deep enough for white text (4.6:1). */
   --color-cta: #D2441B;
   --color-cta-deep: #A93412;
 }
@@ -48,7 +57,31 @@ body {
 h1, h2, h3, .font-display {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+p { text-wrap: pretty; }
+
+/* Brand gradient from the three rings */
+.ring-gradient { background-image: linear-gradient(90deg, var(--color-ring-1), var(--color-ring-2) 50%, var(--color-ring-3)); }
+.ring-text {
+  background-image: linear-gradient(90deg, #FF7A52, var(--color-ring-2) 55%, #2FD3C6);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* Small all-caps section label, e.g. "01 · Destinations" */
+.kicker { font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Slow zoom on hero photos */
+@keyframes kenburns { from { transform: scale(1.04); } to { transform: scale(1.16); } }
+.kenburns { animation: kenburns 9s ease-out both; }
+
+/* Faint grid used on dark "control room" sections */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
 ::selection { background: var(--color-sun); color: var(--color-ink); }
@@ -105,13 +138,15 @@ h1, h2, h3, .font-display {
 }
 .btn-primary:hover { background: var(--color-cta-deep); box-shadow: 0 16px 34px rgba(210, 68, 27, 0.45); }
 .btn-primary:focus-visible { outline-color: var(--color-ink); }
+.btn-ghost { border: 1.5px solid rgba(255,255,255,0.55); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
 .btn:active { transform: translateY(0); }
 
 /* flex-basis columns must be allowed to shrink below their content on phones */
 [class*="flex-[1_1_"], [class*="flex-[999_1_"] { min-width: 0; }
 
 .glass {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(10, 26, 58, 0.42);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   backdrop-filter: blur(20px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -228,3 +263,5 @@ html.lenis, html.lenis body { height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .splash { display: none; }
 }
+
+@keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }

@@ -8,17 +8,18 @@ import { MenuIcon, XIcon } from "./Icons";
 import { segments, site, type Segment } from "@/lib/site";
 
 const nav = [
-  { href: "/packages", label: "All trips" },
+  { href: "/packages", label: "Journeys" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
-// Pages whose hero is a full-bleed dark video: header starts transparent.
-const overlayPaths = ["/", "/couple", "/group"];
+// Pages that open on a dark full-bleed photo: the header starts transparent with white text.
+const overlayPaths = ["/", "/solo", "/couple", "/group", "/packages", "/about"];
+const isOverlay = (path: string) => overlayPaths.includes(path) || path.startsWith("/packages/");
 
 export default function Header() {
   const pathname = usePathname();
-  const overlay = overlayPaths.includes(pathname);
+  const overlay = isOverlay(pathname);
   const [scrolled, setScrolled] = useState(false);
   // Menu is tied to the page it was opened on, so navigating closes it.
   const [openOn, setOpenOn] = useState<string | null>(null);
@@ -38,11 +39,11 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
-        light ? "bg-gradient-to-b from-[#08151E]/55 to-transparent" : "bg-paper shadow-[0_1px_0_rgba(15,43,91,0.1)]"
+        light ? "bg-gradient-to-b from-night/70 to-transparent" : "bg-white/95 shadow-[0_1px_0_rgba(15,43,91,0.1)] backdrop-blur-xl"
       }`}
     >
       <div className="wrap flex h-[72px] items-center justify-between gap-4">
-        <Logo tone={light ? "light" : "ink"} bg={light ? "transparent" : "#F6F2EB"} width={164} id="hdr" />
+        <Logo tone={light ? "light" : "ink"} bg={light ? "transparent" : "#FFFFFF"} width={164} id="hdr" />
 
         <nav aria-label="Main" className={`hidden items-center gap-1 lg:flex ${textCls}`}>
           {(Object.keys(segments) as Segment[]).map((s) => {
@@ -92,7 +93,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-line bg-paper lg:hidden">
+        <div id="mobile-menu" className="border-t border-line bg-white lg:hidden">
           <nav aria-label="Mobile" className="wrap flex flex-col gap-1 py-4">
             {(Object.keys(segments) as Segment[]).map((s) => (
               <Link key={s} href={segments[s].href} className="flex min-h-12 items-center gap-3 rounded-2xl px-3 text-lg font-semibold text-ink hover:bg-ink/5">

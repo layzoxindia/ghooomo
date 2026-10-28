@@ -17,7 +17,7 @@ type Props = {
   compact?: boolean;
 };
 
-const budgets = ["Under ₹15k", "₹15k to ₹30k", "₹30k to ₹60k", "₹60k and above"];
+const budgets = ["Under ₹1 lakh", "₹1 to 2 lakh", "₹2 to 4 lakh", "₹4 lakh and above"];
 
 export default function EnquiryForm({ variant = "general", segment, packageSlug, packageTitle, submitLabel, compact }: Props) {
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
@@ -136,7 +136,7 @@ export default function EnquiryForm({ variant = "general", segment, packageSlug,
       {variant !== "package" && (
         <div>
           <label className="label" htmlFor={`dest-${uid}`}>Destination</label>
-          <input className="field" id={`dest-${uid}`} name="destination" maxLength={120} placeholder={variant === "group" ? "Goa, Manali, Thailand…" : variant === "solo" ? "Spiti, Ladakh, Meghalaya…" : "Bali, Kerala, Maldives…"} />
+          <input className="field" id={`dest-${uid}`} name="destination" maxLength={120} placeholder={variant === "group" ? "Thailand, Europe, Goa…" : variant === "solo" ? "Vietnam, Sri Lanka, Sikkim…" : "Maldives, Bali, Europe…"} />
         </div>
       )}
 
@@ -153,8 +153,8 @@ export default function EnquiryForm({ variant = "general", segment, packageSlug,
         <>
           <div>
             <label className="label" htmlFor={`gt-${uid}`}>Group type</label>
-            <select className="field" id={`gt-${uid}`} name="groupType" defaultValue="Friends">
-              <option>Friends</option><option>Family</option><option>College</option><option>Corporate offsite</option>
+            <select className="field" id={`gt-${uid}`} name="groupType" defaultValue="Family">
+              <option>Family</option><option>Friends</option><option>Celebration or wedding</option><option>Company offsite</option>
             </select>
           </div>
           <div>

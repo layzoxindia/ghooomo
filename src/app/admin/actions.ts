@@ -90,8 +90,8 @@ export async function savePackage(fd: FormData) {
   await requireAdmin();
   const slugs = packages.map((p) => p.slug) as [string, ...string[]];
   const parsed = z
-    .object({ slug: z.enum(slugs), price: z.coerce.number().int().min(500).max(1000000), active: z.boolean() })
-    .safeParse({ slug: fd.get("slug"), price: fd.get("price"), active: fd.get("active") === "on" });
+    .object({ slug: z.enum(slugs), active: z.boolean() })
+    .safeParse({ slug: fd.get("slug"), active: fd.get("active") === "on" });
   const client = db();
   if (!parsed.success || !client) return;
   await client.from("package_overrides").upsert({ ...parsed.data, updated_at: new Date().toISOString() });

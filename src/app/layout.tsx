@@ -6,17 +6,17 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Ghooomo | Solo, Couple and Group Holiday Packages",
+    default: "Ghooomo | Tailor-made Holidays from India",
     template: "%s · Ghooomo",
   },
   description: site.description,
   applicationName: site.name,
-  keywords: ["holiday packages", "solo trips India", "honeymoon packages", "group tours", "Spiti", "Ladakh", "Bali", "Maldives", "Goa", "Noida travel agency"],
+  keywords: ["luxury holiday packages", "tailor-made holidays", "honeymoon packages", "Maldives", "Bali", "Vietnam", "Thailand", "Sri Lanka", "Europe tour from India", "Kerala", "Andaman", "Sikkim", "Gujarat Rann Utsav", "Noida travel company"],
   openGraph: {
     type: "website",
     siteName: site.name,
     locale: "en_IN",
-    title: "Ghooomo | Holidays planned around who is coming",
+    title: "Ghooomo | Tailor-made holidays, planned around who's coming",
     description: site.description,
   },
   twitter: { card: "summary_large_image" },
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-IN" suppressHydrationWarning>
       <head>
-        <link rel="preload" href="/fonts/zodiak-800.woff2" as="font" type="font/woff2" crossOrigin="" />
+        <link rel="preload" href="/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossOrigin="" />
         <link rel="preload" href="/fonts/general-sans-500.woff2" as="font" type="font/woff2" crossOrigin="" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </head>

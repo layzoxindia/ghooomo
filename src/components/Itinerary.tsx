@@ -21,10 +21,10 @@ export default function Itinerary({ days, accent }: { days: Day[]; accent: strin
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="flex w-full items-center gap-4 py-5 text-left"
               >
-                <span className="w-[68px] shrink-0 text-[13px] font-bold tracking-[0.1em]" style={{ color: accent }}>
+                <span className="w-[68px] shrink-0 text-[14px] font-bold tracking-[0.1em]" style={{ color: accent }}>
                   DAY {i + 1}
                 </span>
-                <span className="flex-1 font-display text-[19px] text-ink sm:text-[20px]">{d.title}</span>
+                <span className="flex-1 text-[19px] font-bold text-ink sm:text-[20px]">{d.title}</span>
                 <span className={`text-ink transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
                   <PlusIcon />
                 </span>

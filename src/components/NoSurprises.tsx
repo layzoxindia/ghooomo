@@ -1,10 +1,10 @@
 import Reveal from "./Reveal";
 
 const promises = [
-  { t: "One price, taxes included", d: "The price you see includes GST. No booking fee or convenience fee is added later." },
+  { t: "Your quote is held", d: "The price in your written quote is held for the dates it states. No booking fee or convenience fee is added later." },
   { t: "Nothing ticked for you", d: "Insurance, upgrades and extras are never pre-selected. You add them only if you ask." },
   { t: "No pressure tactics", d: "No countdown timers and no “only 1 seat left” unless it is true and we can show you." },
-  { t: "Cancellation in rupees", d: "Every trip shows exactly how much you get back if you cancel, before you pay." },
+  { t: "Cancellation terms up front", d: "Your quote shows what you get back if you cancel, before you pay anything." },
   { t: "Hotels named in writing", d: "Your quote names each hotel. If we have to change one, we tell you first and offer the same standard." },
   { t: "Refunds with a date", d: "Approved refunds reach you within 7 to 10 working days, and we tell you when it is sent." },
 ];
@@ -27,7 +27,7 @@ export default function NoSurprises({ compact = false }: { compact?: boolean }) 
                 <path d="M5 12l5 5L20 7" />
               </svg>
               <span className="flex flex-col gap-1">
-                <span className="text-[18px] font-semibold text-ink">{p.t}</span>
+                <span className="text-[18px] font-bold text-ink">{p.t}</span>
                 <span className="text-[15px] text-muted">{p.d}</span>
               </span>
             </Reveal>

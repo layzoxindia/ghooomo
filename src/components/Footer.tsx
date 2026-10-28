@@ -9,22 +9,23 @@ const link = "text-[15px] font-medium text-[#DCE4F2] hover:text-white";
 
 export default function Footer() {
   return (
-    <footer className="bg-ink pb-28 pt-16 text-white sm:pb-12">
+    <footer className="relative bg-night pb-28 pt-16 text-white sm:pb-12">
+      <div className="ring-gradient absolute inset-x-0 top-0 h-1" aria-hidden="true" />
       <div className="wrap flex flex-col gap-12">
         <div className="flex flex-wrap justify-between gap-10">
           <div className="flex max-w-sm flex-col gap-5">
             <Link href="/" aria-label="Ghooomo home">
-              <Wordmark tone="light" bg="#0F2B5B" width={210} id="ftr" />
+              <Wordmark tone="light" bg="#071530" width={210} id="ftr" />
             </Link>
-            <p className="text-[15px] text-[#DCE4F2]">Solo trips, couple holidays and group tours, planned from our office in Noida.</p>
+            <p className="text-[15px] text-[#DCE4F2]">Tailor-made holidays abroad and across India, planned by one specialist from our office in Noida.</p>
           </div>
           <div className="flex flex-wrap gap-12 sm:gap-16">
             <div className={col}>
-              <span className={head}>Trips</span>
-              <Link className={link} href="/solo">Solo trips</Link>
-              <Link className={link} href="/couple">Couple holidays</Link>
-              <Link className={link} href="/group">Group tours</Link>
-              <Link className={link} href="/packages">All trips</Link>
+              <span className={head}>Journeys</span>
+              <Link className={link} href="/packages">All journeys</Link>
+              <Link className={link} href="/solo">Travelling solo</Link>
+              <Link className={link} href="/couple">Holidays for two</Link>
+              <Link className={link} href="/group">Family & groups</Link>
             </div>
             <div className={col}>
               <span className={head}>Company</span>
@@ -50,7 +51,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-wrap justify-between gap-4 border-t border-white/15 pt-6 text-sm font-medium text-[#C4D0E4]">
           <span>© {new Date().getFullYear()} {site.legalName}. All rights reserved.{site.gstin ? ` GSTIN ${site.gstin}` : ""}</span>
-          <span>Prices are per person unless stated and subject to availability.</span>
+          <span>Every holiday is quoted for your dates and confirmed in writing before you pay.</span>
         </div>
       </div>
     </footer>

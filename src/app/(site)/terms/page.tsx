@@ -29,7 +29,7 @@ export default function TermsPage() {
       <ul>
         <li>You are responsible for valid ID, passports, visas, permits and vaccinations required for your trip. We will guide you, but approval is decided by the authorities.</li>
         <li>Please tell us about any medical condition, mobility need or dietary requirement before booking so we can plan for it.</li>
-        <li>High-altitude trips (such as Spiti and Ladakh) carry health risks. Follow your trip captain’s acclimatisation advice and consult a doctor if you have health concerns.</li>
+        <li>High-altitude journeys (such as North Sikkim) carry health risks. Follow your guide’s acclimatisation advice and consult a doctor if you have health concerns.</li>
       </ul>
 
       <h2>5. Changes by us or by suppliers</h2>

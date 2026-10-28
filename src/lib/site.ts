@@ -3,7 +3,7 @@ export const site = {
   legalName: "Ghooomo India Pvt Ltd",
   tagline: "Solo · Couple · Group",
   description:
-    "Solo trips, couple holidays and group tours across India and abroad, planned by Ghooomo in Noida. Clear prices, enquiries answered on WhatsApp.",
+    "Private, tailor-made holidays to the Maldives, Bali, Vietnam, Thailand, Sri Lanka, Europe and the best of India, planned by Ghooomo in Noida. Quoted for your dates, hotels named in writing.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://ghooomo.in",
   phoneDisplay: "+91 79837 77166",
   phoneE164: "+917983777166",
@@ -28,7 +28,7 @@ export const site = {
  * The reviews section on the home page stays hidden until there are at least 3.
  */
 export const testimonials: { name: string; trip: string; quote: string; city?: string }[] = [
-  // { name: "Riya S.", city: "Delhi", trip: "Spiti Valley Circuit, Sep 2026", quote: "..." },
+  // { name: "Riya S.", city: "Delhi", trip: "Bali: Ubud Villas & Uluwatu Cliffs, Sep 2026", quote: "..." },
 ];
 
 export type Segment = "solo" | "couple" | "group";
@@ -46,11 +46,12 @@ export function waLink(message: string) {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
+/** Locally hosted photo in /public/photos, served and resized by next/image. */
+export function photoSrc(id: number | string) {
+  return `/photos/${id}.jpg`;
+}
+
 export function formatINR(n: number) {
   return "₹" + n.toLocaleString("en-IN");
 }
 
-/** Locally hosted photo (originally from Pexels, free licence), served and resized by next/image. */
-export function photoSrc(id: number) {
-  return `/photos/${id}.jpg`;
-}
